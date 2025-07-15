@@ -16,16 +16,22 @@
       --color-texto-claro: #444;
     }
     
-body {
-  font-family: 'Open Sans', sans-serif;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh; /* ← Añade esto */
+/* Fondo asegurado */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url(https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/fondo.jpg);
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  z-index: -1; /* Lo envía al fondo */
+}
+
+main {
+  background-color: rgba(255, 255, 255, 0.82); /* Balance perfecto */
 }
 
     main {
