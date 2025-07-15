@@ -3,87 +3,254 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SOMOS BAMBÚ</title>
+  <title>SOMOS BAMBÚ - Formación y acompañamiento para jóvenes</title>
+  <!-- Meta Tags SEO -->
+  <meta name="description" content="Somos Bambú - Formación y acompañamiento para jóvenes con metodología innovadora inspirada en el crecimiento del bambú japonés">
+  <meta property="og:title" content="SOMOS BAMBÚ">
+  <meta property="og:description" content="Cultivando raíces para crecer alto. Formación integral para jóvenes.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/bambu_logo.avif">
+  <meta property="og:url" content="https://somosbambu.github.io">
+  <!-- Favicon -->
+  <link rel="icon" href="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/bambu_logo.avif" type="image/avif">
+  <!-- Fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --color-primario: #1b4b2b;
+      --color-secundario: #2e7d32;
+      --color-acento: #f5f5f5;
+      --color-texto: #333;
+      --color-texto-claro: #444;
+      --header-height: 90px; /* Altura del header para calcular el scroll */
+    }
+    
     body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0; 
+      padding: 0;
+      line-height: 1.6;
+      color: var(--color-texto);
       scroll-behavior: smooth;
-
-      /* 🎨 Fondo general del sitio (URL corregida al RAW de GitHub) */
       background-image: url(https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/fondo.jpg);
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       background-repeat: no-repeat;
-      color: #000;
     }
 
+    /* SOLUCIÓN PARA EL SCROLL DE ANCLAS */
+    section {
+      scroll-margin-top: var(--header-height);
+      position: relative;
+    }
+    
+    section::before {
+      content: '';
+      display: block;
+      height: calc(var(--header-height) + 20px);
+      margin-top: calc(-1 * var(--header-height));
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* JERARQUÍA TIPOGRÁFICA */
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-primario);
+      margin-bottom: 1.5rem;
+    }
+    
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--color-primario);
+      margin: 0.5rem 0 1rem;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 0.5rem;
+    }
+    
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #2c3e50;
+      margin: 1.5rem 0 0.5rem;
+    }
+    
+    h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--color-primario);
+      margin: 1.2rem 0 0.5rem;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      color: var(--color-texto-claro);
+    }
+
+    /* ESTRUCTURA */
     header {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      background-color: #1b4b2b;
+      top: 0; 
+      left: 0; 
+      right: 0;
+      height: var(--header-height);
+      background-color: var(--color-primario);
       color: white;
-      padding: 1rem;
+      padding: 1.2rem 2rem;
       z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 0.5px;
       margin: 0;
-      font-size: 1.5rem;
     }
 
     nav {
-      margin-top: 0.5rem;
+      margin-top: 0.8rem;
     }
 
     nav a {
-      margin-right: 1rem;
+      margin-right: 1.5rem;
       color: white;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: opacity 0.3s;
     }
 
     nav a:hover {
+      opacity: 0.9;
       text-decoration: underline;
     }
 
     main {
-      padding: 6rem 2rem 2rem;
+      padding: calc(var(--header-height) + 2rem) 2rem 3rem;
       max-width: 900px;
       margin: auto;
-      background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
-      border-radius: 10px;
-    }
-
-    section {
-      margin-bottom: 4rem;
-    }
-
-    section h2 {
-      color: #1b4b2b;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
     }
 
     .bloque {
-      margin-top: 1.5rem;
-      border-left: 4px solid #ddd;
-      padding-left: 1rem;
+      margin-top: 2rem;
+      padding-left: 1.5rem;
+      border-left: 4px solid #e0e0e0;
     }
 
     .bloque img {
       max-width: 100%;
       height: auto;
-      margin-top: 1rem;
+      margin: 1.5rem 0;
       border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     }
 
+    /* Ajuste específico para la imagen de José */
+    .bloque img[alt*="Jose"] {
+      max-width: 500px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* REDES SOCIALES */
+    .redes-sociales {
+      margin: 1.5rem 0;
+    }
+
+    .redes-sociales a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      margin-right: 12px;
+      border-radius: 50%;
+      background: var(--color-acento);
+      transition: all 0.3s ease;
+    }
+
+    .redes-sociales a:hover {
+      background: #e0e0e0;
+      transform: translateY(-2px);
+    }
+
+    .redes-sociales svg, 
+    .redes-sociales img {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 2rem;
-      background-color: #f0f0f0;
+      padding: 2.5rem;
+      background-color: #f8f8f8;
       color: #555;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      :root {
+        --header-height: 80px;
+      }
+      
+      main {
+        padding: calc(var(--header-height) + 1.5rem) 1.5rem 2rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.7rem;
+      }
+      
+      nav a {
+        margin-right: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --header-height: 70px;
+      }
+      
+      main {
+        padding: calc(var(--header-height) + 1rem) 1rem 1.5rem;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      header {
+        padding: 0.8rem;
+      }
+      
+      nav a {
+        margin-right: 0.8rem;
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
@@ -109,10 +276,9 @@
     <h2>Home</h2>
     <div class="bloque">
       <h3>somos bambú</h3>
-      <p>🌱 Cultivar raíces para crecer alto
-
-En Bambú creemos que formar y acompañar a los jóvenes es como sembrar bambú japonés: al principio el crecimiento no se ve, pero bajo tierra se fortalecen las raíces. Cada taller, cada valor, cada proyecto siembra futuro. Apostamos al crecimiento profundo y paciente, para que un día esos jóvenes se eleven firmes, resilientes y capaces de transformar su realidad.</p>
-      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/bambu_logo.avif" alt="Imagen de bienvenida">
+      <p>🌱 Cultivar raíces para crecer alto</p>
+      <p>En Bambú creemos que formar y acompañar a los jóvenes es como sembrar bambú japonés: al principio el crecimiento no se ve, pero bajo tierra se fortalecen las raíces. Cada taller, cada valor, cada proyecto siembra futuro. Apostamos al crecimiento profundo y paciente, para que un día esos jóvenes se eleven firmes, resilientes y capaces de transformar su realidad.</p>
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/bambu_logo.avif" alt="Logo de Bambú - Representación gráfica del crecimiento como el bambú">
     </div>
   </section>
 
@@ -121,104 +287,404 @@ En Bambú creemos que formar y acompañar a los jóvenes es como sembrar bambú 
     <h2>Acerca de</h2>
     <div class="bloque">
       <h3>¿Quiénes somos?</h3>
-      <br>
-      <br>
-      <p>Sobre nosotros
-<br>
-<br>
-Construyendo un Mundo mejor
-<br>
-<br>
-QUIÉN SOMOS
-<br>
- <br>
-<br>
-La formación y capacitación de jóvenes es como el cultivo del bambú japonés. Durante los primeros años, aunque se riegue y se cuide con esmero, el bambú no parece crecer. Sin embargo, debajo de la tierra está desarrollando un sistema de raíces fuerte y extenso, preparándose para sostener un crecimiento rápido y alto. Luego de este periodo de aparente inactividad, en tan solo unas semanas puede crecer varios metros.
-<br><br>
-Del mismo modo, al formar y capacitar a los jóvenes, muchas veces no se ven resultados inmediatos. Es un trabajo de paciencia, constancia y fe. Pero cada lección, cada valor sembrado, fortalece sus raíces: su carácter, su pensamiento crítico, su conciencia social. Y cuando llega el momento, estos jóvenes pueden desplegar todo su potencial y convertirse en líderes que transforman su entorno con firmeza y resiliencia, como un bambú que se eleva hacia el cielo.
-<br>
-​<br>
-<br>
-​HISTORIA
-<br>
-<br> 
-Nuestra historia tiene un origen muy especial: nace en el corazón de una familia. Mila y Jose decidieron unir sus caminos no solo en la vida, sino también en un propósito común.
-<br>
-<br>
-Mila vivió durante 11 años como monja de clausura, hasta que sintió un llamado a continuar su misión desde otro lugar: crecer profesionalmente para poder servir mejor a cada persona que la vida pusiera en su camino. Por su parte, Jose formó parte del grupo internacional Gen Rosso durante 14 años, recorriendo 34 países en los cinco continentes. A través de la música y el arte, logró conectar con miles de jóvenes, muchos de ellos en contextos de vulnerabilidad, llevando un mensaje de esperanza, dignidad y valor.
-<br>
-<br>
-Mila y Jose se casan con un sueño en común: que su familia y su trabajo sean una semilla de cambio. Para entonces ya había nacido somos bambú, con raíces profundas y la mirada puesta en el horizonte, deseando dejar el mundo un poquito mejor de como lo encontramos.</p>
-      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/home_equipo.avif" alt="Imagen de misión o historia">
+      <h4>Sobre nosotros</h4>
+      <h4>Construyendo un Mundo mejor</h4>
+      <h4>QUIÉNES SOMOS</h4>
+      <p>La formación y capacitación de jóvenes es como el cultivo del bambú japonés. Durante los primeros años, aunque se riegue y se cuide con esmero, el bambú no parece crecer. Sin embargo, debajo de la tierra está desarrollando un sistema de raíces fuerte y extenso, preparándose para sostener un crecimiento rápido y alto. Luego de este periodo de aparente inactividad, en tan solo unas semanas puede crecer varios metros.</p>
+      <p>Del mismo modo, al formar y capacitar a los jóvenes, muchas veces no se ven resultados inmediatos. Es un trabajo de paciencia, constancia y fe. Pero cada lección, cada valor sembrado, fortalece sus raíces: su carácter, su pensamiento crítico, su conciencia social. Y cuando llega el momento, estos jóvenes pueden desplegar todo su potencial y convertirse en líderes que transforman su entorno con firmeza y resiliencia, como un bambú que se eleva hacia el cielo.</p>
+      <h4>HISTORIA</h4>
+      <p>Nuestra historia tiene un origen muy especial: nace en el corazón de una familia. Mila y Jose decidieron unir sus caminos no solo en la vida, sino también en un propósito común.</p>
+      <p>Mila vivió durante 11 años como monja de clausura, hasta que sintió un llamado a continuar su misión desde otro lugar: crecer profesionalmente para poder servir mejor a cada persona que la vida pusiera en su camino. Por su parte, Jose formó parte del grupo internacional Gen Rosso durante 14 años, recorriendo 34 países en los cinco continentes. A través de la música y el arte, logró conectar con miles de jóvenes, muchos de ellos en contextos de vulnerabilidad, llevando un mensaje de esperanza, dignidad y valor.</p>
+      <p>Mila y Jose se casan con un sueño en común: que su familia y su trabajo sean una semilla de cambio. Para entonces ya había nacido somos bambú, con raíces profundas y la mirada puesta en el horizonte, deseando dejar el mundo un poquito mejor de como lo encontramos.</p>
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/home_equipo.avif" alt="Equipo de Bambú trabajando juntos">
     </div>
   </section>
 
   <!-- EQUIPO -->
   <section id="equipo">
-
     <h2>Equipo</h2>
-    <br>
     <div class="bloque">
-Les presentamos a continuación parte del equipo del que tenemos el orgullo de formar parte </p>
-        <br>
-      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/mila.avif" alt="Foto de Mila">
-      <h3>Milagros Aranda</h3>
-      <p>(Argentina - Brasil)
-        <br>
-        <br>
-¡Hola! Soy Milagros Aranda, Psicóloga Social, estudiante avanzada de Psicología y diplomanda en Suicidología. 
-<br>
-Desde chica sentí un fuerte deseo de trabajar por el bien de la humanidad, de estar al servicio de los demás y acompañar procesos de transformación. Esa búsqueda me llevó por caminos muy especiales: durante once años fui monja carmelita descalza, un tiempo profundo de encuentro conmigo misma, con el amor y con un modo de vivir donde la superación personal era parte del día a día. 
-<br>
-Después la vida me sorprendió con nuevos comienzos: me casé con alguien que comparte mis mismos ideales, y juntos formamos una familia con una hija que vino a ensanchar nuestros corazones.
-<br>
-<br>
-Creo profundamente en el poder de encontrarle sentido a la vida, porque cuando conectamos con eso que nos impulsa, todo se vuelve más claro y esperanzador. 
-<br>
-Como psicóloga social, me gusta acompañar a las personas y acompasar sus experiencias, para que puedan escucharse, encontrarse con sus propios ritmos y deseos, para que puedan enfocarse en proyectos vitales que las hagan crecer, avanzar y vivir con plenitud, conectadas entre sí, a través del vínculo que es el motor que potencia y fortalece todo encuentro. 
-<br>
-Me apasiona ver cómo cada persona puede transformar sus sombras en luz y descubrir que dentro suyo ya habita todo lo que necesita para ser mejor cada día.</p>
+      <p>Creemos en el poder de lo simple, de lo concreto, de las pequeñas acciones que, con amor y compromiso, pueden generar transformaciones reales en la vida de las personas.</p>
+      <p>Trabajamos en el diseño, acompañamiento y desarrollo de proyectos sociales, educativos y culturales, poniendo siempre en el centro la dignidad humana, la inclusión y el fortalecimiento de comunidades. Nuestro enfoque es colaborativo: muchos de nuestros proyectos surgen del encuentro con personas, grupos e instituciones con quienes compartimos valores y sueños.</p>
+      <p>Desde programas de becas para jóvenes en contextos vulnerables, hasta acciones solidarias, eventos culturales o redes de apoyo comunitario, cada iniciativa que impulsamos busca sembrar oportunidades y construir puentes.</p>
+      <p>Somos Bambú es una oficina de proyectos que nace del deseo profundo de construir un mundo más justo, fraterno y unido. Surgimos de forma voluntaria, impulsados por la convicción de que cada acción, por pequeña que sea, puede sembrar esperanza y transformación.</p>
+      <p>Les presentamos a continuación parte del equipo del que tenemos el orgullo de formar parte</p>
 
-<div style="margin-top: 1rem;">
-  <a href="https://www.facebook.com/irmilagros.aranda" target="_blank" title="Facebook">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width:24px; margin-right:10px;">
-  </a>
-  <a href="https://www.instagram.com/mila_psicosocial" target="_blank" title="Instagram">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:24px; margin-right:10px;">
-  </a>
-  <a href="https://www.linkedin.com/in/milagros-aranda-0ab274175/?originalSubdomain=ar" target="_blank" title="LinkedIn">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" style="width:24px; margin-right:10px;">
-  </a>
-  <a href="https://x.com/MilagrosAG8" target="_blank" title="X">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/X_logo_2023_original.svg" alt="X" style="width:24px; margin-right:10px;">
-</a>
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/mila.avif" alt="Milagros Aranda - Co-fundadora de Bambú">
+      <h3>Milagros Aranda</h3>
+      <p><strong>(Argentina - Brasil)</strong></p>
+      <p>¡Hola! Soy Milagros Aranda, Psicóloga Social, estudiante avanzada de Psicología y diplomanda en Suicidología.</p>
+      <p>Desde chica sentí un fuerte deseo de trabajar por el bien de la humanidad, de estar al servicio de los demás y acompañar procesos de transformación. Esa búsqueda me llevó por caminos muy especiales: durante once años fui monja carmelita descalza, un tiempo profundo de encuentro conmigo misma, con el amor y con un modo de vivir donde la superación personal era parte del día a día.</p>
+      <p>Después la vida me sorprendió con nuevos comienzos: me casé con alguien que comparte mis mismos ideales, y juntos formamos una familia con una hija que vino a ensanchar nuestros corazones.</p>
+      <p>Creo profundamente en el poder de encontrarle sentido a la vida, porque cuando conectamos con eso que nos impulsa, todo se vuelve más claro y esperanzador.</p>
+      <p>Como psicóloga social, me gusta acompañar a las personas y acompasar sus experiencias, para que puedan escucharse, encontrarse con sus propios ritmos y deseos, para que puedan enfocarse en proyectos vitales que las hagan crecer, avanzar y vivir con plenitud, conectadas entre sí, a través del vínculo que es el motor que potencia y fortalece todo encuentro.</p>
+      <p>Me apasiona ver cómo cada persona puede transformar sus sombras en luz y descubrir que dentro suyo ya habita todo lo que necesita para ser mejor cada día.</p>
+      <div class="redes-sociales">
+        <a href="https://www.facebook.com/MilagrosAranda" target="_blank" title="Facebook" aria-label="Facebook">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/MilagrosAranda" target="_blank" title="Instagram" aria-label="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="https://www.linkedin.com/in/MilagrosAranda" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+        </a>
+        <a href="https://x.com/MilagrosAG8" target="_blank" title="X (Twitter)" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/jose.avif" alt="Jose M. Garcia - Co-fundador de Bambú">
+      <h3>Jose M. García</h3>
+      <p><strong>(España - Italia - Argentina)</strong></p>
+      <p>Soy ingeniero técnico industrial, músico, project manager y proyectista social.</p>
+      <p>A primera vista, parecen caminos distintos. Pero en mi vida, todos forman parte de un mismo mapa: el de construir, conectar y transformar.</p>
+      <p>Desde la ingeniería aprendí a diseñar soluciones concretas; desde la música —con estudios en Música y Nuevas Tecnologías, y el bajo y el saxofón como compañeros de ruta—, a escuchar lo invisible. La gestión de proyectos me dio herramientas para ordenar la complejidad, y el trabajo social, el sentido profundo de por qué hacerlo.</p>
+      <p>Coordino iniciativas que integran lo artístico, lo educativo, lo social y el desarrollo humano. Me muevo entre planos estructurales y partituras, entre cronogramas y comunidades. Porque creo que los puentes más sólidos no son sólo los de acero y hormigón: a veces están hechos de confianza, creatividad y trabajo colectivo.</p>
+      <p>Hoy impulso proyectos que combinan estructura y alma, con una mirada integral: eficiente, sensible y orientada al impacto real.</p>
+      <div class="redes-sociales">
+        <a href="https://www.facebook.com/jose.manuel.garcia.866636" target="_blank" title="Facebook" aria-label="Facebook">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/jomagalo74/" target="_blank" title="Instagram" aria-label="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="https://www.linkedin.com/in/jose-manuel-garc%C3%ADa-l%C3%B3pez-a8028ba6/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+        </a>
+        <a href="https://x.com/jomagalo74" target="_blank" title="X (Twitter)" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+
+<div class="bloque">
+  <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/pablo.avif" alt="Pablo Sorrentino - Coordinador de Proyectos en Bambú">
+  <h3>Pablo Sorrentino</h3>
+  <p><strong>(Argentina)</strong></p>
+  <p>Soy Licenciado en Comunicación Social, especializado en gestión cultural y producción de eventos. Desde hace más de 15 años trabajo en el diseño y coordinación de proyectos que vinculan el arte, la educación y el desarrollo comunitario.</p>
+  
+  <p>Mi enfoque se centra en crear experiencias significativas que inspiren y transformen. Creo en el poder del arte como herramienta de cambio social y en la importancia de construir redes colaborativas.</p>
+  
+  <p>En Bambú me encargo de dar forma a las ideas, coordinar equipos y asegurar que cada proyecto cumpla con sus objetivos manteniendo la esencia de nuestra misión.</p>
+
+  <div class="redes-sociales" style="position: relative; z-index: 10;">
+    <a href="https://www.facebook.com/pablo.sorrentino.9" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/pablo.coach.ontologico/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    </a>
+    <a href="https://www.linkedin.com/in/pablo-sorrentino-0b19a023/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+    </a>
+  </div>
+</div>
+
+<div class="bloque">
+  <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/mariarosa.avif" alt="MariaRosa Lang - Coordinadora de Proyectos en Bambú">
+  <h3>Maria Rosa Lang</h3>
+  <p><strong>(Argentina)</strong></p>
+  <p>Soy Counselor, Consultora Psicológica, especializada en Desarrollo Personal, Pareja y Familia y Acompañamiento en Duelos, desde el Enfoque Centrado en la Persona, el Diálogo Consciente y Compasivo, Mindfulness y la Comunicación No Violenta.</p>
+</p>
+ Mi misión es contribuir con el bienestar de las personas construyendo relaciones más saludables.</p>
+</p>
+Ofrezco herramientas para identificar y transformar creencias limitantes, gestionar emociones, fortalecer la confianza, asumir responsabilidad y activar el poder interior que lleva a una vida más plena.</p>
+</p>
+  <div class="redes-sociales" style="position: relative; z-index: 10;">
+    <a href="https://www.facebook.com/mariarosa.lang" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/mariarosalang/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    </a>
+  </div>
+</div>
+
+<div class="bloque">
+  <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/pili.avif" alt="Pili">
+  <h3>Pili Ponce</h3>
+  <p><strong>(España)</strong></p>
+  <p>De mi familia he aprendido lo más importante de la vida: "amarnos y amar, servir". Llevo haciéndolo desde mi más tierna edad en mi Hermandad, en mi Parroquia, con mis amig@s.... es mi aporte a construir un mundo más justo, solidario y bonito</p>
+</p>
+  <div class="redes-sociales" style="position: relative; z-index: 10;">
+    <a href="https://www.facebook.com/pilar.ponce.58" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/pilarp.g/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    </a>
+  </div>
+</div>
+
+<div class="bloque">
+  <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/simone.avif" alt="Simone Parilli - Coordinador de Proyectos en Bambú">
+  <h3>Simone Parilli</h3>
+  <p><strong>(Italia)</strong></p>
+  <p>“C’è chi vive le situazioni e c’è chi le crea”. Simone Parilli, trentennale esperienza nella formazione (manageriale, logistica), pedagogista ed educatore, esperto in processi formativi (Università Cattolica Milano/Italia). Master in marketing e vendite presso Cesma (centro esperienze e studi manageriali). “Creare rapporti per crescere insieme”.</p>
+
+  <div class="redes-sociales" style="position: relative; z-index: 10;">
+    <a href="https://www.facebook.com/simone.parilli1" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/simointour/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    </a>
+    <a href="https://www.linkedin.com/in/simone-parilli-354a89107/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+    </a>
+  </div>
+</div>
+
+<div class="bloque">
+  <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/ju.avif" alt="Ju - Coordinadora de Proyectos en Bambú">
+  <h3>Jussane Risczik</h3>
+  <p><strong>(Brasil - Perú)</strong></p>
+  <p>Oii!!! Sou Psicóloga Logoterapeuta, Tanatóloga e Pedagoga. Com uma escuta sensível e um olhar voltado para o sentido da existência, atuo com dedicação no cuidado integral da pessoa, especialmente nos momentos de dor, luto e transição. Sou amante da vida e acredito no potencial de transformação presente em cada ser humano. Tenho certeza que somos capazes reconstruir nossa história e encontrar sentido mesmo diante do sofrimento. Gosto de fazer minhas as palavras de Viktor Frankl: "Encontrei o sentido da minha vida ao ajudar os outros a encontrarem o sentido das suas."</p>
+
+  <div class="redes-sociales" style="position: relative; z-index: 10;">
+    <a href="https://www.facebook.com/jussane.risczik" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/psi.jussane/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    </a>
+    <a href="https://www.linkedin.com/in/jussane-risczik-933b7a14a/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+    </a>
+  </div>
 </div>
 
 
-
     </div>
-    <!-- Copiá y pegá más bloques para otros miembros del equipo -->
+
+
   </section>
 
-  <!-- PARTNERS -->
-  <section id="partners">
-    <h2>Partners</h2>
-    <div class="bloque">
-      <h3>Nombre de la organización</h3>
-      <p>Texto sobre la colaboración o vínculo con este partner.</p>
-      <img src="URL_DE_TU_IMAGEN" alt="Logo o imagen del partner">
+<!-- PARTNERS -->
+<section id="partners">
+  <h2>PARTNERS</h2>
+  <div class="bloque">
+    <p>Les presentamos algunos de nuestros partners:</p>
+    
+    <div class="partners-grid">
+      <!-- Mondeco Onlus -->
+      <a href="https://www.mondecoonlus.it/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+        <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/mondeco.avif" 
+             alt="Logo Mondeco" 
+             loading="lazy">
+        <span class="partner-tooltip">Vedi sito web di Mondeco Onlus</span>
+      </a>
+      
+      <!-- Tucum -->
+      <a href="http://www.tucum.it/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+        <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/tucum.avif" 
+             alt="Logo Tucum" 
+             loading="lazy">
+        <span class="partner-tooltip">Vedi sito web del Progetto Tucum</span>
+      </a>
+      
+      <!-- Hdad. Vera Cruz -->
+      <a href="https://www.facebook.com/HdadRosarioViso/?locale=es_LA" target="_blank" rel="noopener noreferrer" class="partner-logo">
+        <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/veracruz.avif" 
+             alt="Logo Vera Cruz" 
+             loading="lazy">
+        <span class="partner-tooltip">Ver página Hermandad Vera Cruz (El Viso del Alcor (Sevilla-España))</span>
+      </a>
+
+      <!-- Fund. Claritas -->
+      <a href="https://fundacionclaritas.org/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+        <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/claritas.avif" 
+             alt="Logo Fund Claritas" 
+             loading="lazy">
+        <span class="partner-tooltip">Ver sitio web de Fundación Cláritas</span>
+      </a>
+
     </div>
+  </div>
+</section>
+
+<style>
+  /* Estilos para la sección Partners */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .partner-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+    position: relative;
+  }
+  
+  .partner-logo:hover {
+    transform: translateY(-5px);
+  }
+  
+  .partner-logo img {
+    max-width: 100%;
+    height: auto;
+    max-height: 80px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+  
+  .partner-logo:hover img {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+  
+  .partner-tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: #1b4b2b;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+  }
+  
+  .partner-logo:hover .partner-tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>
+
+
   </section>
 
-  <!-- PROYECTOS -->
-  <section id="proyectos">
-    <h2>Proyectos</h2>
-    <div class="bloque">
-      <h3>Nombre del proyecto</h3>
-      <p>Descripción del proyecto, sus objetivos y logros.</p>
-      <img src="URL_DE_TU_IMAGEN" alt="Imagen del proyecto">
+
+<!-- SECCIÓN PROYECTOS (en tu página principal) -->
+<section id="proyectos">
+  <h2>PROYECTOS</h2>
+  <div class="bloque">
+    <p>Explora nuestros proyectos destacados:</p>
+    
+    <div class="proyectos-grid">
+      <!-- Salto en Alto -->
+      <div class="proyecto-card">
+        <a href="https://github.com/somosbambu/somosbambuok.github.io/blob/proyectos/saltoenalto.html" class="proyecto-link">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/saltoenalto.jpg" 
+               alt="Salto en Alto" 
+               loading="lazy">
+          <div class="proyecto-overlay">
+            <h3>Salto en Alto</h3>
+            <p>Una red que impulsa a jóvenes a creer en sí mismos.
+Acompañamos a adolescentes en su camino escolar con becas, contención y una mirada que transforma la escuela en una oportunidad de crecimiento.</p>
+            <span class="boton">Ver proyecto</span>
+          </div>
+        </a>
+      </div>
+
+      
+      <!-- Proyecto 2 -->
+      <div class="proyecto-card">
+        <a href="proyectos/red-becas.html" class="proyecto-link">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/proyecto2.avif" 
+               alt="Red de becas educativas" 
+               loading="lazy">
+          <div class="proyecto-overlay">
+            <h3>Red de Becas</h3>
+            <p>Conectando jóvenes con oportunidades</p>
+            <span class="boton">Ver proyecto</span>
+          </div>
+        </a>
+      </div>
+
+
     </div>
+  </div>
+</section>
+
+<style>
+  /* Estilos para la grid de proyectos */
+  .proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .proyecto-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .proyecto-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .proyecto-link {
+    position: relative;
+    display: block;
+    height: 100%;
+  }
+  
+  .proyecto-link img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+  
+  .proyecto-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(27,75,43,0.9), transparent);
+    color: white;
+    padding: 2rem 1.5rem 1.5rem;
+  }
+  
+  .proyecto-overlay h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.4rem;
+  }
+  
+  .proyecto-overlay p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+  
+  .proyecto-overlay .boton {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1.2rem;
+    background: white;
+    color: var(--color-primario);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+</style>
+
+
+
+
   </section>
+
+
+
 
   <!-- BLOG -->
   <section id="blog">
@@ -226,7 +692,7 @@ Me apasiona ver cómo cada persona puede transformar sus sombras en luz y descub
     <div class="bloque">
       <h3>Título del artículo</h3>
       <p>Texto introductorio o resumen del artículo del blog.</p>
-      <img src="URL_DE_TU_IMAGEN" alt="Imagen del blog o nota">
+      <img src="URL_DE_TU_IMAGEN" alt="Imagen del artículo del blog">
     </div>
   </section>
 
@@ -235,27 +701,18 @@ Me apasiona ver cómo cada persona puede transformar sus sombras en luz y descub
     <h2>Contacto</h2>
     <div class="bloque">
       <h3>Información de contacto</h3>
-      <p>
-<br>     
-<br>   
-Nos encantaría estar en contacto contigo :)
-<br>
-<br>
-+54 9 11 78866 281
-<br>
-info@somosbambu.com.ar
-<br>
-<br>
-Martín Coronado (Buenos Aires)</p>
-<br>
-      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/bambu_logo.avif" alt="Imagen de contacto">
+      <p>Nos encantaría estar en contacto contigo :)</p>
+      <p><strong>Teléfono:</strong> +54 9 11 78866 281</p>
+      <p><strong>Email:</strong> info@somosbambu.com.ar</p>
+      <p><strong>Ubicación:</strong> Martín Coronado (Buenos Aires)</p>
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/bambu_logo.avif" alt="Logo de Bambú - Contacto">
     </div>
   </section>
 
 </main>
 
 <footer>
-  © 2025 Somos Bambú. Todos los derechos reservados.
+  <p>© 2025 Somos Bambú. Todos los derechos reservados.</p>
 </footer>
 
 </body>
