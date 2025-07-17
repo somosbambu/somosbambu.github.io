@@ -31,10 +31,6 @@
     }
 
     main {
-      background-color: rgba(255, 255, 255, 0.82); /* Balance perfecto */
-    }
-
-    main {
       max-width: 900px;
       margin: 90px auto 3rem;
       padding: 2rem;
@@ -77,7 +73,6 @@
     .foto-item:nth-child(4) {
       transform: rotate(4deg) translateY(20px);
       z-index: 4;
-      /*grid-column: span 2; /* Hace que este ítem ocupe dos columnas */
     }
 
     .foto-item:hover {
@@ -170,7 +165,14 @@
 </head>
 <body>
 
-    
+  <main class="proyecto-detalle">
+    <div class="bloque">
+      <nav class="breadcrumb">
+        <a href="https://somosbambu.com.ar/">Home</a> > 
+        <a href="https://somosbambu.com.ar/#proyectos">Proyectos</a> > 
+        <span>Salto en Alto</span>
+      </nav>
+      
       <h1>Salto en Alto</h1>
       
       <div class="proyecto-galeria">
@@ -195,7 +197,7 @@
       
       <div class="proyecto-contenido">
         <h2>Impacto:</h2>
-        <p>Salto en Alto es un proyecto que nace en 2022 con una misión clara: acompañar a adolescentes en su camino escolar, ayudándoles a vivir esta etapa como una experiencia de crecimiento y descubrimiento, y no como un reto para sobrevivir.
+        <p>     Salto en Alto es un proyecto que nace en 2022 con una misión clara: acompañar a adolescentes en su camino escolar, ayudándoles a vivir esta etapa como una experiencia de crecimiento y descubrimiento, y no como un reto para sobrevivir.
           <br>
 Sabemos que, para muchos, la escuela deja de ser un lugar de alegría y aprendizaje, y se convierte en un espacio de lucha diaria: bullying, burlas, desmotivación… Frente a esta realidad, Salto en Alto se propone ser un impulso, una red de apoyo que inspire a mirar más alto y a creer en uno mismo.
 <br>
@@ -212,8 +214,25 @@ A cada una de las personas que, con su ayuda constante, hacen posible que este s
 <br>
 ¡Gracias, de corazón!</p>
         
+        <div class="proyecto-estadisticas">
+          <div class="estadistica">
+            <span class="numero">200+</span>
+            <span class="label">Jóvenes beneficiados</span>
+          </div>
+          <div class="estadistica">
+            <span class="numero">15</span>
+            <span class="label">Talleres realizados</span>
+          </div>
+        </div>
+        
+        <h2>Testimonios</h2>
+        <blockquote>
+          "Los talleres cambiaron mi perspectiva profesional completamente"
+          <cite>- María, 17 años</cite>
+        </blockquote>
+      </div>
       
-      <a href="tp://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" class="boton">Volver a proyectos</a>
+      <a href="https://somosbambu.com.ar/#proyectos" class="boton">Volver a proyectos</a>
     </div>
   </main>
 
