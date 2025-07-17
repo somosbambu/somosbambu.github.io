@@ -252,6 +252,154 @@
         font-size: 0.85rem;
       }
     }
+
+    /* Estilos para la sección Partners */
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .partner-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+    
+    .partner-logo:hover {
+      transform: translateY(-5px);
+    }
+    
+    .partner-logo img {
+      max-width: 100%;
+      height: auto;
+      max-height: 80px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+    
+    .partner-logo:hover img {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+    
+    .partner-tooltip {
+      visibility: hidden;
+      width: 120px;
+      background-color: #1b4b2b;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.8rem;
+    }
+    
+    .partner-logo:hover .partner-tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Estilos mejorados para la grid de proyectos */
+
+    /* Añade estos estilos (o modifica los existentes): */
+    .boton {
+      display: block; /* Cambiamos a block para ocupar todo el ancho */
+      padding: 0.6rem 1.5rem;
+      background: var(--color-primario);
+      color: white;
+      border-radius: 4px;
+      font-weight: 600;
+      text-align: center;
+      transition: background 0.3s ease;
+      margin-top: auto; /* Empuja el botón hacia abajo */
+      width: fit-content; /* Ancho según contenido */
+    }
+
+
+    
+    .proyectos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .proyecto-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .proyecto-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .proyecto-link {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .proyecto-link img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .proyecto-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .proyecto-content h3 {
+      color: var(--color-primario);
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+    }
+    
+    .proyecto-content p {
+      margin-bottom: 1.5rem;
+      color: var(--color-texto);
+      flex-grow: 1;
+    }
+    
+    .proyecto-link .boton {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      background: var(--color-primario);
+      color: white;
+      border-radius: 4px;
+      font-weight: 600;
+      text-align: center;
+      transition: background 0.3s ease;
+      align-self: flex-start;
+    }
+    
+    .proyecto-link:hover .boton {
+      background: var(--color-secundario);
+    }
   </style>
 </head>
 <body>
@@ -424,7 +572,7 @@ Ofrezco herramientas para identificar y transformar creencias limitantes, gestio
   <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/simone.avif" alt="Simone Parilli - Coordinador de Proyectos en Bambú">
   <h3>Simone Parilli</h3>
   <p><strong>(Italia)</strong></p>
-  <p>“C’è chi vive le situazioni e c’è chi le crea”. Simone Parilli, trentennale esperienza nella formazione (manageriale, logistica), pedagogista ed educatore, esperto in processi formativi (Università Cattolica Milano/Italia). Master in marketing e vendite presso Cesma (centro esperienze e studi manageriali). “Creare rapporti per crescere insieme”.</p>
+  <p>“C'è chi vive le situazioni e c'è chi le crea”. Simone Parilli, trentennale esperienza nella formazione (manageriale, logistica), pedagogista ed educatore, esperto in processi formativi (Università Cattolica Milano/Italia). Master in marketing e vendite presso Cesma (centro esperienze e studi manageriali). “Creare rapporti per crescere insieme”.</p>
 
   <div class="redes-sociales" style="position: relative; z-index: 10;">
     <a href="https://www.facebook.com/simone.parilli1" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
@@ -507,184 +655,47 @@ Ofrezco herramientas para identificar y transformar creencias limitantes, gestio
   </div>
 </section>
 
-<style>
-  /* Estilos para la sección Partners */
-  .partners-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
-  }
-  
-  .partner-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s ease;
-    position: relative;
-  }
-  
-  .partner-logo:hover {
-    transform: translateY(-5px);
-  }
-  
-  .partner-logo img {
-    max-width: 100%;
-    height: auto;
-    max-height: 80px;
-    object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.8;
-    transition: all 0.3s ease;
-  }
-  
-  .partner-logo:hover img {
-    filter: grayscale(0);
-    opacity: 1;
-  }
-  
-  .partner-tooltip {
-    visibility: hidden;
-    width: 120px;
-    background-color: #1b4b2b;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px;
-    position: absolute;
-    z-index: 1;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    font-size: 0.8rem;
-  }
-  
-  .partner-logo:hover .partner-tooltip {
-    visibility: visible;
-    opacity: 1;
-  }
-</style>
-
-
-  </section>
-
-
-<!-- SECCIÓN PROYECTOS (en tu página principal) -->
+<!-- SECCIÓN PROYECTOS -->
 <section id="proyectos">
   <h2>PROYECTOS</h2>
   <div class="bloque">
     <p>Explora nuestros proyectos destacados:</p>
     
     <div class="proyectos-grid">
+
+
       <!-- Salto en Alto -->
+
       <div class="proyecto-card">
-        <a href="https://somosbambuok.github.io/proyectos/saltoenalto.html" class="proyecto-link">
+        <a href="http://somosbambu.com.ar/somosbambuok.github.io/proyectos/saltoenalto.html" class="proyecto-link">
           <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/saltoenalto.jpg" 
                alt="Salto en Alto" 
                loading="lazy">
-          <div class="proyecto-overlay">
+          <div class="proyecto-content">
             <h3>Salto en Alto</h3>
             <p>Una red que impulsa a jóvenes a creer en sí mismos.
 Acompañamos a adolescentes en su camino escolar con becas, contención y una mirada que transforma la escuela en una oportunidad de crecimiento.</p>
-            <span class="boton">Ver proyecto</span>
+            <div class="boton">Ver proyecto</div> <!-- Cambiamos de span a div -->
           </div>
         </a>
       </div>
 
-      
-      <!-- Proyecto 2 -->
+      <!-- Red de Becas -->
       <div class="proyecto-card">
         <a href="proyectos/red-becas.html" class="proyecto-link">
           <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/proyecto2.avif" 
                alt="Red de becas educativas" 
                loading="lazy">
-          <div class="proyecto-overlay">
+          <div class="proyecto-content">
             <h3>Red de Becas</h3>
-            <p>Conectando jóvenes con oportunidades</p>
+            <p>Conectando jóvenes con oportunidades educativas para que puedan desarrollar su potencial y construir un futuro mejor.</p>
             <span class="boton">Ver proyecto</span>
           </div>
         </a>
       </div>
-
-
     </div>
   </div>
 </section>
-
-<style>
-  /* Estilos para la grid de proyectos */
-  .proyectos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  .proyecto-card {
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-  }
-  
-  .proyecto-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .proyecto-link {
-    position: relative;
-    display: block;
-    height: 100%;
-  }
-  
-  .proyecto-link img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-  }
-  
-  .proyecto-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(27,75,43,0.9), transparent);
-    color: white;
-    padding: 2rem 1.5rem 1.5rem;
-  }
-  
-  .proyecto-overlay h3 {
-    margin: 0 0 0.5rem;
-    font-size: 1.4rem;
-  }
-  
-  .proyecto-overlay p {
-    margin: 0;
-    opacity: 0.9;
-    font-size: 0.95rem;
-  }
-  
-  .proyecto-overlay .boton {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1.2rem;
-    background: white;
-    color: var(--color-primario);
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
-</style>
-
-
-
-
-  </section>
-
-
-
 
   <!-- BLOG -->
   <section id="blog">
