@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SOMOS BAMBÚ - Formación y acompañamiento para jóvenes</title>
   <!-- Meta Tags SEO -->
   <meta name="description" content="Somos Bambú - Formación y acompañamiento para jóvenes con metodología innovadora inspirada en el crecimiento del bambú japonés">
@@ -21,7 +21,7 @@
       --color-acento: #f5f5f5;
       --color-texto: #333;
       --color-texto-claro: #444;
-      --header-height: 90px; /* Altura del header para calcular el scroll */
+      --header-height: 70px; /* Reducido para móviles */
     }
     
     body {
@@ -47,7 +47,7 @@
     section::before {
       content: '';
       display: block;
-      height: calc(var(--header-height) + 20px);
+      height: calc(var(--header-height) + 10px);
       margin-top: calc(-1 * var(--header-height));
       visibility: hidden;
       pointer-events: none;
@@ -56,43 +56,43 @@
     /* JERARQUÍA TIPOGRÁFICA */
     h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
+      font-size: 1.8rem;
       font-weight: 700;
       line-height: 1.2;
       color: var(--color-primario);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
     
     h2 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2rem;
+      font-size: 1.6rem;
       font-weight: 600;
       color: var(--color-primario);
       margin: 0.5rem 0 1rem;
-      border-bottom: 2px solid #e0e0e0;
-      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.3rem;
     }
     
     h3 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 500;
       color: #2c3e50;
-      margin: 1.5rem 0 0.5rem;
+      margin: 1.2rem 0 0.5rem;
     }
     
     h4 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 500;
       color: var(--color-primario);
-      margin: 1.2rem 0 0.5rem;
+      margin: 1rem 0 0.5rem;
     }
     
     p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
       color: var(--color-texto-claro);
     }
 
@@ -105,31 +105,36 @@
       height: var(--header-height);
       background-color: var(--color-primario);
       color: white;
-      padding: 1.2rem 2rem;
+      padding: 0.8rem 1rem;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
     header h1 {
-      font-size: 1.8rem;
-      letter-spacing: 0.5px;
+      font-size: 1.4rem;
+      letter-spacing: 0.3px;
       margin: 0;
+      text-align: center;
     }
 
     nav {
-      margin-top: 0.8rem;
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
     }
 
     nav a {
-      margin-right: 1.5rem;
       color: white;
       text-decoration: none;
       font-weight: 500;
-      font-size: 1rem;
+      font-size: 0.85rem;
       transition: opacity 0.3s;
+      padding: 0.2rem 0;
     }
 
     nav a:hover {
@@ -138,31 +143,31 @@
     }
 
     main {
-      padding: calc(var(--header-height) + 2rem) 2rem 3rem;
-      max-width: 900px;
-      margin: auto;
+      padding: calc(var(--header-height) + 1rem) 1rem 2rem;
+      max-width: 100%;
+      margin: 0;
       background-color: rgba(255, 255, 255, 0.95);
-      border-radius: 12px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .bloque {
-      margin-top: 2rem;
-      padding-left: 1.5rem;
-      border-left: 4px solid #e0e0e0;
+      margin-top: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid #e0e0e0;
     }
 
     .bloque img {
       max-width: 100%;
       height: auto;
-      margin: 1.5rem 0;
-      border-radius: 8px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      margin: 1rem 0;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     /* Ajuste específico para la imagen de José */
     .bloque img[alt*="Jose"] {
-      max-width: 500px;
+      max-width: 100%;
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -170,16 +175,18 @@
 
     /* REDES SOCIALES */
     .redes-sociales {
-      margin: 1.5rem 0;
+      margin: 1.2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
     }
 
     .redes-sociales a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 36px;
-      height: 36px;
-      margin-right: 12px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background: var(--color-acento);
       transition: all 0.3s ease;
@@ -192,73 +199,26 @@
 
     .redes-sociales svg, 
     .redes-sociales img {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
 
     /* FOOTER */
     footer {
       text-align: center;
-      padding: 2.5rem;
+      padding: 1.5rem;
       background-color: #f8f8f8;
       color: #555;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      :root {
-        --header-height: 80px;
-      }
-      
-      main {
-        padding: calc(var(--header-height) + 1.5rem) 1.5rem 2rem;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-      
-      h2 {
-        font-size: 1.7rem;
-      }
-      
-      nav a {
-        margin-right: 1rem;
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      :root {
-        --header-height: 70px;
-      }
-      
-      main {
-        padding: calc(var(--header-height) + 1rem) 1rem 1.5rem;
-      }
-      
-      h1 {
-        font-size: 1.8rem;
-      }
-      
-      header {
-        padding: 0.8rem;
-      }
-      
-      nav a {
-        margin-right: 0.8rem;
-        font-size: 0.85rem;
-      }
+      margin-top: 2rem;
+      font-size: 0.85rem;
     }
 
     /* Estilos para la sección Partners */
     .partners-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 1.5rem 0;
     }
     
     .partner-logo {
@@ -270,13 +230,13 @@
     }
     
     .partner-logo:hover {
-      transform: translateY(-5px);
+      transform: translateY(-3px);
     }
     
     .partner-logo img {
       max-width: 100%;
       height: auto;
-      max-height: 80px;
+      max-height: 70px;
       object-fit: contain;
       filter: grayscale(100%);
       opacity: 0.8;
@@ -290,12 +250,12 @@
     
     .partner-tooltip {
       visibility: hidden;
-      width: 120px;
+      width: 100px;
       background-color: #1b4b2b;
       color: #fff;
       text-align: center;
-      border-radius: 6px;
-      padding: 5px;
+      border-radius: 4px;
+      padding: 4px;
       position: absolute;
       z-index: 1;
       bottom: 100%;
@@ -303,7 +263,7 @@
       transform: translateX(-50%);
       opacity: 0;
       transition: opacity 0.3s;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
     
     .partner-logo:hover .partner-tooltip {
@@ -311,44 +271,41 @@
       opacity: 1;
     }
 
-    /* Estilos mejorados para la grid de proyectos */
-
-    /* Añade estos estilos (o modifica los existentes): */
+    /* Estilos para proyectos */
     .boton {
-      display: block; /* Cambiamos a block para ocupar todo el ancho */
-      padding: 0.6rem 1.5rem;
+      display: block;
+      padding: 0.6rem 1.2rem;
       background: var(--color-primario);
       color: white;
       border-radius: 4px;
       font-weight: 600;
       text-align: center;
       transition: background 0.3s ease;
-      margin-top: auto; /* Empuja el botón hacia abajo */
-      width: fit-content; /* Ancho según contenido */
+      margin-top: 1rem;
+      width: 100%;
+      max-width: 200px;
     }
 
-
-    
     .proyectos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
     }
     
     .proyecto-card {
       background: white;
-      border-radius: 10px;
+      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
       transition: transform 0.3s ease;
       display: flex;
       flex-direction: column;
     }
     
     .proyecto-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     
     .proyecto-link {
@@ -361,12 +318,12 @@
     
     .proyecto-link img {
       width: 100%;
-      height: 200px;
+      height: 180px;
       object-fit: cover;
     }
     
     .proyecto-content {
-      padding: 1.5rem;
+      padding: 1.2rem;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
@@ -375,30 +332,115 @@
     .proyecto-content h3 {
       color: var(--color-primario);
       margin-top: 0;
-      margin-bottom: 0.8rem;
-      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      font-size: 1.3rem;
     }
     
     .proyecto-content p {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       color: var(--color-texto);
       flex-grow: 1;
+      font-size: 0.95rem;
     }
     
     .proyecto-link .boton {
-      display: inline-block;
-      padding: 0.6rem 1.5rem;
-      background: var(--color-primario);
-      color: white;
-      border-radius: 4px;
-      font-weight: 600;
-      text-align: center;
-      transition: background 0.3s ease;
-      align-self: flex-start;
+      align-self: center;
     }
     
     .proyecto-link:hover .boton {
       background: var(--color-secundario);
+    }
+
+    /* RESPONSIVE PARA TABLETS */
+    @media (min-width: 600px) {
+      :root {
+        --header-height: 75px;
+      }
+      
+      header h1 {
+        font-size: 1.6rem;
+      }
+      
+      nav a {
+        font-size: 0.9rem;
+      }
+      
+      main {
+        padding: calc(var(--header-height) + 1.5rem) 1.5rem 2rem;
+        max-width: 90%;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .partners-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .proyectos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* RESPONSIVE PARA ESCRITORIO */
+    @media (min-width: 900px) {
+      :root {
+        --header-height: 90px;
+      }
+      
+      header {
+        padding: 1rem 2rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+        text-align: left;
+      }
+      
+      nav {
+        margin-top: 0;
+      }
+      
+      nav a {
+        margin-right: 1.5rem;
+        font-size: 1rem;
+      }
+      
+      main {
+        max-width: 900px;
+        padding: calc(var(--header-height) + 2rem) 2rem 3rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .partners-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      
+      .partner-logo img {
+        max-height: 80px;
+      }
+      
+      .proyecto-link img {
+        height: 200px;
+      }
     }
   </style>
 </head>
@@ -408,11 +450,10 @@
   <h1>SOMOS BAMBÚ</h1>
   <nav>
     <a href="#home">Home</a>
-    <a href="#acerca">Acerca de</a>
+    <a href="#acerca">Acerca</a>
     <a href="#equipo">Equipo</a>
     <a href="#partners">Partners</a>
     <a href="#proyectos">Proyectos</a>
-    <a href="#blog">Blog</a>
     <a href="#contacto">Contacto</a>
   </nav>
 </header>
@@ -468,13 +509,13 @@
       <p>Como psicóloga social, me gusta acompañar a las personas y acompasar sus experiencias, para que puedan escucharse, encontrarse con sus propios ritmos y deseos, para que puedan enfocarse en proyectos vitales que las hagan crecer, avanzar y vivir con plenitud, conectadas entre sí, a través del vínculo que es el motor que potencia y fortalece todo encuentro.</p>
       <p>Me apasiona ver cómo cada persona puede transformar sus sombras en luz y descubrir que dentro suyo ya habita todo lo que necesita para ser mejor cada día.</p>
       <div class="redes-sociales">
-        <a href="https://www.facebook.com/MilagrosAranda" target="_blank" title="Facebook" aria-label="Facebook">
+        <a href="https://www.facebook.com/irmilagros.aranda" target="_blank" title="Facebook" aria-label="Facebook">
           <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
         </a>
-        <a href="https://www.instagram.com/MilagrosAranda" target="_blank" title="Instagram" aria-label="Instagram">
+        <a href="https://www.instagram.com/mila_psicosocial" target="_blank" title="Instagram" aria-label="Instagram">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
         </a>
-        <a href="https://www.linkedin.com/in/MilagrosAranda" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/milagros-aranda-0ab274175/?originalSubdomain=ar" target="_blank" title="LinkedIn" aria-label="LinkedIn">
           <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
         </a>
         <a href="https://x.com/MilagrosAG8" target="_blank" title="X (Twitter)" aria-label="X (Twitter)">
@@ -675,7 +716,7 @@ Ofrezco herramientas para identificar y transformar creencias limitantes, gestio
             <h3>Salto en Alto</h3>
             <p>Una red que impulsa a jóvenes a creer en sí mismos.
 Acompañamos a adolescentes en su camino escolar con becas, contención y una mirada que transforma la escuela en una oportunidad de crecimiento.</p>
-            <div class="boton">Ver proyecto</div> <!-- Cambiamos de span a div -->
+            <div class="boton">Ver proyecto</div>
           </div>
         </a>
       </div>
@@ -689,7 +730,7 @@ Acompañamos a adolescentes en su camino escolar con becas, contención y una mi
           <div class="proyecto-content">
             <h3>Red de Becas</h3>
             <p>Conectando jóvenes con oportunidades educativas para que puedan desarrollar su potencial y construir un futuro mejor.</p>
-            <span class="boton">Ver proyecto</span>
+            <div class="boton">Ver proyecto</div>
           </div>
         </a>
       </div>
