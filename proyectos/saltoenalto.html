@@ -46,10 +46,10 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     }
 
-    /* Galería de fotos adaptada para móviles */
+    /* Galería de fotos desordenadas - Versión móvil mejorada */
     .foto-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 15px;
       margin: 2rem 0;
     }
@@ -57,21 +57,41 @@
     .foto-item {
       position: relative;
       transition: all 0.3s ease;
-      height: auto;
+      height: 150px;
       overflow: hidden;
-      transform: none !important;
+    }
+
+    /* Efectos de rotación para móviles (más sutiles) */
+    .foto-item:nth-child(1) {
+      transform: rotate(-3deg);
+      z-index: 1;
+    }
+
+    .foto-item:nth-child(2) {
+      transform: rotate(2deg) translateY(10px);
+      z-index: 2;
+    }
+
+    .foto-item:nth-child(3) {
+      transform: rotate(-1deg) translateY(5px);
+      z-index: 3;
+    }
+
+    .foto-item:nth-child(4) {
+      transform: rotate(3deg) translateY(8px);
+      z-index: 4;
     }
 
     .foto-item:hover {
-      transform: scale(1.02) !important;
+      transform: rotate(0deg) scale(1.05);
+      z-index: 10;
     }
 
     .foto-item img {
       width: 100%;
-      height: auto;
-      max-height: 300px;
+      height: 100%;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 6px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       border: 5px solid white;
     }
@@ -158,18 +178,6 @@
       transform: translateY(-2px);
     }
 
-    @media (min-width: 600px) {
-      main {
-        margin: 80px auto 30px;
-        padding: 20px;
-        max-width: 90%;
-      }
-
-      .foto-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     @media (min-width: 768px) {
       main {
         max-width: 800px;
@@ -186,37 +194,40 @@
       }
 
       .foto-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
       }
 
+      .foto-item {
+        height: 180px;
+      }
+
+      /* Efectos de rotación para desktop (más pronunciados) */
       .foto-item:nth-child(1) {
         transform: rotate(-5deg);
-        z-index: 1;
       }
 
       .foto-item:nth-child(2) {
         transform: rotate(3deg) translateY(30px);
-        z-index: 2;
       }
 
       .foto-item:nth-child(3) {
         transform: rotate(-2deg) translateY(15px);
-        z-index: 3;
       }
 
       .foto-item:nth-child(4) {
         transform: rotate(4deg) translateY(20px);
-        z-index: 4;
-      }
-
-      .foto-item:hover {
-        transform: rotate(0deg) scale(1.05);
-        z-index: 10;
       }
 
       .proyecto-estadisticas {
         flex-direction: row;
         gap: 2rem;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .foto-item {
+        height: 200px;
       }
     }
   </style>
@@ -230,6 +241,7 @@
       <div class="proyecto-galeria">
         <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/saltoenalto.jpg" alt="Salto en Alto" loading="lazy">
         
+        <!-- Galería de fotos desordenadas -->
         <div class="foto-grid">
           <div class="foto-item">
             <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/saltoenalto.jpg" alt="Grupo de Salto en Alto">
