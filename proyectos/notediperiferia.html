@@ -35,6 +35,7 @@
       padding: 0;
       font-family: 'Open Sans', sans-serif;
       line-height: 1.6;
+      color: var(--color-texto);
     }
 
     main {
@@ -62,24 +63,12 @@
     }
 
     /* Efectos de rotación para móviles (más sutiles) */
-    .foto-item:nth-child(1) {
+    .foto-item:nth-child(odd) {
       transform: rotate(-3deg);
-      z-index: 1;
     }
 
-    .foto-item:nth-child(2) {
+    .foto-item:nth-child(even) {
       transform: rotate(2deg) translateY(10px);
-      z-index: 2;
-    }
-
-    .foto-item:nth-child(3) {
-      transform: rotate(-1deg) translateY(5px);
-      z-index: 3;
-    }
-
-    .foto-item:nth-child(4) {
-      transform: rotate(3deg) translateY(8px);
-      z-index: 4;
     }
 
     .foto-item:hover {
@@ -109,6 +98,10 @@
       width: 100%;
       border-radius: 8px;
       margin-bottom: 1rem;
+    }
+    
+    .proyecto-contenido {
+      margin-top: 2rem;
     }
     
     .proyecto-estadisticas {
@@ -166,16 +159,18 @@
       color: white;
       text-decoration: none;
       border-radius: 50px;
-      margin: 1.5rem auto;
+      margin: 1.5rem 0;
       transition: all 0.3s ease;
       text-align: center;
-      width: 80%;
+      width: 100%;
       max-width: 250px;
+      font-weight: 600;
     }
 
     .boton:hover {
       background-color: var(--color-secundario);
       transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
     @media (min-width: 768px) {
@@ -202,26 +197,31 @@
         height: 180px;
       }
 
-      /* Efectos de rotación para desktop (más pronunciados) */
-      .foto-item:nth-child(1) {
+      /* Efectos de rotación para desktop */
+      .foto-item:nth-child(4n+1) {
         transform: rotate(-5deg);
       }
 
-      .foto-item:nth-child(2) {
+      .foto-item:nth-child(4n+2) {
         transform: rotate(3deg) translateY(30px);
       }
 
-      .foto-item:nth-child(3) {
+      .foto-item:nth-child(4n+3) {
         transform: rotate(-2deg) translateY(15px);
       }
 
-      .foto-item:nth-child(4) {
+      .foto-item:nth-child(4n) {
         transform: rotate(4deg) translateY(20px);
       }
 
       .proyecto-estadisticas {
         flex-direction: row;
         gap: 2rem;
+      }
+      
+      .boton {
+        margin: 1.5rem auto;
+        display: block;
       }
     }
 
@@ -247,47 +247,50 @@
             <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/noteperiferia.jpg" alt="Grupo Note di Periferia">
           </div>
           <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np1.jpeg" alt="Manos guitarra">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np1.jpeg" alt="Manos tocando guitarra">
           </div>
           <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np2.jpeg" alt="manos guitarra 2">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np2.jpeg" alt="Manos tocando guitarra acústica">
           </div>
           <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np3.jpeg" alt="Aaron micrófono">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np3.jpeg" alt="Aaron cantando en el micrófono">
           </div>
           <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np4.jpeg" alt="manos batería">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np4.jpeg" alt="Manos tocando la batería">
           </div>
           <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np5.jpeg" alt="manos bajo">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np5.jpeg" alt="Manos tocando el bajo">
           </div>
           <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np6.jpeg" alt="manos batería">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np6.jpeg" alt="Detalle de baquetas en la batería">
           </div>
           <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np7.jpeg" alt="guitarra elect">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np7.jpeg" alt="Guitarra eléctrica">
           </div>
           <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np8.jpeg" alt="manos guit elect">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np8.jpeg" alt="Manos tocando guitarra eléctrica">
           </div>
           <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np9.jpeg" alt="amplis">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np9.jpeg" alt="Amplificadores y equipo de sonido">
           </div>
         </div>
       </div>
       
       <div class="proyecto-contenido">
         <h2>Impacto:</h2>
-        <p>En las periferias del conurbano bonaerense, cientos de adolescentes y jóvenes crecen construyendo su identidad con fuerza, creatividad y sentido de comunidad. En barrios como Villa de Mayo, al noroeste del Gran Buenos Aires, la vida cotidiana está llena de desafíos, pero también de vínculos, sueños y una enorme energía vital.<br>
-          <br>
-Note di Periferia nace para potenciar ese talento que muchas veces no encuentra espacios donde desplegarse. A través del arte, especialmente la música, este proyecto les ofrece a los jóvenes la posibilidad de expresarse, de crecer en confianza, y de imaginar nuevos caminos para su vida.<br>
-Los talleres —presentes en centros educativos de las diócesis del AMBA— se enfocan en el canto, la composición y la interpretación musical, combinados con espacios de formación humana que invitan a descubrir la armonía interior, la escucha, el trabajo en equipo y la esperanza activa.<br>
-Este proyecto está sostenido en gran parte por la entrega generosa de artistas, educadores y miembros de la comunidad. Queremos seguir creciendo, sumando recursos y personas comprometidas que nos ayuden a llegar a más jóvenes y a consolidar una propuesta transformadora. Este año el proyecto cuenta con el apoyo de la ONG italiana MONDECO ONLUS.<br>
-Tu colaboración puede ser parte de este impulso: instrumentos, materiales, tiempo, ideas, donaciones. Todo suma para seguir sembrando futuro en clave de música y encuentro.<br>
-          <br>
-          ¡Gracias, de corazón!</p>
+        <p>En las periferias del conurbano bonaerense, cientos de adolescentes y jóvenes crecen construyendo su identidad con fuerza, creatividad y sentido de comunidad. En barrios como Villa de Mayo, al noroeste del Gran Buenos Aires, la vida cotidiana está llena de desafíos, pero también de vínculos, sueños y una enorme energía vital.</p>
         
-        <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" class="boton">Volver a proyectos</a>
+        <p>Note di Periferia nace para potenciar ese talento que muchas veces no encuentra espacios donde desplegarse. A través del arte, especialmente la música, este proyecto les ofrece a los jóvenes la posibilidad de expresarse, de crecer en confianza, y de imaginar nuevos caminos para su vida.</p>
+        
+        <p>Los talleres —presentes en centros educativos de las diócesis del AMBA— se enfocan en el canto, la composición y la interpretación musical, combinados con espacios de formación humana que invitan a descubrir la armonía interior, la escucha, el trabajo en equipo y la esperanza activa.</p>
+        
+        <p>Este proyecto está sostenido en gran parte por la entrega generosa de artistas, educadores y miembros de la comunidad. Queremos seguir creciendo, sumando recursos y personas comprometidas que nos ayuden a llegar a más jóvenes y a consolidar una propuesta transformadora. Este año el proyecto cuenta con el apoyo de la ONG italiana MONDECO ONLUS.</p>
+        
+        <p>Tu colaboración puede ser parte de este impulso: instrumentos, materiales, tiempo, ideas, donaciones. Todo suma para seguir sembrando futuro en clave de música y encuentro.</p>
+        
+        <p>¡Gracias, de corazón!</p>
+        
+        <a href="https://somosbambu.com.ar/" class="boton">Volver a proyectos</a>
       </div>
     </div>
   </main>
