@@ -1,41 +1,314 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Mismo head que somosbambu.html -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Somos Bambú</title>
+  <meta name="description" content="Blog de Somos Bambú - Reflexiones y noticias sobre nuestros proyectos">
+  <!-- Meta Tags SEO -->
+  <meta property="og:title" content="Blog - SOMOS BAMBÚ">
+  <meta property="og:description" content="Reflexiones y noticias sobre nuestros proyectos">
+  <meta property="og:image" content="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/bambu_logo.avif">
+  <meta property="og:url" content="https://somosbambu.github.io/blog.html">
+  <!-- Favicon -->
+  <link rel="icon" href="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/bambu_logo.avif" type="image/avif">
+  <!-- Fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primario: #1b4b2b;
+      --color-secundario: #2e7d32;
+      --color-acento: #f5f5f5;
+      --color-texto: #333;
+      --color-texto-claro: #444;
+      --header-height: 70px;
+    }
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0; 
+      padding: 0;
+      line-height: 1.6;
+      color: var(--color-texto);
+      scroll-behavior: smooth;
+      background-image: url(https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/fondo.jpg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    /* SOLUCIÓN PARA EL SCROLL DE ANCLAS */
+    section {
+      scroll-margin-top: var(--header-height);
+      position: relative;
+    }
+    
+    section::before {
+      content: '';
+      display: block;
+      height: calc(var(--header-height) + 10px);
+      margin-top: calc(-1 * var(--header-height));
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* JERARQUÍA TIPOGRÁFICA */
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-primario);
+      margin-bottom: 1rem;
+    }
+    
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--color-primario);
+      margin: 0.5rem 0 1rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.3rem;
+    }
+    
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #2c3e50;
+      margin: 1.2rem 0 0.5rem;
+    }
+    
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: var(--color-texto-claro);
+    }
+
+    /* ESTRUCTURA */
+    header {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      right: 0;
+      height: var(--header-height);
+      background-color: var(--color-primario);
+      color: white;
+      padding: 0.8rem 1rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      letter-spacing: 0.3px;
+      margin: 0;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: opacity 0.3s;
+      padding: 0.2rem 0;
+    }
+
+    nav a:hover {
+      opacity: 0.9;
+      text-decoration: underline;
+    }
+
+    main {
+      padding: calc(var(--header-height) + 1rem) 1rem 2rem;
+      max-width: 100%;
+      margin: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .bloque {
+      margin-top: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid #e0e0e0;
+    }
+
+    .bloque img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .fecha {
+      color: var(--color-secundario);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+
+    /* BOTONES */
+    .boton {
+      display: block;
+      padding: 0.6rem 1.2rem;
+      background: var(--color-primario);
+      color: white;
+      border-radius: 4px;
+      font-weight: 600;
+      text-align: center;
+      transition: background 0.3s ease;
+      margin: 1.5rem auto;
+      width: 100%;
+      max-width: 200px;
+      text-decoration: none;
+    }
+
+    .boton:hover {
+      background: var(--color-secundario);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #f8f8f8;
+      color: #555;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE PARA TABLETS */
+    @media (min-width: 600px) {
+      :root {
+        --header-height: 75px;
+      }
+      
+      header h1 {
+        font-size: 1.6rem;
+      }
+      
+      nav a {
+        font-size: 0.9rem;
+      }
+      
+      main {
+        padding: calc(var(--header-height) + 1.5rem) 1.5rem 2rem;
+        max-width: 90%;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* RESPONSIVE PARA ESCRITORIO */
+    @media (min-width: 900px) {
+      :root {
+        --header-height: 90px;
+      }
+      
+      header {
+        padding: 1rem 2rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+        text-align: left;
+      }
+      
+      nav {
+        margin-top: 0;
+      }
+      
+      nav a {
+        margin-right: 1.5rem;
+        font-size: 1rem;
+      }
+      
+      main {
+        max-width: 900px;
+        padding: calc(var(--header-height) + 2rem) 2rem 3rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <!-- Mismo header que somosbambu.html -->
-  </header>
 
-  <main>
-    <!-- 3 Años de Salto en Alto -->
-    <section id="entrada1" class="entrada-blog">
-      <h2>Tres años de Salto en Alto</h2>
-      <div class="bloque">
-        <p class="fecha">16 de abril, 2025</p>
-        <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/sa3anos.avif" alt="Tres años de Salto en Alto" loading="lazy">
-        <p>Tres años de Salto en Alto: un camino de educación, gratitud y esperanza<br>
-Este mes celebramos con enorme alegría los tres años de vida de Salto en Alto, un proyecto que nació con un sueño simple y profundo: acompañar a jóvenes de Villa de Mayo (Buenos Aires) para que puedan acceder a una educación más digna, transformadora y llena de oportunidades.<br>
-<br>
-Durante este tiempo, gracias a un sistema de becas sostenido por el compromiso de muchas personas, hemos podido estar cerca de quienes más lo necesitan, caminando junto a ellos, alentando su crecimiento, y sembrando juntos un futuro más justo.<br>
-<br>
-Nada de esto habría sido posible sin el apoyo generoso de quienes creyeron desde el principio. Todo comenzó con Pablo Sorrentino, quien, con su sensibilidad y convicción, nos impulsó a buscar formas concretas para financiar becas para los chicos. Luego se sumaron Elsa y Mariano, desde Haedo, sembrando las primeras semillas de confianza y apoyo. También Pili Riaño, desde El Viso del Alcor (Sevilla), ha sido un pilar fundamental, reuniendo año tras año donaciones entre sus seres queridos y miembros de la Parroquia de Santa María del Alcor, con un amor que traspasa fronteras.<br>
-<br>
-Este último año, el proyecto se ha enriquecido aún más gracias al respaldo de la Hermandad de la Vera-Cruz de El Viso del Alcor, cuya colaboración nos llena de gratitud. Y no podemos dejar de agradecer al querido actor español Emilio Gutiérrez Caba, por su cercanía y su apoyo entrañable, que nos honra y nos anima a seguir.<br>
-<br>
-A cada una de las personas que nos acompañan con su constancia, su aporte y su corazón, queremos decirles una y mil veces: ¡gracias! Ustedes hacen posible que este sueño siga creciendo.<br>
-<br>
-Y a nuestros chicos y chicas, a quienes acompañamos con tanta esperanza: este es solo el comienzo. Los animamos a seguir creciendo, a confiar en sus talentos, y a saber que cada paso que dan cuenta, que cada esfuerzo vale la pena. El futuro es suyo, y desde Somos Bamb{u} queremos seguir estando cerca, alentándolos a volar cada vez más alto.</p>
-        <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" class="boton">Volver a proyectos</a>
-      </div>
-    </section>
+<header>
+  <h1>SOMOS BAMBÚ</h1>
+  <nav>
+    <a href="somosbambu.html#home">Home</a>
+    <a href="somosbambu.html#acerca">Acerca</a>
+    <a href="somosbambu.html#equipo">Equipo</a>
+    <a href="somosbambu.html#partners">Partners</a>
+    <a href="somosbambu.html#proyectos">Proyectos</a>
+    <a href="blog.html">Blog</a>
+    <a href="somosbambu.html#contacto">Contacto</a>
+  </nav>
+</header>
 
+<main>
+  <!-- 3 Años de Salto en Alto -->
+  <section id="entrada1" class="entrada-blog">
+    <h2>Tres años de Salto en Alto</h2>
+    <div class="bloque">
+      <p class="fecha">16 de abril, 2025</p>
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/sa3anos.avif" alt="Tres años de Salto en Alto" loading="lazy">
+      <p>Tres años de Salto en Alto: un camino de educación, gratitud y esperanza<br>
+      Este mes celebramos con enorme alegría los tres años de vida de Salto en Alto, un proyecto que nació con un sueño simple y profundo: acompañar a jóvenes de Villa de Mayo (Buenos Aires) para que puedan acceder a una educación más digna, transformadora y llena de oportunidades.<br>
+      <br>
+      Durante este tiempo, gracias a un sistema de becas sostenido por el compromiso de muchas personas, hemos podido estar cerca de quienes más lo necesitan, caminando junto a ellos, alentando su crecimiento, y sembrando juntos un futuro más justo.<br>
+      <br>
+      Nada de esto habría sido posible sin el apoyo generoso de quienes creyeron desde el principio. Todo comenzó con Pablo Sorrentino, quien, con su sensibilidad y convicción, nos impulsó a buscar formas concretas para financiar becas para los chicos. Luego se sumaron Elsa y Mariano, desde Haedo, sembrando las primeras semillas de confianza y apoyo. También Pili Riaño, desde El Viso del Alcor (Sevilla), ha sido un pilar fundamental, reuniendo año tras año donaciones entre sus seres queridos y miembros de la Parroquia de Santa María del Alcor, con un amor que traspasa fronteras.<br>
+      <br>
+      Este último año, el proyecto se ha enriquecido aún más gracias al respaldo de la Hermandad de la Vera-Cruz de El Viso del Alcor, cuya colaboración nos llena de gratitud. Y no podemos dejar de agradecer al querido actor español Emilio Gutiérrez Caba, por su cercanía y su apoyo entrañable, que nos honra y nos anima a seguir.<br>
+      <br>
+      A cada una de las personas que nos acompañan con su constancia, su aporte y su corazón, queremos decirles una y mil veces: ¡gracias! Ustedes hacen posible que este sueño siga creciendo.<br>
+      <br>
+      Y a nuestros chicos y chicas, a quienes acompañamos con tanta esperanza: este es solo el comienzo. Los animamos a seguir creciendo, a confiar en sus talentos, y a saber que cada paso que dan cuenta, que cada esfuerzo vale la pena. El futuro es suyo, y desde Somos Bambú queremos seguir estando cerca, alentándolos a volar cada vez más alto.</p>
+      <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#blog" class="boton">Volver a Blog</a>
+    </div>
+  </section>
+</main>
 
-  </main>
+<footer>
+  <p>© 2025 Somos Bambú. Todos los derechos reservados.</p>
+</footer>
 
-  <footer>
-    <!-- Mismo footer que somosbambu.html -->
-  </footer>
 </body>
 </html>
