@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habilidades Blandas (foco en el Trabajo) - Somos Bambú</title>
+  <meta name="description" content="Formaci{on en Habilidades Blandas">
+  <!-- Fuentes y estilos de Somos Bambú -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primario: #1b4b2b;
+      --color-secundario: #2e7d32;
+      --color-acento: #f5f5f5;
+      --color-texto: #333;
+      --color-texto-claro: #444;
+    }
+    
+    /* Fondo asegurado */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/fondo.jpg);
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 100%;
+      margin: 70px 15px 20px;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    /* Galería de fotos desordenadas - Versión móvil mejorada */
+    .foto-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin: 2rem 0;
+    }
+
+    .foto-item {
+      position: relative;
+      transition: all 0.3s ease;
+      height: 150px;
+      overflow: hidden;
+    }
+
+    /* Efectos de rotación para móviles (más sutiles) */
+    .foto-item:nth-child(1) {
+      transform: rotate(-3deg);
+      z-index: 1;
+    }
+
+    .foto-item:nth-child(2) {
+      transform: rotate(2deg) translateY(10px);
+      z-index: 2;
+    }
+
+    .foto-item:nth-child(3) {
+      transform: rotate(-1deg) translateY(5px);
+      z-index: 3;
+    }
+
+    .foto-item:nth-child(4) {
+      transform: rotate(3deg) translateY(8px);
+      z-index: 4;
+    }
+
+    .foto-item:hover {
+      transform: rotate(0deg) scale(1.05);
+      z-index: 10;
+    }
+
+    .foto-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border: 5px solid white;
+    }
+
+    /* Ocultar el breadcrumb */
+    .breadcrumb {
+      display: none;
+    }
+    
+    .proyecto-detalle {
+      padding-top: 0.5rem;
+    }
+    
+    .proyecto-galeria img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    
+    .proyecto-estadisticas {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .estadistica {
+      text-align: center;
+    }
+    
+    .numero {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primario);
+    }
+    
+    blockquote {
+      border-left: 3px solid var(--color-primario);
+      padding-left: 1rem;
+      font-style: italic;
+      margin: 1.5rem 0;
+    }
+
+    h1, h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--color-primario);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin: 1.5rem 0 0.8rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.3rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .boton {
+      display: inline-block;
+      padding: 0.7rem 1.3rem;
+      background-color: var(--color-primario);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      margin: 1.5rem auto;
+      transition: all 0.3s ease;
+      text-align: center;
+      width: 80%;
+      max-width: 250px;
+    }
+
+    .boton:hover {
+      background-color: var(--color-secundario);
+      transform: translateY(-2px);
+    }
+
+    @media (min-width: 768px) {
+      main {
+        max-width: 800px;
+        margin: 90px auto 3rem;
+        padding: 2rem;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.7rem;
+      }
+
+      .foto-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .foto-item {
+        height: 180px;
+      }
+
+      /* Efectos de rotación para desktop (más pronunciados) */
+      .foto-item:nth-child(1) {
+        transform: rotate(-5deg);
+      }
+
+      .foto-item:nth-child(2) {
+        transform: rotate(3deg) translateY(30px);
+      }
+
+      .foto-item:nth-child(3) {
+        transform: rotate(-2deg) translateY(15px);
+      }
+
+      .foto-item:nth-child(4) {
+        transform: rotate(4deg) translateY(20px);
+      }
+
+      .proyecto-estadisticas {
+        flex-direction: row;
+        gap: 2rem;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .foto-item {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="proyecto-detalle">
+    <div class="bloque">
+      <h1>Habilidades Blandas (foco en el Trabajo)</h1>
+      
+      <div class="proyecto-galeria">
+        <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/habilidadesblandas.png" alt="Habilidades Blandas" loading="lazy">
+        
+        <!-- Galería de fotos desordenadas -->
+        <div class="foto-grid">
+          <div class="foto-item">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/habilidadesblandas.png" alt="jovenes trabajandos desentendidos">
+          </div>
+          <div class="foto-item">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/hb1.jpg" alt="tecnicos cascos conversando">
+          </div>
+                    <div class="foto-item">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/hb2.jpg" alt="reunion formativa">
+          </div>
+          <div class="foto-item">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/hb3.jpg" alt="reunion de trabajo">
+          </div>
+
+          </div>
+      </div>
+      
+      <div class="proyecto-contenido">
+        <h2>Impacto:</h2>
+        <p>Habilidades Blandas (foco en el Trabajo)<br>
+          <br>
+En un mundo laboral cada vez más acelerado y atravesado por la tecnología, muchas de las habilidades humanas que hacen posible un entorno sano, colaborativo y productivo tienden a quedar relegadas.<br>
+<br>
+Desde Bambú, desarrollamos una serie de talleres de competencias socioemocionales con foco en el ámbito laboral, pensados para trabajadores de distintos sectores —industria, construcción, servicios, y más—, adaptándonos a las realidades concretas de cada empresa.<br>
+Estos talleres buscan recuperar y fortalecer habilidades como la comunicación empática, la gestión emocional, el trabajo en equipo y la resolución de conflictos. Porque estamos convencidos de que un mejor clima de trabajo no solo mejora el bienestar individual, sino que también se traduce en mayor compromiso, rendimiento y productividad.<br>
+<br>
+Más que una capacitación, proponemos una experiencia que humaniza el trabajo y transforma los vínculos, generando espacios donde cada persona pueda sentirse valorada y reconocida en su aporte.</p>
+        
+        <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" class="boton">Volver a proyectos</a>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
