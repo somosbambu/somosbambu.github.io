@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOMOS BAMBÚ - Formación y acompañamiento para jóvenes</title>
+  <!-- Meta Tags SEO -->
+  <meta name="description" content="Somos Bambú - Formación y acompañamiento para jóvenes con metodología innovadora inspirada en el crecimiento del bambú japonés">
+  <meta property="og:title" content="SOMOS BAMBÚ">
+  <meta property="og:description" content="Cultivando raíces para crecer alto. Formación integral para jóvenes.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/somosbambu.github.io/main/bambu_logo.avif">
+  <meta property="og:url" content="https://somosbambu.github.io">
+  <!-- Favicon -->
+  <link rel="icon" href="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/bambu_logo.avif" type="image/avif">
+  <!-- Fuentes de Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primario: #1b4b2b;
+      --color-secundario: #2e7d32;
+      --color-acento: #f5f5f5;
+      --color-texto: #333;
+      --color-texto-claro: #444;
+      --header-height: 70px; /* Reducido para móviles */
+    }
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0; 
+      padding: 0;
+      line-height: 1.6;
+      color: var(--color-texto);
+      scroll-behavior: smooth;
+      background-image: url(https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/fondo.jpg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    /* SOLUCIÓN PARA EL SCROLL DE ANCLAS */
+    section {
+      scroll-margin-top: var(--header-height);
+      position: relative;
+    }
+    
+    section::before {
+      content: '';
+      display: block;
+      height: calc(var(--header-height) + 10px);
+      margin-top: calc(-1 * var(--header-height));
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* JERARQUÍA TIPOGRÁFICA */
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-primario);
+      margin-bottom: 1rem;
+    }
+    
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--color-primario);
+      margin: 0.5rem 0 1rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.3rem;
+    }
+    
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #2c3e50;
+      margin: 1.2rem 0 0.5rem;
+    }
+    
+    h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--color-primario);
+      margin: 1rem 0 0.5rem;
+    }
+    
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: var(--color-texto-claro);
+    }
+
+    /* ESTRUCTURA */
+    header {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      right: 0;
+      height: var(--header-height);
+      background-color: var(--color-primario);
+      color: white;
+      padding: 0.8rem 1rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      letter-spacing: 0.3px;
+      margin: 0;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: opacity 0.3s;
+      padding: 0.2rem 0;
+    }
+
+    nav a:hover {
+      opacity: 0.9;
+      text-decoration: underline;
+    }
+
+    main {
+      padding: calc(var(--header-height) + 1rem) 1rem 2rem;
+      max-width: 100%;
+      margin: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .bloque {
+      margin-top: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid #e0e0e0;
+    }
+
+    .bloque img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Ajuste específico para la imagen de José */
+    .bloque img[alt*="Jose"] {
+      max-width: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Selector de idioma */
+    .language-selector {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1001;
+      background: white;
+      padding: 5px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .language-selector select {
+      padding: 3px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 0.8rem;
+    }
+
+    /* REDES SOCIALES */
+    .redes-sociales {
+      margin: 1.2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .redes-sociales a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--color-acento);
+      transition: all 0.3s ease;
+    }
+
+    .redes-sociales a:hover {
+      background: #e0e0e0;
+      transform: translateY(-2px);
+    }
+
+    .redes-sociales svg, 
+    .redes-sociales img {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #f8f8f8;
+      color: #555;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* Estilos para la sección Partners */
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .partner-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+    
+    .partner-logo:hover {
+      transform: translateY(-3px);
+    }
+    
+    .partner-logo img {
+      max-width: 100%;
+      height: auto;
+      max-height: 70px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+    
+    .partner-logo:hover img {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+    
+    .partner-tooltip {
+      visibility: hidden;
+      width: 100px;
+      background-color: #1b4b2b;
+      color: #fff;
+      text-align: center;
+      border-radius: 4px;
+      padding: 4px;
+      position: absolute;
+      z-index: 1;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.7rem;
+    }
+    
+    .partner-logo:hover .partner-tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Estilos para proyectos */
+    .boton {
+      display: block;
+      padding: 0.6rem 1.2rem;
+      background: var(--color-primario);
+      color: white;
+      border-radius: 4px;
+      font-weight: 600;
+      text-align: center;
+      transition: background 0.3s ease;
+      margin-top: 1rem;
+      width: 100%;
+      max-width: 200px;
+    }
+
+    .proyectos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .proyecto-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .proyecto-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .proyecto-link {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .proyecto-link img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    .proyecto-content {
+      padding: 1.2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .proyecto-content h3 {
+      color: var(--color-primario);
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.3rem;
+    }
+    
+    .proyecto-content p {
+      margin-bottom: 1.2rem;
+      color: var(--color-texto);
+      flex-grow: 1;
+      font-size: 0.95rem;
+    }
+    
+    .proyecto-link .boton {
+      align-self: center;
+    }
+    
+    .proyecto-link:hover .boton {
+      background: var(--color-secundario);
+    }
+
+    /* RESPONSIVE PARA TABLETS */
+    @media (min-width: 600px) {
+      :root {
+        --header-height: 75px;
+      }
+      
+      header h1 {
+        font-size: 1.6rem;
+      }
+      
+      nav a {
+        font-size: 0.9rem;
+      }
+      
+      main {
+        padding: calc(var(--header-height) + 1.5rem) 1.5rem 2rem;
+        max-width: 90%;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .partners-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .proyectos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* RESPONSIVE PARA ESCRITORIO */
+    @media (min-width: 900px) {
+      :root {
+        --header-height: 90px;
+      }
+      
+      header {
+        padding: 1rem 2rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+        text-align: left;
+      }
+      
+      nav {
+        margin-top: 0;
+      }
+      
+      nav a {
+        margin-right: 1.5rem;
+        font-size: 1rem;
+      }
+      
+      main {
+        max-width: 900px;
+        padding: calc(var(--header-height) + 2rem) 2rem 3rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .partners-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      
+      .partner-logo img {
+        max-height: 80px;
+      }
+      
+      .proyecto-link img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Selector de idioma -->
+<div class="language-selector">
+  <select id="languageSelector">
+    <option value="es">🇪🇸 Español</option>
+    <option value="it">🇮🇹 Italiano</option>
+    <option value="pt">🇧🇷 Português</option>
+    <option value="en">🇬🇧 English</option>
+  </select>
+</div>
+
+<header>
+  <h1 data-i18n="header.title">SOMOS BAMBÚ</h1>
+  <nav>
+    <a href="#home" data-i18n="nav.home">Home</a>
+    <a href="#acerca" data-i18n="nav.about">Acerca</a>
+    <a href="#equipo" data-i18n="nav.team">Equipo</a>
+    <a href="#partners" data-i18n="nav.partners">Partners</a>
+    <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+    <a href="#blog" data-i18n="nav.blog">Blog</a>
+    <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HOME -->
+  <section id="home">
+    <h2 data-i18n="sections.home">Home</h2>
+    <div class="bloque">
+      <h3 data-i18n="home.subtitle">somos bambú</h3>
+      <p data-i18n="home.tagline">🌱 Cultivar raíces para crecer alto</p>
+      <p data-i18n="home.description">En Somos Bambú creemos que formar y acompañar a los jóvenes es como sembrar bambú japonés: al principio el crecimiento no se ve, pero bajo tierra se fortalecen las raíces. Cada taller, cada valor, cada proyecto siembra futuro. Apostamos al crecimiento profundo y paciente, para que un día esos jóvenes se eleven firmes, resilientes y capaces de transformar su realidad.</p>
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/bambu_logo.avif" alt="Logo de Bambú - Representación gráfica del crecimiento como el bambú">
+    </div>
+  </section>
+
+  <!-- ACERCA DE -->
+  <section id="acerca">
+    <h2 data-i18n="sections.about">Acerca de</h2>
+    <div class="bloque">
+      <h3 data-i18n="about.who">¿Quiénes somos?</h3>
+      <h4 data-i18n="about.aboutUs">Sobre nosotros</h4>
+      <h4 data-i18n="about.building">Construyendo un Mundo mejor</h4>
+      <h4 data-i18n="about.whoWeAre">QUIÉNES SOMOS</h4>
+      <p data-i18n="about.paragraph1">La formación y capacitación de jóvenes es como el cultivo del bambú japonés. Durante los primeros años, aunque se riegue y se cuide con esmero, el bambú no parece crecer. Sin embargo, debajo de la tierra está desarrollando un sistema de raíces fuerte y extenso, preparándose para sostener un crecimiento rápido y alto. Luego de este periodo de aparente inactividad, en tan solo unas semanas puede crecer varios metros.</p>
+      <p data-i18n="about.paragraph2">Del mismo modo, al formar y capacitar a los jóvenes, muchas veces no se ven resultados inmediatos. Es un trabajo de paciencia, constancia y fe. Pero cada lección, cada valor sembrado, fortalece sus raíces: su carácter, su pensamiento crítico, su conciencia social. Y cuando llega el momento, estos jóvenes pueden desplegar todo su potencial y convertirse en líderes que transforman su entorno con firmeza y resiliencia, como un bambú que se eleva hacia el cielo.</p>
+      <h4 data-i18n="about.history">HISTORIA</h4>
+      <p data-i18n="about.history1">Nuestra historia tiene un origen muy especial: nace en el corazón de una familia. Mila y Jose decidieron unir sus caminos no solo en la vida, sino también en un propósito común.</p>
+      <p data-i18n="about.history2">Mila vivió durante 11 años como monja de clausura, hasta que sintió un llamado a continuar su misión desde otro lugar: crecer profesionalmente para poder servir mejor a cada persona que la vida pusiera en su camino. Por su parte, Jose formó parte del grupo internacional Gen Rosso durante 14 años, recorriendo 34 países en los cinco continentes. A través de la música y el arte, logró conectar con miles de jóvenes, muchos de ellos en contextos de vulnerabilidad, llevando un mensaje de esperanza, dignidad y valor.</p>
+      <p data-i18n="about.history3">Mila y Jose se casan con un sueño en común: que su familia y su trabajo sean una semilla de cambio. Para entonces ya había nacido Somos Bambú, con raíces profundas y la mirada puesta en el horizonte, deseando dejar el mundo un poquito mejor de como lo encontramos.</p>
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/home_equipo.avif" alt="Equipo de Bambú trabajando juntos">
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section id="equipo">
+    <h2 data-i18n="sections.team">Equipo</h2>
+    <div class="bloque">
+      <p data-i18n="team.paragraph1">Creemos en el poder de lo simple, de lo concreto, de las pequeñas acciones que, con amor y compromiso, pueden generar transformaciones reales en la vida de las personas.</p>
+      <p data-i18n="team.paragraph2">Trabajamos en el diseño, acompañamiento y desarrollo de proyectos sociales, educativos y culturales, poniendo siempre en el centro la dignidad humana, la inclusión y el fortalecimiento de comunidades. Nuestro enfoque es colaborativo: muchos de nuestros proyectos surgen del encuentro con personas, grupos e instituciones con quienes compartimos valores y sueños.</p>
+      <p data-i18n="team.paragraph3">Desde programas de becas para jóvenes en contextos vulnerables, hasta acciones solidarias, eventos culturales o redes de apoyo comunitario, cada iniciativa que impulsamos busca sembrar oportunidades y construir puentes.</p>
+      <p data-i18n="team.paragraph4">Somos Bambú es una oficina de proyectos que nace del deseo profundo de construir un mundo más justo, fraterno y unido. Surgimos de forma voluntaria, impulsados por la convicción de que cada acción, por pequeña que sea, puede sembrar esperanza y transformación.</p>
+      <p data-i18n="team.paragraph5">Les presentamos a continuación parte del equipo del que tenemos el orgullo de formar parte</p>
+
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/mila.avif" alt="Milagros Aranda - Co-fundadora de Bambú">
+      <h3>Milagros Aranda</h3>
+      <p><strong>(Argentina - Brasil)</strong></p>
+      <p data-i18n="team.mila1">¡Hola! Soy Milagros Aranda, Psicóloga Social, estudiante avanzada de Psicología y diplomanda en Suicidología.</p>
+      <p data-i18n="team.mila2">Desde chica sentí un fuerte deseo de trabajar por el bien de la humanidad, de estar al servicio de los demás y acompañar procesos de transformación. Esa búsqueda me llevó por caminos muy especiales: durante once años fui monja carmelita descalza, un tiempo profundo de encuentro conmigo misma, con el amor y con un modo de vivir donde la superación personal era parte del día a día.</p>
+      <p data-i18n="team.mila3">Después la vida me sorprendió con nuevos comienzos: me casé con alguien que comparte mis mismos ideales, y juntos formamos una familia con una hija que vino a ensanchar nuestros corazones.</p>
+      <p data-i18n="team.mila4">Creo profundamente en el poder de encontrarle sentido a la vida, porque cuando conectamos con eso que nos impulsa, todo se vuelve más claro y esperanzador.</p>
+      <p data-i18n="team.mila5">Como psicóloga social, me gusta acompañar a las personas y acompasar sus experiencias, para que puedan escucharse, encontrarse con sus propios ritmos y deseos, para que puedan enfocarse en proyectos vitales que las hagan crecer, avanzar y vivir con plenitud, conectadas entre sí, a través del vínculo que es el motor que potencia y fortalece todo encuentro.</p>
+      <p data-i18n="team.mila6">Me apasiona ver cómo cada persona puede transformar sus sombras en luz y descubrir que dentro suyo ya habita todo lo que necesita para ser mejor cada día.</p>
+      <div class="redes-sociales">
+        <a href="https://www.instagram.com/mila_psicosocial" target="_blank" title="Instagram" aria-label="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="https://www.linkedin.com/in/milagros-aranda-0ab274175/?originalSubdomain=ar" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+        </a>
+      </div>
+
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/jose.avif" alt="Jose M. Garcia - Co-fundador de Bambú">
+      <h3>Jose M. García</h3>
+      <p><strong>(España - Italia - Argentina)</strong></p>
+      <p data-i18n="team.jose1">Soy ingeniero técnico industrial, músico, project manager y proyectista social.</p>
+      <p data-i18n="team.jose2">A primera vista, parecen caminos distintos. Pero en mi vida, todos forman parte de un mismo mapa: el de construir, conectar y transformar.</p>
+      <p data-i18n="team.jose3">Desde la ingeniería aprendí a diseñar soluciones concretas; desde la música —con estudios en Música y Nuevas Tecnologías, y el bajo y el saxofón como compañeros de ruta—, a escuchar lo invisible. La gestión de proyectos me dio herramientas para ordenar la complejidad, y el trabajo social, el sentido profundo de por qué hacerlo.</p>
+      <p data-i18n="team.jose4">Coordino iniciativas que integran lo artístico, lo educativo, lo social y el desarrollo humano. Me muevo entre planos estructurales y partituras, entre cronogramas y comunidades. Porque creo que los puentes más sólidos no son sólo los de acero y hormigón: a veces están hechos de confianza, creatividad y trabajo colectivo.</p>
+      <p data-i18n="team.jose5">Hoy impulso proyectos que combinan estructura y alma, con una mirada integral: eficiente, sensible y orientada al impacto real.</p>
+      <div class="redes-sociales">
+        <a href="https://www.facebook.com/jose.manuel.garcia.866636" target="_blank" title="Facebook" aria-label="Facebook">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/jomagalo74/" target="_blank" title="Instagram" aria-label="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="https://www.linkedin.com/in/jose-manuel-garc%C3%ADa-l%C3%B3pez-a8028ba6/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+        </a>
+      </div>
+
+      <div class="bloque">
+        <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/pablo.avif" alt="Pablo Sorrentino - Coordinador de Proyectos en Bambú">
+        <h3>Pablo Sorrentino</h3>
+        <p><strong>(Argentina)</strong></p>
+        <p data-i18n="team.pablo1">Soy Licenciado en Comunicación Social, especializado en gestión cultural y producción de eventos. Desde hace más de 15 años trabajo en el diseño y coordinación de proyectos que vinculan el arte, la educación y el desarrollo comunitario.</p>
+        <p data-i18n="team.pablo2">Mi enfoque se centra en crear experiencias significativas que inspiren y transformen. Creo en el poder del arte como herramienta de cambio social y en la importancia de construir redes colaborativas.</p>
+        <p data-i18n="team.pablo3">En Bambú me encargo de dar forma a las ideas, coordinar equipos y asegurar que cada proyecto cumpla con sus objetivos manteniendo la esencia de nuestra misión.</p>
+        <div class="redes-sociales" style="position: relative; z-index: 10;">
+          <a href="https://www.facebook.com/pablo.sorrentino.9" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/pablo.coach.ontologico/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+          </a>
+          <a href="https://www.linkedin.com/in/pablo-sorrentino-0b19a023/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+          </a>
+        </div>
+      </div>
+
+      <div class="bloque">
+        <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/mariarosa.avif" alt="MariaRosa Lang - Coordinadora de Proyectos en Bambú">
+        <h3>Maria Rosa Lang</h3>
+        <p><strong>(Argentina)</strong></p>
+        <p data-i18n="team.mariarosa1">Soy Counselor, Consultora Psicológica, especializada en Desarrollo Personal, Pareja y Familia y Acompañamiento en Duelos, desde el Enfoque Centrado en la Persona, el Diálogo Consciente y Compasivo, Mindfulness y la Comunicación No Violenta.</p>
+        <p data-i18n="team.mariarosa2">Mi misión es contribuir con el bienestar de las personas construyendo relaciones más saludables.</p>
+        <p data-i18n="team.mariarosa3">Ofrezco herramientas para identificar y transformar creencias limitantes, gestionar emociones, fortalecer la confianza, asumir responsabilidad y activar el poder interior que lleva a una vida más plena.</p>
+        <div class="redes-sociales" style="position: relative; z-index: 10;">
+          <a href="https://www.facebook.com/mariarosa.lang" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/mariarosalang/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+          </a>
+        </div>
+      </div>
+
+      <div class="bloque">
+        <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/pili.avif" alt="Pili">
+        <h3>Pili Ponce</h3>
+        <p><strong>(España)</strong></p>
+        <p data-i18n="team.pili1">De mi familia he aprendido lo más importante de la vida: "amarnos y amar, servir". Llevo haciéndolo desde mi más tierna edad en mi Hermandad, en mi Parroquia, con mis amig@s.... es mi aporte a construir un mundo más justo, solidario y bonito</p>
+        <div class="redes-sociales" style="position: relative; z-index: 10;">
+          <a href="https://www.facebook.com/pilar.ponce.58" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/pilarp.g/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+          </a>
+        </div>
+      </div>
+
+      <div class="bloque">
+        <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/simone.avif" alt="Simone Parilli - Coordinador de Proyectos en Bambú">
+        <h3>Simone Parilli</h3>
+        <p><strong>(Italia)</strong></p>
+        <p data-i18n="team.simone1">"Hay quien vive las situaciones y hay quien las crea". Simone Parilli, treinta años de experiencia en formación (gerencial, logística), pedagogo y educador, experto en procesos formativos (Universidad Católica de Milán/Italia). Máster en marketing y ventas en Cesma (Centro de Experiencias y Estudios Gerenciales). "Crear relaciones para crecer juntos".</p>
+        <div class="redes-sociales" style="position: relative; z-index: 10;">
+          <a href="https://www.facebook.com/simone.parilli1" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/simointour/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+          </a>
+          <a href="https://www.linkedin.com/in/simone-parilli-354a89107/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+          </a>
+        </div>
+      </div>
+
+      <div class="bloque">
+        <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/ju.avif" alt="Ju - Coordinadora de Proyectos en Bambú">
+        <h3>Jussane Risczik</h3>
+        <p><strong>(Brasil - Perú)</strong></p>
+        <p data-i18n="team.jussane1">Hola! Soy psicóloga logoterapeuta, tanatóloga y pedagoga. Con una escucha sensible y una mirada orientada al sentido de la existencia, trabajo con dedicación en el cuidado integral de la persona, especialmente en momentos de dolor, duelo y transición. Soy amante de la vida y creo en el potencial de transformación que hay en cada ser humano. Estoy segura de que somos capaces de reconstruir nuestra historia y encontrar sentido incluso ante el sufrimiento. Me gusta hacer mías las palabras de Viktor Frankl: "Encontré el sentido de mi vida ayudando a otros a encontrar el sentido de la suya".</p>
+        <div class="redes-sociales" style="position: relative; z-index: 10;">
+          <a href="https://www.facebook.com/jussane.risczik" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/psi.jussane/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+          </a>
+          <a href="https://www.linkedin.com/in/jussane-risczik-933b7a14a/" target="_blank" rel="noopener noreferrer" style="pointer-events: auto;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="partners">
+    <h2 data-i18n="sections.partners">PARTNERS</h2>
+    <div class="bloque">
+      <p data-i18n="partners.intro">Les presentamos algunos de nuestros partners:</p>
+      
+      <div class="partners-grid">
+        <!-- Mondeco Onlus -->
+        <a href="https://www.mondecoonlus.it/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/mondeco.avif" 
+               alt="Logo Mondeco" 
+               loading="lazy">
+          <span class="partner-tooltip" data-i18n="partners.mondeco">Ver sitio web de Mondeco Onlus</span>
+        </a>
+        
+        <!-- Tucum -->
+        <a href="http://www.tucum.it/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/tucum.avif" 
+               alt="Logo Tucum" 
+               loading="lazy">
+          <span class="partner-tooltip" data-i18n="partners.tucum">Ver sitio web del Proyecto Tucum</span>
+        </a>
+        
+        <!-- Hdad. Vera Cruz -->
+        <a href="https://www.facebook.com/HdadRosarioViso/?locale=es_LA" target="_blank" rel="noopener noreferrer" class="partner-logo">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/veracruz.avif" 
+               alt="Logo Vera Cruz" 
+               loading="lazy">
+          <span class="partner-tooltip" data-i18n="partners.veracruz">Ver página Hermandad Vera Cruz (El Viso del Alcor (Sevilla-España))</span>
+        </a>
+
+        <!-- Fund. Claritas -->
+        <a href="https://fundacionclaritas.org/" target="_blank" rel="noopener noreferrer" class="partner-logo">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/claritas.avif" 
+               alt="Logo Fund Claritas" 
+               loading="lazy">
+          <span class="partner-tooltip" data-i18n="partners.claritas">Ver sitio web de Fundación Cláritas</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN PROYECTOS -->
+  <section id="proyectos">
+    <h2 data-i18n="sections.projects">PROYECTOS</h2>
+    <div class="bloque">
+      <p data-i18n="projects.intro">Explora nuestros proyectos destacados:</p>
+      
+      <div class="proyectos-grid">
+
+        <!-- Salto en Alto -->
+        <div class="proyecto-card">
+          <a href="http://somosbambu.com.ar/somosbambu.github.io/proyectos/saltoenalto.html" class="proyecto-link">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/saltoenalto.jpg" 
+                 alt="Salto en Alto" 
+                 loading="lazy">
+            <div class="proyecto-content">
+              <h3 data-i18n="projects.salto.title">Salto en Alto</h3>
+              <p data-i18n="projects.salto.description">Una red que impulsa a jóvenes a creer en sí mismos.
+Acompañamos a adolescentes en su camino escolar con becas, contención y una mirada que transforma la escuela en una oportunidad de crecimiento.</p>
+              <div class="boton" data-i18n="projects.view">Ver proyecto</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Note di Periferia -->
+        <div class="proyecto-card">
+          <a href="http://somosbambu.com.ar/somosbambu.github.io/proyectos/notediperiferia.html" class="proyecto-link">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/noteperiferia.jpg" 
+                 alt="Note di Periferia" 
+                 loading="lazy">
+            <div class="proyecto-content">
+              <h3 data-i18n="projects.notedi.title">Note di Periferia</h3>
+              <p data-i18n="projects.notedi.description">Donde los jóvenes descubren su voz y sus sueños a través del arte.
+En las periferias del conurbano bonaerense, creamos espacios de encuentro, música y expresión que inspiran a los chicos a creer en sí mismos y construir un futuro con sentido.</p>
+              <div class="boton" data-i18n="projects.view">Ver proyecto</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Reconstruir -->
+        <div class="proyecto-card">
+          <a href="http://somosbambu.com.ar/somosbambu.github.io/proyectos/reconstruir.html" class="proyecto-link">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/reconstruir.jpg" 
+                 alt="Reconstruir" 
+                 loading="lazy">
+            <div class="proyecto-content">
+              <h3 data-i18n="projects.rebuild.title">Reconstruir</h3>
+              <p data-i18n="projects.rebuild.description">Acompañar en el dolor, incluso en la distancia
+Durante la pandemia creamos espacios de escucha y contención para quienes atravesaban duelos difíciles, demostrando que la presencia auténtica y el amor pueden llegar incluso donde los abrazos no.</p>
+              <div class="boton" data-i18n="projects.view">Ver proyecto</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Sendero Joven -->
+        <div class="proyecto-card">
+          <a href="http://somosbambu.com.ar/somosbambu.github.io/proyectos/senderojoven.html" class="proyecto-link">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/senderojoven.jpg" 
+                 alt="Sendero Joven" 
+                 loading="lazy">
+            <div class="proyecto-content">
+              <h3 data-i18n="projects.path.title">Sendero Joven</h3>
+              <p data-i18n="projects.path.description">Un camino para descubrir quién sos y hacia dónde querés ir.
+A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta invita a los jóvenes a construir un proyecto de vida libre, consciente y profundamente humano.</p>
+              <div class="boton" data-i18n="projects.view">Ver proyecto</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Habilidades Blandas -->
+        <div class="proyecto-card">
+          <a href="http://somosbambu.com.ar/somosbambu.github.io/proyectos/habilidadesblandas.html" class="proyecto-link">
+            <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/habilidadesblandas.png" 
+                 alt="Habilidades Blandas" 
+                 loading="lazy">
+            <div class="proyecto-content">
+              <h3 data-i18n="projects.softskills.title">Habilidades Blandas (foco en el Trabajo)</h3>
+              <p data-i18n="projects.softskills.description">Desde Somos Bambú ofrecemos talleres socioemocionales para mejorar la comunicación, el trabajo en equipo y el clima laboral. Proponemos una experiencia transformadora que humaniza el trabajo y potencia el bienestar y la productividad.</p>
+              <div class="boton" data-i18n="projects.view">Ver proyecto</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <h2 data-i18n="sections.blog">Blog</h2>
+    <div class="bloque">
+      <!-- Resumen Entrada 1 - 3 años de Salto en Alto-->
+      <div class="proyecto-card">
+        <a href="http://somosbambu.com.ar/somosbambu.github.io/blog.html#entrada1" class="proyecto-link">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/sa3anos.avif" alt="3 años de Salto en Alto" loading="lazy">
+          <div class="proyecto-content">
+            <h3 data-i18n="blog.entry1.title">Tres años de Salto en Alto</h3>
+            <p data-i18n="blog.entry1.description">Acabamos de celebrar 3 años del proyecto Salto en Alto, acompañando a jóvenes a través de becas de apoyo escolar</p>
+            <div class="boton" data-i18n="blog.readmore">Leer más</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2 data-i18n="sections.contact">Contacto</h2>
+    <div class="bloque">
+      <h3 data-i18n="contact.info">Información de contacto</h3>
+      <p data-i18n="contact.greeting">Nos encantaría estar en contacto contigo :)</p>
+      <p><strong data-i18n="contact.phone">Teléfono:</strong> +54 9 11 78866 281</p>
+      <p><strong data-i18n="contact.email">Email:</strong> info@somosbambu.com.ar</p>
+      <p><strong data-i18n="contact.location">Ubicación:</strong> Martín Coronado (Buenos Aires)</p>
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambu.github.io/main/bambu_logo.avif" alt="Logo de Bambú - Contacto">
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p data-i18n="footer.copyright">© 2025 Somos Bambú. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  // Textos en todos los idiomas
+  const translations = {
+    "es": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Home",
+      "nav.about": "Acerca",
+      "nav.team": "Equipo",
+      "nav.partners": "Partners",
+      "nav.projects": "Proyectos",
+      "nav.blog": "Blog",
+      "nav.contact": "Contacto",
+      
+      // Secciones
+      "sections.home": "Home",
+      "sections.about": "Acerca de",
+      "sections.team": "Equipo",
+      "sections.partners": "PARTNERS",
+      "sections.projects": "PROYECTOS",
+      "sections.blog": "Blog",
+      "sections.contact": "Contacto",
+      
+      // Home
+      "home.subtitle": "somos bambú",
+      "home.tagline": "🌱 Cultivar raíces para crecer alto",
+      "home.description": "En Somos Bambú creemos que formar y acompañar a los jóvenes es como sembrar bambú japonés: al principio el crecimiento no se ve, pero bajo tierra se fortalecen las raíces. Cada taller, cada valor, cada proyecto siembra futuro. Apostamos al crecimiento profundo y paciente, para que un día esos jóvenes se eleven firmes, resilientes y capaces de transformar su realidad.",
+      
+      // Acerca de
+      "about.who": "¿Quiénes somos?",
+      "about.aboutUs": "Sobre nosotros",
+      "about.building": "Construyendo un Mundo mejor",
+      "about.whoWeAre": "QUIÉNES SOMOS",
+      "about.paragraph1": "La formación y capacitación de jóvenes es como el cultivo del bambú japonés. Durante los primeros años, aunque se riegue y se cuide con esmero, el bambú no parece crecer. Sin embargo, debajo de la tierra está desarrollando un sistema de raíces fuerte y extenso, preparándose para sostener un crecimiento rápido y alto. Luego de este periodo de aparente inactividad, en tan solo unas semanas puede crecer varios metros.",
+      "about.paragraph2": "Del mismo modo, al formar y capacitar a los jóvenes, muchas veces no se ven resultados inmediatos. Es un trabajo de paciencia, constancia y fe. Pero cada lección, cada valor sembrado, fortalece sus raíces: su carácter, su pensamiento crítico, su conciencia social. Y cuando llega el momento, estos jóvenes pueden desplegar todo su potencial y convertirse en líderes que transforman su entorno con firmeza y resiliencia, como un bambú que se eleva hacia el cielo.",
+      "about.history": "HISTORIA",
+      "about.history1": "Nuestra historia tiene un origen muy especial: nace en el corazón de una familia. Mila y Jose decidieron unir sus caminos no solo en la vida, sino también en un propósito común.",
+      "about.history2": "Mila vivió durante 11 años como monja de clausura, hasta que sintió un llamado a continuar su misión desde otro lugar: crecer profesionalmente para poder servir mejor a cada persona que la vida pusiera en su camino. Por su parte, Jose formó parte del grupo internacional Gen Rosso durante 14 años, recorriendo 34 países en los cinco continentes. A través de la música y el arte, logró conectar con miles de jóvenes, muchos de ellos en contextos de vulnerabilidad, llevando un mensaje de esperanza, dignidad y valor.",
+      "about.history3": "Mila y Jose se casan con un sueño en común: que su familia y su trabajo sean una semilla de cambio. Para entonces ya había nacido Somos Bambú, con raíces profundas y la mirada puesta en el horizonte, deseando dejar el mundo un poquito mejor de como lo encontramos.",
+      
+      // Equipo
+      "team.paragraph1": "Creemos en el poder de lo simple, de lo concreto, de las pequeñas acciones que, con amor y compromiso, pueden generar transformaciones reales en la vida de las personas.",
+      "team.paragraph2": "Trabajamos en el diseño, acompañamiento y desarrollo de proyectos sociales, educativos y culturales, poniendo siempre en el centro la dignidad humana, la inclusión y el fortalecimiento de comunidades. Nuestro enfoque es colaborativo: muchos de nuestros proyectos surgen del encuentro con personas, grupos e instituciones con quienes compartimos valores y sueños.",
+      "team.paragraph3": "Desde programas de becas para jóvenes en contextos vulnerables, hasta acciones solidarias, eventos culturales o redes de apoyo comunitario, cada iniciativa que impulsamos busca sembrar oportunidades y construir puentes.",
+      "team.paragraph4": "Somos Bambú es una oficina de proyectos que nace del deseo profundo de construir un mundo más justo, fraterno y unido. Surgimos de forma voluntaria, impulsados por la convicción de que cada acción, por pequeña que sea, puede sembrar esperanza y transformación.",
+      "team.paragraph5": "Les presentamos a continuación parte del equipo del que tenemos el orgullo de formar parte",
+      
+      // Milagros Aranda
+      "team.mila1": "¡Hola! Soy Milagros Aranda, Psicóloga Social, estudiante avanzada de Psicología y diplomanda en Suicidología.",
+      "team.mila2": "Desde chica sentí un fuerte deseo de trabajar por el bien de la humanidad, de estar al servicio de los demás y acompañar procesos de transformación. Esa búsqueda me llevó por caminos muy especiales: durante once años fui monja carmelita descalza, un tiempo profundo de encuentro conmigo misma, con el amor y con un modo de vivir donde la superación personal era parte del día a día.",
+      "team.mila3": "Después la vida me sorprendió con nuevos comienzos: me casé con alguien que comparte mis mismos ideales, y juntos formamos una familia con una hija que vino a ensanchar nuestros corazones.",
+      "team.mila4": "Creo profundamente en el poder de encontrarle sentido a la vida, porque cuando conectamos con eso que nos impulsa, todo se vuelve más claro y esperanzador.",
+      "team.mila5": "Como psicóloga social, me gusta acompañar a las personas y acompasar sus experiencias, para que puedan escucharse, encontrarse con sus propios ritmos y deseos, para que puedan enfocarse en proyectos vitales que las hagan crecer, avanzar y vivir con plenitud, conectadas entre sí, a través del vínculo que es el motor que potencia y fortalece todo encuentro.",
+      "team.mila6": "Me apasiona ver cómo cada persona puede transformar sus sombras en luz y descubrir que dentro suyo ya habita todo lo que necesita para ser mejor cada día.",
+      
+      // Jose M. García
+      "team.jose1": "Soy ingeniero técnico industrial, músico, project manager y proyectista social.",
+      "team.jose2": "A primera vista, parecen caminos distintos. Pero en mi vida, todos forman parte de un mismo mapa: el de construir, conectar y transformar.",
+      "team.jose3": "Desde la ingeniería aprendí a diseñar soluciones concretas; desde la música —con estudios en Música y Nuevas Tecnologías, y el bajo y el saxofón como compañeros de ruta—, a escuchar lo invisible. La gestión de proyectos me dio herramientas para ordenar la complejidad, y el trabajo social, el sentido profundo de por qué hacerlo.",
+      "team.jose4": "Coordino iniciativas que integran lo artístico, lo educativo, lo social y el desarrollo humano. Me muevo entre planos estructurales y partituras, entre cronogramas y comunidades. Porque creo que los puentes más sólidos no son sólo los de acero y hormigón: a veces están hechos de confianza, creatividad y trabajo colectivo.",
+      "team.jose5": "Hoy impulso proyectos que combinan estructura y alma, con una mirada integral: eficiente, sensible y orientada al impacto real.",
+      
+      // Pablo Sorrentino
+      "team.pablo1": "Soy Licenciado en Comunicación Social, especializado en gestión cultural y producción de eventos. Desde hace más de 15 años trabajo en el diseño y coordinación de proyectos que vinculan el arte, la educación y el desarrollo comunitario.",
+      "team.pablo2": "Mi enfoque se centra en crear experiencias significativas que inspiren y transformen. Creo en el poder del arte como herramienta de cambio social y en la importancia de construir redes colaborativas.",
+      "team.pablo3": "En Bambú me encargo de dar forma a las ideas, coordinar equipos y asegurar que cada proyecto cumpla con sus objetivos manteniendo la esencia de nuestra misión.",
+      
+      // Maria Rosa Lang
+      "team.mariarosa1": "Soy Counselor, Consultora Psicológica, especializada en Desarrollo Personal, Pareja y Familia y Acompañamiento en Duelos, desde el Enfoque Centrado en la Persona, el Diálogo Consciente y Compasivo, Mindfulness y la Comunicación No Violenta.",
+      "team.mariarosa2": "Mi misión es contribuir con el bienestar de las personas construyendo relaciones más saludables.",
+      "team.mariarosa3": "Ofrezco herramientas para identificar y transformar creencias limitantes, gestionar emociones, fortalecer la confianza, asumir responsabilidad y activar el poder interior que lleva a una vida más plena.",
+      
+      // Pili Ponce
+      "team.pili1": "De mi familia he aprendido lo más importante de la vida: \"amarnos y amar, servir\". Llevo haciéndolo desde mi más tierna edad en mi Hermandad, en mi Parroquia, con mis amig@s.... es mi aporte a construir un mundo más justo, solidario y bonito",
+      
+      // Simone Parilli
+      "team.simone1": "\"Hay quien vive las situaciones y hay quien las crea\". Simone Parilli, treinta años de experiencia en formación (gerencial, logística), pedagogo y educador, experto en procesos formativos (Universidad Católica de Milán/Italia). Máster en marketing y ventas en Cesma (Centro de Experiencias y Estudios Gerenciales). \"Crear relaciones para crecer juntos\".",
+      
+      // Jussane Risczik
+      "team.jussane1": "Hola! Soy psicóloga logoterapeuta, tanatóloga y pedagoga. Con una escucha sensible y una mirada orientada al sentido de la existencia, trabajo con dedicación en el cuidado integral de la persona, especialmente en momentos de dolor, duelo y transición. Soy amante de la vida y creo en el potencial de transformación que hay en cada ser humano. Estoy segura de que somos capaces de reconstruir nuestra historia y encontrar sentido incluso ante el sufrimiento. Me gusta hacer mías las palabras de Viktor Frankl: \"Encontré el sentido de mi vida ayudando a otros a encontrar el sentido de la suya\".",
+      
+      // Partners
+      "partners.intro": "Les presentamos algunos de nuestros partners:",
+      "partners.mondeco": "Ver sitio web de Mondeco Onlus",
+      "partners.tucum": "Ver sitio web del Proyecto Tucum",
+      "partners.veracruz": "Ver página Hermandad Vera Cruz (El Viso del Alcor (Sevilla-España))",
+      "partners.claritas": "Ver sitio web de Fundación Cláritas",
+      
+      // Proyectos
+      "projects.intro": "Explora nuestros proyectos destacados:",
+      "projects.view": "Ver proyecto",
+      
+      "projects.salto.title": "Salto en Alto",
+      "projects.salto.description": "Una red que impulsa a jóvenes a creer en sí mismos. Acompañamos a adolescentes en su camino escolar con becas, contención y una mirada que transforma la escuela en una oportunidad de crecimiento.",
+      
+      "projects.notedi.title": "Note di Periferia",
+      "projects.notedi.description": "Donde los jóvenes descubren su voz y sus sueños a través del arte. En las periferias del conurbano bonaerense, creamos espacios de encuentro, música y expresión que inspiran a los chicos a creer en sí mismos y construir un futuro con sentido.",
+      
+      "projects.rebuild.title": "Reconstruir",
+      "projects.rebuild.description": "Acompañar en el dolor, incluso en la distancia. Durante la pandemia creamos espacios de escucha y contención para quienes atravesaban duelos difíciles, demostrando que la presencia auténtica y el amor pueden llegar incluso donde los abrazos no.",
+      
+      "projects.path.title": "Sendero Joven",
+      "projects.path.description": "Un camino para descubrir quién sos y hacia dónde querés ir. A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta invita a los jóvenes a construir un proyecto de vida libre, consciente y profundamente humano.",
+      
+      "projects.softskills.title": "Habilidades Blandas (foco en el Trabajo)",
+      "projects.softskills.description": "Desde Somos Bambú ofrecemos talleres socioemocionales para mejorar la comunicación, el trabajo en equipo y el clima laboral. Proponemos una experiencia transformadora que humaniza el trabajo y potencia el bienestar y la productividad.",
+      
+      // Blog
+      "blog.entry1.title": "Tres años de Salto en Alto",
+      "blog.entry1.description": "Acabamos de celebrar 3 años del proyecto Salto en Alto, acompañando a jóvenes a través de becas de apoyo escolar",
+      "blog.readmore": "Leer más",
+      
+      // Contacto
+      "contact.info": "Información de contacto",
+      "contact.greeting": "Nos encantaría estar en contacto contigo :)",
+      "contact.phone": "Teléfono:",
+      "contact.email": "Email:",
+      "contact.location": "Ubicación:",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. Todos los derechos reservados."
+    },
+    "it": {
+      // Navegación
+      "header.title": "SOMOS BAMBÙ",
+      "nav.home": "Home",
+      "nav.about": "Chi siamo",
+      "nav.team": "Team",
+      "nav.partners": "Partner",
+      "nav.projects": "Progetti",
+      "nav.blog": "Blog",
+      "nav.contact": "Contatto",
+      
+      // Secciones
+      "sections.home": "Home",
+      "sections.about": "Chi siamo",
+      "sections.team": "Team",
+      "sections.partners": "PARTNER",
+      "sections.projects": "PROGETTI",
+      "sections.blog": "Blog",
+      "sections.contact": "Contatto",
+      
+      // Home
+      "home.subtitle": "siamo bambù",
+      "home.tagline": "🌱 Coltivare radici per crescere in alto",
+      "home.description": "In Somos Bambù crediamo che formare e accompagnare i giovani sia come piantare il bambù giapponese: all'inizio la crescita non si vede, ma sotto terra si stanno rafforzando le radici. Ogni laboratorio, ogni valore, ogni progetto semina futuro. Scommettiamo su una crescita profonda e paziente, affinché un giorno questi giovani si elevino saldi, resilienti e capaci di trasformare la loro realtà.",
+      
+      // Chi siamo
+      "about.who": "Chi siamo?",
+      "about.aboutUs": "Su di noi",
+      "about.building": "Costruire un Mondo migliore",
+      "about.whoWeAre": "CHI SIAMO",
+      "about.paragraph1": "La formazione e la qualificazione dei giovani è come la coltivazione del bambù giapponese. Nei primi anni, anche se viene annaffiato e curato con cura, il bambù non sembra crescere. Tuttavia, sotto terra sta sviluppando un forte e ampio sistema di radici, preparandosi a sostenere una crescita rapida e alta. Dopo questo periodo di apparente inattività, in poche settimane può crescere diversi metri.",
+      "about.paragraph2": "Allo stesso modo, quando si formano e qualificano i giovani, spesso non si vedono risultati immediati. È un lavoro di pazienza, costanza e fede. Ma ogni lezione, ogni valore seminato, rafforza le loro radici: il loro carattere, il loro pensiero critico, la loro coscienza sociale. E quando arriva il momento, questi giovani possono dispiegare tutto il loro potenziale e diventare leader che trasformano il loro ambiente con fermezza e resilienza, come un bambù che si eleva verso il cielo.",
+      "about.history": "STORIA",
+      "about.history1": "La nostra storia ha un'origine molto speciale: nasce nel cuore di una famiglia. Mila e Jose hanno deciso di unire i loro percorsi non solo nella vita, ma anche in uno scopo comune.",
+      "about.history2": "Mila ha vissuto per 11 anni come monaca di clausura, fino a quando ha sentito la chiamata a continuare la sua missione da un altro luogo: crescere professionalmente per poter servire meglio ogni persona che la vita mettesse sul suo cammino. Da parte sua, Jose ha fatto parte del gruppo internazionale Gen Rosso per 14 anni, viaggiando in 34 paesi nei cinque continenti. Attraverso la musica e l'arte, è riuscito a connettersi con migliaia di giovani, molti dei quali in contesti di vulnerabilità, portando un messaggio di speranza, dignità e valore.",
+      "about.history3": "Mila e Jose si sono sposati con un sogno comune: che la loro famiglia e il loro lavoro fossero un seme di cambiamento. A quel tempo era già nato Somos Bambù, con radici profonde e lo sguardo rivolto all'orizzonte, desiderando lasciare il mondo un po' migliore di come lo abbiamo trovato.",
+      
+      // Team
+      "team.paragraph1": "Crediamo nel potere delle cose semplici, del concreto, delle piccole azioni che, con amore e impegno, possono generare trasformazioni reali nella vita delle persone.",
+      "team.paragraph2": "Lavoriamo nella progettazione, accompagnamento e sviluppo di progetti sociali, educativi e culturali, mettendo sempre al centro la dignità umana, l'inclusione e il rafforzamento delle comunità. Il nostro approccio è collaborativo: molti dei nostri progetti nascono dall'incontro con persone, gruppi e istituzioni con cui condividiamo valori e sogni.",
+      "team.paragraph3": "Dai programmi di borse di studio per giovani in contesti vulnerabili, alle azioni solidali, eventi culturali o reti di sostegno comunitario, ogni iniziativa che promuoviamo cerca di seminare opportunità e costruire ponti.",
+      "team.paragraph4": "Siamo Bambú è un ufficio progetti che nasce dal profondo desiderio di costruire un mondo più giusto, fraterno e unito. Siamo nati volontariamente, spinti dalla convinzione che ogni azione, per piccola che sia, possa seminare speranza e trasformazione.",
+      "team.paragraph5": "Vi presentiamo di seguito parte del team di cui abbiamo l'orgoglio di far parte",
+      
+      // Milagros Aranda
+      "team.mila1": "Ciao! Sono Milagros Aranda, Psicologa Sociale, studentessa avanzata di Psicologia e diplomata in Suicidologia.",
+      "team.mila2": "Fin da piccola ho sentito un forte desiderio di lavorare per il bene dell'umanità, di essere al servizio degli altri e di accompagnare processi di trasformazione. Questa ricerca mi ha portato per strade molto speciali: per undici anni sono stata monaca carmelitana scalza, un tempo profondo di incontro con me stessa, con l'amore e con un modo di vivere in cui il miglioramento personale faceva parte della vita quotidiana.",
+      "team.mila3": "Poi la vita mi ha sorpreso con nuovi inizi: mi sono sposata con qualcuno che condivide i miei stessi ideali, e insieme abbiamo formato una famiglia con una figlia che è venuta ad ampliare i nostri cuori.",
+      "team.mila4": "Credo profondamente nel potere di trovare un senso alla vita, perché quando ci connettiamo con ciò che ci spinge, tutto diventa più chiaro e pieno di speranza.",
+      "team.mila5": "Come psicologa sociale, mi piace accompagnare le persone e sincronizzarmi con le loro esperienze, in modo che possano ascoltarsi, incontrarsi con i propri ritmi e desideri, per potersi concentrare su progetti vitali che le facciano crescere, avanzare e vivere con pienezza, connesse tra loro, attraverso il legame che è il motore che potenzia e rafforza ogni incontro.",
+      "team.mila6": "Mi appassiona vedere come ogni persona può trasformare le proprie ombre in luce e scoprire che dentro di sé già abita tutto ciò di cui ha bisogno per essere migliore ogni giorno.",
+      
+      // Jose M. García
+      "team.jose1": "Sono ingegnere tecnico industriale, musicista, project manager e progettista sociale.",
+      "team.jose2": "A prima vista, sembrano percorsi diversi. Ma nella mia vita, fanno tutti parte della stessa mappa: costruire, connettere e trasformare.",
+      "team.jose3": "Dall'ingegneria ho imparato a progettare soluzioni concrete; dalla musica —con studi in Musica e Nuove Tecnologie, e il basso e il sassofono come compagni di viaggio—, ad ascoltare l'invisibile. La gestione dei progetti mi ha dato strumenti per ordinare la complessità, e il lavoro sociale, il profondo senso del perché farlo.",
+      "team.jose4": "Coordino iniziative che integrano l'artistico, l'educativo, il sociale e lo sviluppo umano. Mi muovo tra piani strutturali e spartiti, tra cronogrammi e comunità. Perché credo che i ponti più solidi non siano solo quelli di acciaio e cemento: a volte sono fatti di fiducia, creatività e lavoro collettivo.",
+      "team.jose5": "Oggi promuovo progetti che combinano struttura e anima, con uno sguardo integrale: efficiente, sensibile e orientato all'impatto reale.",
+      
+      // Pablo Sorrentino
+      "team.pablo1": "Sono Laureato in Comunicazione Sociale, specializzato in gestione culturale e produzione di eventi. Da più di 15 anni lavoro nella progettazione e coordinamento di progetti che collegano arte, educazione e sviluppo comunitario.",
+      "team.pablo2": "Il mio approccio si concentra sulla creazione di esperienze significative che ispirino e trasformino. Credo nel potere dell'arte come strumento di cambiamento sociale e nell'importanza di costruire reti collaborative.",
+      "team.pablo3": "In Bambú mi occupo di dare forma alle idee, coordinare i team e assicurarmi che ogni progetto raggiunga i suoi obiettivi mantenendo l'essenza della nostra missione.",
+      
+      // Maria Rosa Lang
+      "team.mariarosa1": "Sono Counselor, Consulente Psicologica, specializzata in Sviluppo Personale, Coppia e Famiglia e Accompagnamento nei Lutti, dall'Approccio Centrato sulla Persona, il Dialogo Consapevole e Compassionevole, Mindfulness e la Comunicazione Non Violenta.",
+      "team.mariarosa2": "La mia missione è contribuire al benessere delle persone costruendo relazioni più sane.",
+      "team.mariarosa3": "Offro strumenti per identificare e trasformare credenze limitanti, gestire emozioni, rafforzare la fiducia, assumersi responsabilità e attivare il potere interiore che porta a una vita più piena.",
+      
+      // Pili Ponce
+      "team.pili1": "Dalla mia famiglia ho imparato la cosa più importante della vita: \"amarci e amare, servire\". Lo faccio dalla mia più tenera età nella mia Confraternita, nella mia Parrocchia, con i miei amici... è il mio contributo a costruire un mondo più giusto, solidale e bello",
+      
+      // Simone Parilli
+      "team.simone1": "\"C'è chi vive le situazioni e c'è chi le crea\". Simone Parilli, trentennale esperienza nella formazione (manageriale, logistica), pedagogista ed educatore, esperto in processi formativi (Università Cattolica Milano/Italia). Master in marketing e vendite presso Cesma (centro esperienze e studi manageriali). \"Creare rapporti per crescere insieme\".",
+      
+      // Jussane Risczik
+      "team.jussane1": "Ciao! Sono psicologa logoterapeuta, tanatologa e pedagoga. Con un ascolto sensibile e uno sguardo rivolto al senso dell'esistenza, mi dedico con impegno alla cura integrale della persona, specialmente nei momenti di dolore, lutto e transizione. Sono un'amante della vita e credo nel potenziale di trasformazione presente in ogni essere umano. Sono certa che siamo capaci di ricostruire la nostra storia e trovare un senso anche di fronte alla sofferenza. Mi piace fare mie le parole di Viktor Frankl: \"Ho trovato il senso della mia vita aiutando gli altri a trovare il senso della loro\".",
+      
+      // Partners
+      "partners.intro": "Vi presentiamo alcuni dei nostri partner:",
+      "partners.mondeco": "Vedi sito web di Mondeco Onlus",
+      "partners.tucum": "Vedi sito web del Progetto Tucum",
+      "partners.veracruz": "Vedi pagina Hermandad Vera Cruz (El Viso del Alcor (Sevilla-Spagna))",
+      "partners.claritas": "Vedi sito web di Fundación Cláritas",
+      
+      // Progetti
+      "projects.intro": "Esplora i nostri progetti principali:",
+      "projects.view": "Vedi progetto",
+      
+      "projects.salto.title": "Salto in Alto",
+      "projects.salto.description": "Una rete che spinge i giovani a credere in se stessi. Accompagniamo gli adolescenti nel loro percorso scolastico con borse di studio, sostegno e uno sguardo che trasforma la scuola in un'opportunità di crescita.",
+      
+      "projects.notedi.title": "Note di Periferia",
+      "projects.notedi.description": "Dove i giovani scoprono la loro voce e i loro sogni attraverso l'arte. Nelle periferie del conurbano bonaerense, creiamo spazi di incontro, musica ed espressione che ispirano i ragazzi a credere in se stessi e costruire un futuro con significato.",
+      
+      "projects.rebuild.title": "Reconstruir - Ricostruire",
+      "projects.rebuild.description": "Accompagnare nel dolore, anche a distanza. Durante la pandemia abbiamo creato spazi di ascolto e sostegno per chi attraversava lutti difficili, dimostrando che la presenza autentica e l'amore possono arrivare anche dove gli abbracci non possono.",
+      
+      "projects.path.title": "Sendero Joven - Sentiero Giovane",
+      "projects.path.description": "Un cammino per scoprire chi sei e dove vuoi andare. Attraverso laboratori esperienziali, creatività e accompagnamento, questa proposta invita i giovani a costruire un progetto di vita libero, consapevole e profondamente umano.",
+      
+      "projects.softskills.title": "Competenze Trasversali (focus sul Lavoro)",
+      "projects.softskills.description": "Da Somos Bambú offriamo laboratori socio-emozionali per migliorare la comunicazione, il lavoro di squadra e il clima lavorativo. Proponiamo un'esperienza trasformativa che umanizza il lavoro e potenzia il benessere e la produttività.",
+      
+      // Blog
+      "blog.entry1.title": "Tre anni di Salto in Alto",
+      "blog.entry1.description": "Abbiamo appena celebrato 3 anni del progetto Salto in Alto, accompagnando giovani attraverso borse di studio di sostegno scolastico",
+      "blog.readmore": "Leggi di più",
+      
+      // Contatto
+      "contact.info": "Informazioni di contatto",
+      "contact.greeting": "Ci piacerebbe essere in contatto con te :)",
+      "contact.phone": "Telefono:",
+      "contact.email": "Email:",
+      "contact.location": "Ubicazione:",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambù. Tutti i diritti riservati."
+    },
+    "pt": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Início",
+      "nav.about": "Sobre",
+      "nav.team": "Equipe",
+      "nav.partners": "Parceiros",
+      "nav.projects": "Projetos",
+      "nav.blog": "Blog",
+      "nav.contact": "Contato",
+      
+      // Seções
+      "sections.home": "Início",
+      "sections.about": "Sobre",
+      "sections.team": "Equipe",
+      "sections.partners": "PARCEIROS",
+      "sections.projects": "PROJETOS",
+      "sections.blog": "Blog",
+      "sections.contact": "Contato",
+      
+      // Home
+      "home.subtitle": "Somos Bambú",
+      "home.tagline": "🌱 Cultivar raízes para crescer alto",
+      "home.description": "No Somos Bambú acreditamos que formar e acompanhar os jovens é como semear bambu japonês: no início o crescimento não é visível, mas sob a terra as raízes se fortalecem. Cada oficina, cada valor, cada projeto semeia futuro. Apostamos em um crescimento profundo e paciente, para que um dia esses jovens se elevem firmes, resilientes e capazes de transformar sua realidade.",
+      
+      // Sobre
+      "about.who": "Quem somos?",
+      "about.aboutUs": "Sobre nós",
+      "about.building": "Construindo um Mundo melhor",
+      "about.whoWeAre": "QUEM SOMOS",
+      "about.paragraph1": "A formação e capacitação de jovens é como o cultivo do bambu japonês. Durante os primeiros anos, embora seja regado e cuidado com esmero, o bambu não parece crescer. No entanto, debaixo da terra está desenvolvendo um sistema de raízes forte e extenso, preparando-se para sustentar um crescimento rápido e alto. Após esse período de aparente inatividade, em apenas algumas semanas pode crescer vários metros.",
+      "about.paragraph2": "Da mesma forma, ao formar e capacitar jovens, muitas vezes não se veem resultados imediatos. É um trabalho de paciência, constância e fé. Mas cada lição, cada valor semeado, fortalece suas raízes: seu caráter, seu pensamento crítico, sua consciência social. E quando chega o momento, esses jovens podem desdobrar todo seu potencial e se tornar líderes que transformam seu entorno com firmeza e resiliência, como um bambu que se eleva em direção ao céu.",
+      "about.history": "HISTÓRIA",
+      "about.history1": "Nossa história tem uma origem muito especial: nasce no coração de uma família. Mila e Jose decidiram unir seus caminhos não apenas na vida, mas também em um propósito comum.",
+      "about.history2": "Mila viveu durante 11 anos como freira de clausura, até sentir um chamado para continuar sua missão a partir de outro lugar: crescer profissionalmente para poder servir melhor cada pessoa que a vida colocasse em seu caminho. Por sua vez, Jose fez parte do grupo internacional Gen Rosso durante 14 anos, percorrendo 34 países nos cinco continentes. Através da música e da arte, conseguiu conectar-se com milhares de jovens, muitos deles em contextos de vulnerabilidade, levando uma mensagem de esperança, dignidade e valor.",
+      "about.history3": "Mila e Jose se casam com um sonho em comum: que sua família e seu trabalho sejam uma semente de mudança. Naquela época já havia nascido Somos Bambú, com raízes profundas e o olhar voltado para o horizonte, desejando deixar o mundo um pouco melhor do que o encontramos.",
+      
+      // Equipe
+      "team.paragraph1": "Acreditamos no poder do simples, do concreto, das pequenas ações que, com amor e compromisso, podem gerar transformações reais na vida das pessoas.",
+      "team.paragraph2": "Trabalhamos no desenho, acompanhamento e desenvolvimento de projetos sociais, educativos e culturais, colocando sempre no centro a dignidade humana, a inclusão e o fortalecimento de comunidades. Nossa abordagem é colaborativa: muitos de nossos projetos surgem do encontro com pessoas, grupos e instituições com quem compartilhamos valores e sonhos.",
+      "team.paragraph3": "Desde programas de bolsas para jovens em contextos vulneráveis, até ações solidárias, eventos culturais ou redes de apoio comunitário, cada iniciativa que impulsionamos busca semear oportunidades e construir pontes.",
+      "team.paragraph4": "Somos Bambú é um escritório de projetos que nasce do profundo desejo de construir um mundo mais justo, fraterno e unido. Surgimos de forma voluntária, impulsionados pela convicção de que cada ação, por menor que seja, pode semear esperança e transformação.",
+      "team.paragraph5": "Apresentamos a seguir parte da equipe da qual temos o orgulho de fazer parte",
+      
+      // Milagros Aranda
+      "team.mila1": "Olá! Sou Milagros Aranda, Psicóloga Social, estudante avançada de Psicologia e diplomada em Suicidologia.",
+      "team.mila2": "Desde pequena senti um forte desejo de trabalhar pelo bem da humanidade, de estar a serviço dos outros e acompanhar processos de transformação. Essa busca me levou por caminhos muito especiais: durante onze anos fui freira carmelita descalça, um tempo profundo de encontro comigo mesma, com o amor e com um modo de viver onde a superação pessoal fazia parte do dia a dia.",
+      "team.mila3": "Depois a vida me surpreendeu com novos começos: casei-me com alguém que compartilha meus mesmos ideais, e juntos formamos uma família com uma filha que veio ampliar nossos corações.",
+      "team.mila4": "Acredito profundamente no poder de encontrar sentido na vida, porque quando nos conectamos com aquilo que nos impulsiona, tudo se torna mais claro e esperançoso.",
+      "team.mila5": "Como psicóloga social, gosto de acompanhar as pessoas e sintonizar-me com suas experiências, para que possam se escutar, encontrar-se com seus próprios ritmos e desejos, para que possam se concentrar em projetos vitais que as façam crescer, avançar e viver com plenitude, conectadas entre si, através do vínculo que é o motor que potencializa e fortalece todo encontro.",
+      "team.mila6": "Me apaixona ver como cada pessoa pode transformar suas sombras em luz e descobrir que dentro de si já habita tudo o que precisa para ser melhor a cada dia.",
+      
+      // Jose M. García
+      "team.jose1": "Sou engenheiro técnico industrial, músico, gerente de projetos e projetista social.",
+      "team.jose2": "À primeira vista, parecem caminhos diferentes. Mas na minha vida, todos fazem parte do mesmo mapa: construir, conectar e transformar.",
+      "team.jose3": "Da engenharia aprendi a desenhar soluções concretas; da música —com estudos em Música e Novas Tecnologias, e o baixo e o saxofone como companheiros de rota—, a escutar o invisível. A gestão de projetos me deu ferramentas para ordenar a complexidade, e o trabalho social, o sentido profundo de por que fazê-lo.",
+      "team.jose4": "Coordeno iniciativas que integram o artístico, o educativo, o social e o desenvolvimento humano. Me movo entre planos estruturais e partituras, entre cronogramas e comunidades. Porque acredito que as pontes mais sólidas não são só as de aço e concreto: às vezes são feitas de confiança, criatividade e trabalho coletivo.",
+      "team.jose5": "Hoje impulsiono projetos que combinam estrutura e alma, com um olhar integral: eficiente, sensível e orientado ao impacto real.",
+      
+      // Pablo Sorrentino
+      "team.pablo1": "Sou Licenciado em Comunicação Social, especializado em gestão cultural e produção de eventos. Há mais de 15 anos trabalho no desenho e coordenação de projetos que vinculam arte, educação e desenvolvimento comunitário.",
+      "team.pablo2": "Meu enfoque se centra em criar experiências significativas que inspirem e transformem. Acredito no poder da arte como ferramenta de mudança social e na importância de construir redes colaborativas.",
+      "team.pablo3": "No Bambú me encarrego de dar forma às ideias, coordenar equipes e assegurar que cada projeto cumpra seus objetivos mantendo a essência de nossa missão.",
+      
+      // Maria Rosa Lang
+      "team.mariarosa1": "Sou Counselor, Consultora Psicológica, especializada em Desenvolvimento Pessoal, Casal e Família e Acompanhamento em Lutos, desde a Abordagem Centrada na Pessoa, o Diálogo Consciente e Compassivo, Mindfulness e a Comunicação Não Violenta.",
+      "team.mariarosa2": "Minha missão é contribuir com o bem-estar das pessoas construindo relações mais saudáveis.",
+      "team.mariarosa3": "Ofereço ferramentas para identificar e transformar crenças limitantes, gerenciar emoções, fortalecer a confiança, assumir responsabilidade e ativar o poder interior que leva a uma vida mais plena.",
+      
+      // Pili Ponce
+      "team.pili1": "Da minha família aprendi o mais importante da vida: \"nos amarmos e amar, servir\". Faço isso desde minha mais tenra idade na minha Irmandade, na minha Paróquia, com meus amigos... é minha contribuição para construir um mundo mais justo, solidário e bonito",
+      
+      // Simone Parilli
+      "team.simone1": "\"Há quem viva as situações e há quem as crie\". Simone Parilli, trinta anos de experiência em formação (gerencial, logística), pedagogo e educador, especialista em processos formativos (Universidade Católica de Milão/Itália). Mestrado em marketing e vendas no Cesma (Centro de Experiências e Estudos Gerenciais). \"Criar relações para crescer juntos\".",
+      
+      // Jussane Risczik
+      "team.jussane1": "Oi! Sou Psicóloga Logoterapeuta, Tanatóloga e Pedagoga. Com uma escuta sensível e um olhar voltado para o sentido da existência, atuo com dedicação no cuidado integral da pessoa, especialmente nos momentos de dor, luto e transição. Sou amante da vida e acredito no potencial de transformação presente em cada ser humano. Tenho certeza que somos capazes reconstruir nossa história e encontrar sentido mesmo diante do sofrimento. Gosto de fazer minhas as palavras de Viktor Frankl: \"Encontrei o sentido da minha vida ao ajudar os outros a encontrarem o sentido das suas\".",
+      
+      // Parceiros
+      "partners.intro": "Apresentamos alguns de nossos parceiros:",
+      "partners.mondeco": "Ver site da Mondeco Onlus",
+      "partners.tucum": "Ver site do Projeto Tucum",
+      "partners.veracruz": "Ver página da Hermandad Vera Cruz (El Viso del Alcor (Sevilla-Espanha))",
+      "partners.claritas": "Ver site da Fundación Cláritas",
+      
+      // Projetos
+      "projects.intro": "Explore nossos projetos destacados:",
+      "projects.view": "Ver projeto",
+      
+      "projects.salto.title": "Salto em Alto",
+      "projects.salto.description": "Uma rede que impulsiona jovens a acreditarem em si mesmos. Acompanhamos adolescentes em seu caminho escolar com bolsas, contenção e um olhar que transforma a escola em uma oportunidade de crescimento.",
+      
+      "projects.notedi.title": "Notas da Periferia - Note di Periferia",
+      "projects.notedi.description": "Onde os jovens descobrem sua voz e seus sonhos através da arte. Nas periferias do conurbano bonaerense, criamos espaços de encontro, música e expressão que inspiram os jovens a acreditarem em si mesmos e construírem um futuro com sentido.",
+      
+      "projects.rebuild.title": "Reconstruir",
+      "projects.rebuild.description": "Acompanhar na dor, mesmo à distância. Durante a pandemia criamos espaços de escuta e contenção para quem atravessava lutos difíceis, demonstrando que a presença autêntica e o amor podem chegar inclusive onde os abraços não chegam.",
+      
+      "projects.path.title": "Sendero Joven - Caminho Jovem",
+      "projects.path.description": "Um caminho para descobrir quem você é e para onde quer ir. Através de oficinas vivenciais, criatividade e acompanhamento, esta proposta convida os jovens a construírem um projeto de vida livre, consciente e profundamente humano.",
+      
+      "projects.softskills.title": "Habilidades Socioemocionais (foco no Trabalho)",
+      "projects.softskills.description": "Desde Somos Bambú oferecemos oficinas socioemocionais para melhorar a comunicação, o trabalho em equipe e o clima laboral. Propomos uma experiência transformadora que humaniza o trabalho e potencializa o bem-estar e a produtividade.",
+      
+      // Blog
+      "blog.entry1.title": "Três anos de Salto em Alto",
+      "blog.entry1.description": "Acabamos de celebrar 3 anos do projeto Salto em Alto, acompanhando jovens através de bolsas de apoio escolar",
+      "blog.readmore": "Ler mais",
+      
+      // Contato
+      "contact.info": "Informações de contato",
+      "contact.greeting": "Adoraríamos estar em contato com você :)",
+      "contact.phone": "Telefone:",
+      "contact.email": "Email:",
+      "contact.location": "Localização:",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. Todos os direitos reservados."
+    },
+    "en": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Home",
+      "nav.about": "About",
+      "nav.team": "Team",
+      "nav.partners": "Partners",
+      "nav.projects": "Projects",
+      "nav.blog": "Blog",
+      "nav.contact": "Contact",
+      
+      // Secciones
+      "sections.home": "Home",
+      "sections.about": "About",
+      "sections.team": "Team",
+      "sections.partners": "PARTNERS",
+      "sections.projects": "PROJECTS",
+      "sections.blog": "Blog",
+      "sections.contact": "Contact",
+      
+      // Home
+      "home.subtitle": "Somos Bambú",
+      "home.tagline": "🌱 Cultivating roots to grow tall",
+      "home.description": "At Somos Bambú we believe that training and accompanying young people is like planting Japanese bamboo: at first the growth is not visible, but underground the roots are strengthening. Every workshop, every value, every project sows the future. We bet on deep and patient growth, so that one day these young people will rise strong, resilient and capable of transforming their reality.",
+      
+      // About
+      "about.who": "Who are we?",
+      "about.aboutUs": "About us",
+      "about.building": "Building a Better World",
+      "about.whoWeAre": "WHO WE ARE",
+      "about.paragraph1": "Training and qualifying young people is like cultivating Japanese bamboo. For the first few years, even though it is watered and cared for diligently, the bamboo does not seem to grow. However, underground it is developing a strong and extensive root system, preparing to support rapid and tall growth. After this period of apparent inactivity, in just a few weeks it can grow several meters.",
+      "about.paragraph2": "Similarly, when training and qualifying young people, immediate results are often not seen. It is a work of patience, perseverance and faith. But every lesson, every value planted, strengthens their roots: their character, their critical thinking, their social awareness. And when the time comes, these young people can unfold their full potential and become leaders who transform their environment with firmness and resilience, like bamboo rising toward the sky.",
+      "about.history": "HISTORY",
+      "about.history1": "Our story has a very special origin: it is born in the heart of a family. Mila and Jose decided to unite their paths not only in life, but also in a common purpose.",
+      "about.history2": "Mila lived for 11 years as a cloistered nun, until she felt called to continue her mission from another place: to grow professionally to better serve each person life put in her path. For his part, Jose was part of the international group Gen Rosso for 14 years, traveling to 34 countries on five continents. Through music and art, he connected with thousands of young people, many of them in vulnerable contexts, bringing a message of hope, dignity and value.",
+      "about.history3": "Mila and Jose married with a common dream: that their family and their work would be a seed of change. By then, we are Somos Bambú had already been born, with deep roots and eyes set on the horizon, wishing to leave the world a little better than we found it.",
+      
+      // Team
+      "team.paragraph1": "We believe in the power of the simple, the concrete, the small actions that, with love and commitment, can generate real transformations in people's lives.",
+      "team.paragraph2": "We work in the design, accompaniment and development of social, educational and cultural projects, always placing human dignity, inclusion and community strengthening at the center. Our approach is collaborative: many of our projects emerge from encounters with people, groups and institutions with whom we share values and dreams.",
+      "team.paragraph3": "From scholarship programs for youth in vulnerable contexts, to solidarity actions, cultural events or community support networks, every initiative we promote seeks to sow opportunities and build bridges.",
+      "team.paragraph4": "We are Bambú is a project office born from the deep desire to build a more just, fraternal and united world. We emerged voluntarily, driven by the conviction that every action, no matter how small, can sow hope and transformation.",
+      "team.paragraph5": "Below we present part of the team we are proud to be part of",
+      
+      // Milagros Aranda
+      "team.mila1": "Hello! I'm Milagros Aranda, Social Psychologist, advanced Psychology student and diplomate in Suicidology.",
+      "team.mila2": "Since I was a child, I felt a strong desire to work for the good of humanity, to be at the service of others and to accompany transformation processes. This search led me down very special paths: for eleven years I was a barefoot Carmelite nun, a profound time of encounter with myself, with love and with a way of life where personal improvement was part of daily life.",
+      "team.mila3": "Then life surprised me with new beginnings: I married someone who shares my same ideals, and together we formed a family with a daughter who came to widen our hearts.",
+      "team.mila4": "I deeply believe in the power of finding meaning in life, because when we connect with what drives us, everything becomes clearer and more hopeful.",
+      "team.mila5": "As a social psychologist, I like to accompany people and sync with their experiences, so they can listen to themselves, meet with their own rhythms and desires, to focus on life projects that make them grow, move forward and live fully, connected to each other, through the bond that is the engine that empowers and strengthens every encounter.",
+      "team.mila6": "I am passionate about seeing how each person can transform their shadows into light and discover that within themselves already dwells everything they need to be better every day.",
+      
+      // Jose M. García
+      "team.jose1": "I am an industrial technical engineer, musician, project manager and social project designer.",
+      "team.jose2": "At first glance, they seem like different paths. But in my life, they are all part of the same map: to build, connect and transform.",
+      "team.jose3": "From engineering I learned to design concrete solutions; from music -with studies in Music and New Technologies, and the bass and saxophone as travel companions- to listen to the invisible. Project management gave me tools to order complexity, and social work, the deep sense of why to do it.",
+      "team.jose4": "I coordinate initiatives that integrate the artistic, the educational, the social and human development. I move between structural plans and scores, between schedules and communities. Because I believe that the strongest bridges are not only made of steel and concrete: sometimes they are made of trust, creativity and collective work.",
+      "team.jose5": "Today I promote projects that combine structure and soul, with an integral look: efficient, sensitive and oriented to real impact.",
+      
+      // Pablo Sorrentino
+      "team.pablo1": "I am a graduate in Social Communication, specialized in cultural management and event production. For more than 15 years I have worked in the design and coordination of projects linking art, education and community development.",
+      "team.pablo2": "My approach focuses on creating meaningful experiences that inspire and transform. I believe in the power of art as a tool for social change and in the importance of building collaborative networks.",
+      "team.pablo3": "At Bambú I am responsible for shaping ideas, coordinating teams and ensuring that each project meets its objectives while maintaining the essence of our mission.",
+      
+      // Maria Rosa Lang
+      "team.mariarosa1": "I am a Counselor, Psychological Consultant, specialized in Personal Development, Couple and Family and Accompaniment in Grief, from the Person-Centered Approach, Conscious and Compassionate Dialogue, Mindfulness and Nonviolent Communication.",
+      "team.mariarosa2": "My mission is to contribute to people's well-being by building healthier relationships.",
+      "team.mariarosa3": "I offer tools to identify and transform limiting beliefs, manage emotions, strengthen confidence, take responsibility and activate the inner power that leads to a fuller life.",
+      
+      // Pili Ponce
+      "team.pili1": "From my family I learned the most important thing in life: \"to love and be loved, to serve\". I have been doing it since my earliest childhood in my Brotherhood, in my Parish, with my friends... it is my contribution to building a more just, supportive and beautiful world",
+      
+      // Simone Parilli
+      "team.simone1": "\"Some people live situations, others create them.\" Simone Parilli, thirty years of experience in training (managerial, logistics), pedagogue and educator, expert in training processes (Catholic University of Milan/Italy). Master's degree in marketing and sales at Cesma (Center for Managerial Experiences and Studies). \"Building relationships to grow together.\"",
+      
+      // Jussane Risczik
+      "team.jussane1": "Hi! I'm a Logotherapist Psychologist, Thanatologist, and Educator. With sensitive listening and a focus on the meaning of existence, I work diligently in the holistic care of individuals, especially during times of pain, grief, and transition. I am a lover of life and believe in the transformative potential within every human being. I am certain that we are capable of rebuilding our stories and finding meaning even in suffering. I embrace Viktor Frankl's words: \"I found the meaning of my life by helping others find the meaning of theirs.\"",
+      
+      // Partners
+      "partners.intro": "We present some of our partners:",
+      "partners.mondeco": "View Mondeco Onlus website",
+      "partners.tucum": "View Tucum Project website",
+      "partners.veracruz": "View Hermandad Vera Cruz page (El Viso del Alcor (Sevilla-Spain))",
+      "partners.claritas": "View Fundación Cláritas website",
+      
+      // Projects
+      "projects.intro": "Explore our featured projects:",
+      "projects.view": "View project",
+      
+      "projects.salto.title": "Salto en Alto - High Jump",
+      "projects.salto.description": "A network that encourages young people to believe in themselves. We accompany teenagers in their school journey with scholarships, support and a perspective that transforms school into an opportunity for growth.",
+      
+      "projects.notedi.title": "Notas de Periferia - Notes from the Periphery",
+      "projects.notedi.description": "Where young people discover their voice and dreams through art. In the outskirts of Buenos Aires, we create meeting spaces, music and expression that inspire kids to believe in themselves and build a meaningful future.",
+      
+      "projects.rebuild.title": "Reconstruir - Rebuild",
+      "projects.rebuild.description": "Accompanying in pain, even at a distance. During the pandemic we created listening and support spaces for those going through difficult grief, showing that authentic presence and love can reach even where hugs cannot.",
+      
+      "projects.path.title": "Sendero Joven - Youth Path",
+      "projects.path.description": "A path to discover who you are and where you want to go. Through experiential workshops, creativity and accompaniment, this proposal invites young people to build a free, conscious and deeply human life project.",
+      
+      "projects.softskills.title": "Soft Skills (focus on Work)",
+      "projects.softskills.description": "From We are Bambú we offer socio-emotional workshops to improve communication, teamwork and work environment. We propose a transformative experience that humanizes work and enhances well-being and productivity.",
+      
+      // Blog
+      "blog.entry1.title": "Three Years of High Jump",
+      "blog.entry1.description": "We just celebrated 3 years of the High Jump project, accompanying young people through school support scholarships",
+      "blog.readmore": "Read more",
+      
+      // Contact
+      "contact.info": "Contact information",
+      "contact.greeting": "We'd love to be in touch with you :)",
+      "contact.phone": "Phone:",
+      "contact.email": "Email:",
+      "contact.location": "Location:",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. All rights reserved."
+    }
+  };
+
+  // Función mejorada para cambiar idioma
+  function changeLanguage(lang) {
+    if (!translations[lang]) return;
+    
+    // Actualizar todos los elementos con data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        element.textContent = translations[lang][key];
+      }
+    });
+    
+    // Cambiar el idioma del documento
+    document.documentElement.lang = lang;
+    
+    // Actualizar el selector
+    const selector = document.getElementById('languageSelector');
+    if (selector) {
+      selector.value = lang;
+    }
+    
+    // Guardar preferencia
+    try {
+      localStorage.setItem('preferredLanguage', lang);
+    } catch (e) {
+      console.error('Error al guardar en localStorage:', e);
+    }
+  }
+
+  // Evento para cambiar idioma
+  document.addEventListener('DOMContentLoaded', function() {
+    const selector = document.getElementById('languageSelector');
+    if (selector) {
+      selector.addEventListener('change', function(e) {
+        changeLanguage(e.target.value);
+      });
+    }
+    
+    // Cargar idioma preferido
+    let lang = 'es'; // default
+    try {
+      const savedLang = localStorage.getItem('preferredLanguage');
+      if (savedLang && translations[savedLang]) {
+        lang = savedLang;
+      } else {
+        // Detectar idioma del navegador
+        const browserLang = navigator.language.substring(0, 2);
+        if (translations[browserLang]) {
+          lang = browserLang;
+        }
+      }
+    } catch (e) {
+      console.error('Error al leer localStorage:', e);
+    }
+    
+    changeLanguage(lang);
+    if (selector) selector.value = lang;
+  });
+</script>
+
+</body>
+</html>
