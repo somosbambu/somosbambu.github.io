@@ -4,8 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sendero Joven - Somos Bambú</title>
-  <meta name="description" content="Acompañamiento a familiares de víctimas de Covid19">
-  <!-- Fuentes y estilos de Somos Bambú -->
+  <meta name="description" content="Programa formativo para el crecimiento humano y espiritual de jóvenes">
+  <!-- Meta Tags SEO -->
+  <meta property="og:title" content="Sendero Joven - Somos Bambú">
+  <meta property="og:description" content="Programa formativo para el crecimiento humano y espiritual de jóvenes">
+  <meta property="og:image" content="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/senderojoven.jpg">
+  <meta property="og:url" content="https://somosbambu.github.io/senderojoven.html">
+  <!-- Favicon -->
+  <link rel="icon" href="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/bambu_logo.avif" type="image/avif">
+  <!-- Fuentes de Google -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -14,39 +21,183 @@
       --color-acento: #f5f5f5;
       --color-texto: #333;
       --color-texto-claro: #444;
+      --header-height: 70px;
     }
     
-    /* Fondo asegurado */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0; 
+      padding: 0;
+      line-height: 1.6;
+      color: var(--color-texto);
+      scroll-behavior: smooth;
       background-image: url(https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/fondo.jpg);
       background-size: cover;
       background-position: center;
-      z-index: -1;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Open Sans', sans-serif;
+    /* SOLUCIÓN PARA EL SCROLL DE ANCLAS */
+    section {
+      scroll-margin-top: var(--header-height);
+      position: relative;
+    }
+    
+    section::before {
+      content: '';
+      display: block;
+      height: calc(var(--header-height) + 10px);
+      margin-top: calc(-1 * var(--header-height));
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* JERARQUÍA TIPOGRÁFICA */
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-primario);
+      margin-bottom: 1rem;
+    }
+    
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--color-primario);
+      margin: 0.5rem 0 1rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.3rem;
+    }
+    
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #2c3e50;
+      margin: 1.2rem 0 0.5rem;
+    }
+    
+    h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--color-primario);
+      margin: 1rem 0 0.5rem;
+    }
+    
+    p {
+      font-size: 1rem;
       line-height: 1.6;
+      margin-bottom: 1rem;
+      color: var(--color-texto-claro);
+    }
+
+    /* ESTRUCTURA */
+    header {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      right: 0;
+      height: var(--header-height);
+      background-color: var(--color-primario);
+      color: white;
+      padding: 0.8rem 1rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      letter-spacing: 0.3px;
+      margin: 0;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: opacity 0.3s;
+      padding: 0.2rem 0;
+    }
+
+    nav a:hover {
+      opacity: 0.9;
+      text-decoration: underline;
     }
 
     main {
+      padding: calc(var(--header-height) + 1rem) 1rem 2rem;
       max-width: 100%;
-      margin: 70px 15px 20px;
-      padding: 15px;
+      margin: 0;
       background-color: rgba(255, 255, 255, 0.95);
-      border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-radius: 0;
+      box-shadow: none;
     }
 
-    /* Galería de fotos desordenadas - Versión móvil mejorada */
+    .bloque {
+      margin-top: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid #e0e0e0;
+    }
+
+    /* Selector de idioma */
+    .language-selector {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1001;
+      background: white;
+      padding: 5px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .language-selector select {
+      padding: 3px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 0.8rem;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #f8f8f8;
+      color: #555;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* Estilos específicos del proyecto */
+    .proyecto-detalle {
+      padding-top: 0.5rem;
+    }
+    
+    .proyecto-galeria img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    
+    /* Galería de fotos desordenadas */
     .foto-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -61,7 +212,7 @@
       overflow: hidden;
     }
 
-    /* Efectos de rotación para móviles (más sutiles) */
+    /* Efectos de rotación para móviles */
     .foto-item:nth-child(1) {
       transform: rotate(-3deg);
       z-index: 1;
@@ -77,11 +228,6 @@
       z-index: 3;
     }
 
-    .foto-item:nth-child(4) {
-      transform: rotate(3deg) translateY(8px);
-      z-index: 4;
-    }
-
     .foto-item:hover {
       transform: rotate(0deg) scale(1.05);
       z-index: 10;
@@ -95,21 +241,6 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       border: 5px solid white;
     }
-
-    /* Ocultar el breadcrumb */
-    .breadcrumb {
-      display: none;
-    }
-    
-    .proyecto-detalle {
-      padding-top: 0.5rem;
-    }
-    
-    .proyecto-galeria img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
     
     .proyecto-estadisticas {
       display: flex;
@@ -120,6 +251,9 @@
     
     .estadistica {
       text-align: center;
+      padding: 1rem;
+      background-color: rgba(27, 75, 43, 0.1);
+      border-radius: 8px;
     }
     
     .numero {
@@ -134,67 +268,75 @@
       padding-left: 1rem;
       font-style: italic;
       margin: 1.5rem 0;
-    }
-
-    h1, h2 {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--color-primario);
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin: 1.5rem 0 0.8rem;
-      border-bottom: 1px solid #e0e0e0;
-      padding-bottom: 0.3rem;
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
+      color: var(--color-texto-claro);
     }
 
     .boton {
-      display: inline-block;
-      padding: 0.7rem 1.3rem;
-      background-color: var(--color-primario);
+      display: block;
+      padding: 0.6rem 1.2rem;
+      background: var(--color-primario);
       color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      margin: 1.5rem auto;
-      transition: all 0.3s ease;
+      border-radius: 4px;
+      font-weight: 600;
       text-align: center;
-      width: 80%;
+      transition: background 0.3s ease;
+      margin: 1.5rem auto;
+      width: 100%;
       max-width: 250px;
+      text-decoration: none;
     }
 
     .boton:hover {
-      background-color: var(--color-secundario);
+      background: var(--color-secundario);
       transform: translateY(-2px);
     }
 
-    @media (min-width: 768px) {
+    .ejes-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .eje {
+      background-color: rgba(46, 125, 50, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--color-secundario);
+    }
+
+    /* RESPONSIVE PARA TABLETS */
+    @media (min-width: 600px) {
+      :root {
+        --header-height: 75px;
+      }
+      
+      header h1 {
+        font-size: 1.6rem;
+      }
+      
+      nav a {
+        font-size: 0.9rem;
+      }
+      
       main {
-        max-width: 800px;
-        margin: 90px auto 3rem;
-        padding: 2rem;
+        padding: calc(var(--header-height) + 1.5rem) 1.5rem 2rem;
+        max-width: 90%;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
       }
-
+      
       h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
-
+      
       h2 {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
       }
-
+      
       .foto-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
       }
 
@@ -202,7 +344,7 @@
         height: 180px;
       }
 
-      /* Efectos de rotación para desktop (más pronunciados) */
+      /* Efectos de rotación para desktop */
       .foto-item:nth-child(1) {
         transform: rotate(-5deg);
       }
@@ -215,17 +357,56 @@
         transform: rotate(-2deg) translateY(15px);
       }
 
-      .foto-item:nth-child(4) {
-        transform: rotate(4deg) translateY(20px);
-      }
-
       .proyecto-estadisticas {
         flex-direction: row;
         gap: 2rem;
       }
+
+      .ejes-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
-    @media (min-width: 992px) {
+    /* RESPONSIVE PARA ESCRITORIO */
+    @media (min-width: 900px) {
+      :root {
+        --header-height: 90px;
+      }
+      
+      header {
+        padding: 1rem 2rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+        text-align: left;
+      }
+      
+      nav {
+        margin-top: 0;
+      }
+      
+      nav a {
+        margin-right: 1.5rem;
+        font-size: 1rem;
+      }
+      
+      main {
+        max-width: 900px;
+        padding: calc(var(--header-height) + 2rem) 2rem 3rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
       .foto-item {
         height: 200px;
       }
@@ -234,43 +415,313 @@
 </head>
 <body>
 
-  <main class="proyecto-detalle">
-    <div class="bloque">
-      <h1>Sendero Joven</h1>
+<!-- Selector de idioma -->
+<div class="language-selector">
+  <select id="languageSelector">
+    <option value="es">🇪🇸 Español</option>
+    <option value="en">🇬🇧 English</option>
+    <option value="pt">🇧🇷 Português</option>
+    <option value="it">🇮🇹 Italiano</option>
+  </select>
+</div>
+
+<header>
+  <h1 data-i18n="header.title">SOMOS BAMBÚ</h1>
+  <nav>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#home" data-i18n="nav.home">Home</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#acerca" data-i18n="nav.about">Acerca</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#equipo" data-i18n="nav.team">Equipo</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#partners" data-i18n="nav.partners">Partners</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" data-i18n="nav.projects">Proyectos</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#blog" data-i18n="nav.blog">Blog</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#contacto" data-i18n="nav.contact">Contacto</a>
+  </nav>
+</header>
+
+<main class="proyecto-detalle">
+  <div class="bloque">
+    <h1 data-i18n="project.title">Sendero Joven</h1>
+    
+    <div class="proyecto-galeria">
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/senderojoven.jpg" alt="Jóvenes participando en taller de Sendero Joven" loading="lazy">
       
-      <div class="proyecto-galeria">
-        <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/senderojoven.jpg" alt="Salto en Alto" loading="lazy">
-        
-        <!-- Galería de fotos desordenadas -->
-        <div class="foto-grid">
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/senderojoven.jpg" alt="vuelo mariposa">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/sj1.jpg" alt="grupo operativo">
-          </div>
-          </div>
-      </div>
-      
-      <div class="proyecto-contenido">
-        <h2>Impacto:</h2>
-        <p>Sendero Joven<br>
-          <br>
-Un camino de crecimiento humano y espiritual para jóvenes<br>
-Sendero Joven es una propuesta formativa impulsada por el Movimiento de los Focolares (Argentina) y la oficina de proyectos Sumá Fraternidad, destinada a acompañar a adolescentes y jóvenes en la construcción de un proyecto de vida consciente, libre y profundamente humano.<br>
-<br>
-A través de 70 talleres interactivos —35 de desarrollo humano y 35 de espiritualidad— distribuidos en cuatro ejes temáticos (Identidad, Relaciones y Conflictos, Ética y Comunicación, y Elecciones de vida), el programa invita a los jóvenes a convertirse en protagonistas de su propio camino, integrando su dimensión psicoafectiva, social, espiritual, política y laboral.<br>
-<br>
-Cada actividad parte de las experiencias concretas de los participantes, promoviendo un aprendizaje activo, reflexivo y colectivo. Se abordan temáticas claves como autoestima, vínculos, toma de decisiones, sentido de la vida, ciudadanía, trabajo y espiritualidad, siempre en diálogo con los desafíos de la realidad.<br>
-<br>
-El recorrido también incluye producciones creativas, espacios de retiro, acompañamiento de tutores y una sólida estructura de evaluación del impacto del proceso formativo.<br>
-<br>
-Actualmente, Sendero Joven está activo en varias comunidades de Argentina y Uruguay, generando redes de fraternidad, resiliencia y transformación.</p>
-        
-        <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" class="boton">Volver a proyectos</a>
+      <div class="foto-grid">
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/sj1.jpg" alt="Grupo de jóvenes trabajando en equipo">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/senderojoven.jpg" alt="Dinámica grupal de Sendero Joven">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/senderojoven.jpg" alt="Jóvenes reflexionando en taller">
+        </div>
       </div>
     </div>
-  </main>
+    
+    <div class="proyecto-contenido">
+      <h2 data-i18n="project.impact">SENDERO JOVEN</h2>
+      <p data-i18n="project.description1">Sendero Joven es una propuesta formativa impulsada por el Movimiento de los Focolares (Argentina) y la oficina de proyectos Sumá Fraternidad, destinada a acompañar a adolescentes y jóvenes en la construcción de un proyecto de vida consciente, libre y profundamente humano.</p>
+      
+      <div class="proyecto-estadisticas">
+        <div class="estadistica">
+          <span class="numero">70+</span>
+          <span data-i18n="project.stats1">Talleres realizados</span>
+        </div>
+        <div class="estadistica">
+          <span class="numero">4</span>
+          <span data-i18n="project.stats2">Ejes temáticos</span>
+        </div>
+        <div class="estadistica">
+          <span class="numero">2</span>
+          <span data-i18n="project.stats3">Países involucrados</span>
+        </div>
+      </div>
+      
+      <h3 data-i18n="project.methodology">Nuestra metodología</h3>
+      <p data-i18n="project.description2">El programa se desarrolla a través de 70 talleres interactivos —35 de desarrollo humano y 35 de espiritualidad— distribuidos en cuatro ejes temáticos fundamentales:</p>
+      
+      <div class="ejes-container">
+        <div class="eje">
+          <h4 data-i18n="project.axis1">Identidad</h4>
+          <p data-i18n="project.axis1desc">Autoestima, autoconocimiento y construcción de la personalidad.</p>
+        </div>
+        <div class="eje">
+          <h4 data-i18n="project.axis2">Relaciones y Conflictos</h4>
+          <p data-i18n="project.axis2desc">Vínculos saludables, manejo de emociones y resolución de conflictos.</p>
+        </div>
+        <div class="eje">
+          <h4 data-i18n="project.axis3">Ética y Comunicación</h4>
+          <p data-i18n="project.axis3desc">Valores, toma de decisiones y comunicación efectiva.</p>
+        </div>
+        <div class="eje">
+          <h4 data-i18n="project.axis4">Elecciones de vida</h4>
+          <p data-i18n="project.axis4desc">Sentido de vida, ciudadanía activa y proyecto personal.</p>
+        </div>
+      </div>
+      
+      <h3 data-i18n="project.features">Características del programa</h3>
+      <ul>
+        <li data-i18n="project.feature1">Aprendizaje activo basado en experiencias concretas</li>
+        <li data-i18n="project.feature2">Enfoque integral (psicoafectivo, social, espiritual)</li>
+        <li data-i18n="project.feature3">Producciones creativas y espacios de retiro</li>
+        <li data-i18n="project.feature4">Acompañamiento personalizado de tutores</li>
+        <li data-i18n="project.feature5">Evaluación continua del impacto formativo</li>
+      </ul>
+      
+      <blockquote data-i18n="project.quote">
+        "Sendero Joven me ayudó a descubrir quién soy y qué quiero para mi vida. Ahora tengo herramientas para tomar mejores decisiones."
+      </blockquote>
+      
+      <p data-i18n="project.description3">Actualmente, Sendero Joven está activo en varias comunidades de Argentina y Uruguay, generando redes de fraternidad, resiliencia y transformación social.</p>
+      
+      <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" class="boton" data-i18n="project.back">Volver a proyectos</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p data-i18n="footer.copyright">© 2023 Somos Bambú. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  // Textos en todos los idiomas
+  const translations = {
+    "es": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Home",
+      "nav.about": "Acerca",
+      "nav.team": "Equipo",
+      "nav.partners": "Partners",
+      "nav.projects": "Proyectos",
+      "nav.blog": "Blog",
+      "nav.contact": "Contacto",
+      
+      // Proyecto Sendero Joven
+      "project.title": "Sendero Joven",
+      "project.impact": "SENDERO JOVEN",
+      "project.description1": "Sendero Joven es una propuesta formativa impulsada por el Movimiento de los Focolares (Argentina) y la oficina de proyectos Sumá Fraternidad, destinada a acompañar a adolescentes y jóvenes en la construcción de un proyecto de vida consciente, libre y profundamente humano.",
+      "project.description2": "El programa se desarrolla a través de 70 talleres interactivos —35 de desarrollo humano y 35 de espiritualidad— distribuidos en cuatro ejes temáticos fundamentales:",
+      "project.description3": "Actualmente, Sendero Joven está activo en varias comunidades de Argentina y Uruguay, generando redes de fraternidad, resiliencia y transformación social.",
+      "project.methodology": "Nuestra metodología",
+      "project.features": "Características del programa",
+      "project.stats1": "Talleres realizados",
+      "project.stats2": "Ejes temáticos",
+      "project.stats3": "Países involucrados",
+      "project.axis1": "Identidad",
+      "project.axis1desc": "Autoestima, autoconocimiento y construcción de la personalidad.",
+      "project.axis2": "Relaciones y Conflictos",
+      "project.axis2desc": "Vínculos saludables, manejo de emociones y resolución de conflictos.",
+      "project.axis3": "Ética y Comunicación",
+      "project.axis3desc": "Valores, toma de decisiones y comunicación efectiva.",
+      "project.axis4": "Elecciones de vida",
+      "project.axis4desc": "Sentido de vida, ciudadanía activa y proyecto personal.",
+      "project.feature1": "Aprendizaje activo basado en experiencias concretas",
+      "project.feature2": "Enfoque integral (psicoafectivo, social, espiritual)",
+      "project.feature3": "Producciones creativas y espacios de retiro",
+      "project.feature4": "Acompañamiento personalizado de tutores",
+      "project.feature5": "Evaluación continua del impacto formativo",
+      "project.quote": "\"Sendero Joven me ayudó a descubrir quién soy y qué quiero para mi vida. Ahora tengo herramientas para tomar mejores decisiones.\"",
+      "project.back": "Volver a proyectos",
+      
+      // Footer
+      "footer.copyright": "© 2023 Somos Bambú. Todos los derechos reservados."
+    },
+    "en": {
+      // Navigation
+      "header.title": "WE ARE BAMBOO",
+      "nav.home": "Home",
+      "nav.about": "About",
+      "nav.team": "Team",
+      "nav.partners": "Partners",
+      "nav.projects": "Projects",
+      "nav.blog": "Blog",
+      "nav.contact": "Contact",
+      
+      // Youth Path Project
+      "project.title": "Youth Path",
+      "project.impact": "YOUTH PATH",
+      "project.description1": "Youth Path is an educational initiative promoted by the Focolare Movement (Argentina) and the Sumá Fraternidad project office, designed to accompany adolescents and young people in building a conscious, free and profoundly human life project.",
+      "project.description2": "The program is developed through 70 interactive workshops —35 on human development and 35 on spirituality— distributed across four fundamental thematic areas:",
+      "project.description3": "Currently, Youth Path is active in several communities in Argentina and Uruguay, creating networks of fraternity, resilience and social transformation.",
+      "project.methodology": "Our methodology",
+      "project.features": "Program features",
+      "project.stats1": "Workshops conducted",
+      "project.stats2": "Thematic areas",
+      "project.stats3": "Countries involved",
+      "project.axis1": "Identity",
+      "project.axis1desc": "Self-esteem, self-knowledge and personality development.",
+      "project.axis2": "Relationships and Conflicts",
+      "project.axis2desc": "Healthy relationships, emotional management and conflict resolution.",
+      "project.axis3": "Ethics and Communication",
+      "project.axis3desc": "Values, decision making and effective communication.",
+      "project.axis4": "Life Choices",
+      "project.axis4desc": "Life purpose, active citizenship and personal project.",
+      "project.feature1": "Active learning based on concrete experiences",
+      "project.feature2": "Comprehensive approach (psycho-affective, social, spiritual)",
+      "project.feature3": "Creative productions and retreat spaces",
+      "project.feature4": "Personalized tutor accompaniment",
+      "project.feature5": "Continuous evaluation of formative impact",
+      "project.quote": "\"Youth Path helped me discover who I am and what I want for my life. Now I have tools to make better decisions.\"",
+      "project.back": "Back to projects",
+      
+      // Footer
+      "footer.copyright": "© 2023 We are Bamboo. All rights reserved."
+    },
+    "pt": {
+      // Navegação
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Início",
+      "nav.about": "Sobre",
+      "nav.team": "Equipe",
+      "nav.partners": "Parceiros",
+      "nav.projects": "Projetos",
+      "nav.blog": "Blog",
+      "nav.contact": "Contato",
+      
+      // Projeto Caminho Jovem
+      "project.title": "Caminho Jovem",
+      "project.impact": "CAMINHO JOVEM",
+      "project.description1": "Caminho Jovem é uma proposta formativa promovida pelo Movimento dos Focolares (Argentina) e pelo escritório de projetos Sumá Fraternidad, destinada a acompanhar adolescentes e jovens na construção de um projeto de vida consciente, livre e profundamente humano.",
+      "project.description2": "O programa se desenvolve através de 70 oficinas interativas —35 de desenvolvimento humano e 35 de espiritualidade— distribuídas em quatro eixos temáticos fundamentais:",
+      "project.description3": "Atualmente, o Caminho Jovem está ativo em várias comunidades da Argentina e Uruguai, gerando redes de fraternidade, resiliência e transformação social.",
+      "project.methodology": "Nossa metodologia",
+      "project.features": "Características do programa",
+      "project.stats1": "Oficinas realizadas",
+      "project.stats2": "Eixos temáticos",
+      "project.stats3": "Países envolvidos",
+      "project.axis1": "Identidade",
+      "project.axis1desc": "Autoestima, autoconhecimento e construção da personalidade.",
+      "project.axis2": "Relações e Conflitos",
+      "project.axis2desc": "Vínculos saudáveis, manejo de emoções e resolução de conflitos.",
+      "project.axis3": "Ética e Comunicação",
+      "project.axis3desc": "Valores, tomada de decisões e comunicação efetiva.",
+      "project.axis4": "Escolhas de vida",
+      "project.axis4desc": "Sentido da vida, cidadania ativa e projeto pessoal.",
+      "project.feature1": "Aprendizagem ativa baseada em experiências concretas",
+      "project.feature2": "Abordagem integral (psicoafetiva, social, espiritual)",
+      "project.feature3": "Produções criativas e espaços de retiro",
+      "project.feature4": "Acompanhamento personalizado de tutores",
+      "project.feature5": "Avaliação contínua do impacto formativo",
+      "project.quote": "\"O Caminho Jovem me ajudou a descobrir quem sou e o que quero para minha vida. Agora tenho ferramentas para tomar melhores decisões.\"",
+      "project.back": "Voltar aos projetos",
+      
+      // Footer
+      "footer.copyright": "© 2023 Somos Bambú. Todos os direitos reservados."
+    },
+    "it": {
+      // Navigazione
+      "header.title": "SOMOS BAMBÙ",
+      "nav.home": "Home",
+      "nav.about": "Chi siamo",
+      "nav.team": "Team",
+      "nav.partners": "Partner",
+      "nav.projects": "Progetti",
+      "nav.blog": "Blog",
+      "nav.contact": "Contatto",
+      
+      // Progetto Sentiero Giovani
+      "project.title": "Sentiero Giovani",
+      "project.impact": "SENTIERO GIOVANI",
+      "project.description1": "Sentiero Giovani è una proposta formativa promossa dal Movimento dei Focolari (Argentina) e dall'ufficio progetti Sumá Fraternidad, destinata ad accompagnare adolescenti e giovani nella costruzione di un progetto di vita consapevole, libero e profondamente umano.",
+      "project.description2": "Il programma si sviluppa attraverso 70 workshop interattivi —35 di sviluppo umano e 35 di spiritualità— distribuiti in quattro assi tematici fondamentali:",
+      "project.description3": "Attualmente, Sentiero Giovani è attivo in diverse comunità in Argentina e Uruguay, creando reti di fraternità, resilienza e trasformazione sociale.",
+      "project.methodology": "La nostra metodologia",
+      "project.features": "Caratteristiche del programma",
+      "project.stats1": "Workshop realizzati",
+      "project.stats2": "Assi tematici",
+      "project.stats3": "Paesi coinvolti",
+      "project.axis1": "Identità",
+      "project.axis1desc": "Autostima, conoscenza di sé e costruzione della personalità.",
+      "project.axis2": "Relazioni e Conflitti",
+      "project.axis2desc": "Relazioni sane, gestione delle emozioni e risoluzione dei conflitti.",
+      "project.axis3": "Etica e Comunicazione",
+      "project.axis3desc": "Valori, processo decisionale e comunicazione efficace.",
+      "project.axis4": "Scelte di vita",
+      "project.axis4desc": "Senso della vita, cittadinanza attiva e progetto personale.",
+      "project.feature1": "Apprendimento attivo basato su esperienze concrete",
+      "project.feature2": "Approccio integrale (psico-affettivo, sociale, spirituale)",
+      "project.feature3": "Produzioni creative e spazi di ritiro",
+      "project.feature4": "Accompagnamento personalizzato di tutor",
+      "project.feature5": "Valutazione continua dell'impatto formativo",
+      "project.quote": "\"Sentiero Giovani mi ha aiutato a scoprire chi sono e cosa voglio nella vita. Ora ho strumenti per prendere decisioni migliori.\"",
+      "project.back": "Torna ai progetti",
+      
+      // Footer
+      "footer.copyright": "© 2023 Somos Bambù. Tutti i diritti riservati."
+    }
+  };
+
+  // Función para cambiar idioma
+  function changeLanguage(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        element.textContent = translations[lang][key];
+      }
+    });
+    
+    // Cambiar el idioma del HTML
+    document.documentElement.lang = lang;
+    
+    // Actualizar el selector
+    document.getElementById('languageSelector').value = lang;
+  }
+
+  // Evento al cambiar el selector
+  document.getElementById('languageSelector').addEventListener('change', (e) => {
+    changeLanguage(e.target.value);
+    
+    // Guardar preferencia en localStorage
+    localStorage.setItem('preferredLanguage', e.target.value);
+  });
+
+  // Cargar idioma preferido al inicio
+  const preferredLanguage = localStorage.getItem('preferredLanguage') || 'es';
+  changeLanguage(preferredLanguage);
+  document.getElementById('languageSelector').value = preferredLanguage;
+</script>
 
 </body>
 </html>

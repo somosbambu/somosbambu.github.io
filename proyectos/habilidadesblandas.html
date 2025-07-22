@@ -4,8 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Habilidades Blandas (foco en el Trabajo) - Somos Bambú</title>
-  <meta name="description" content="Formaci{on en Habilidades Blandas">
-  <!-- Fuentes y estilos de Somos Bambú -->
+  <!-- Meta Tags SEO -->
+  <meta name="description" content="Formación en Habilidades Blandas">
+  <meta property="og:title" content="Habilidades Blandas - Somos Bambú">
+  <meta property="og:description" content="Formación en Habilidades Blandas">
+  <meta property="og:image" content="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/habilidadesblandas.png">
+  <meta property="og:url" content="https://somosbambu.github.io/habilidadesblandas.html">
+  <!-- Favicon -->
+  <link rel="icon" href="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/bambu_logo.avif" type="image/avif">
+  <!-- Fuentes de Google -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -14,39 +21,183 @@
       --color-acento: #f5f5f5;
       --color-texto: #333;
       --color-texto-claro: #444;
+      --header-height: 70px;
     }
     
-    /* Fondo asegurado */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0; 
+      padding: 0;
+      line-height: 1.6;
+      color: var(--color-texto);
+      scroll-behavior: smooth;
       background-image: url(https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/fondo.jpg);
       background-size: cover;
       background-position: center;
-      z-index: -1;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Open Sans', sans-serif;
+    /* SOLUCIÓN PARA EL SCROLL DE ANCLAS */
+    section {
+      scroll-margin-top: var(--header-height);
+      position: relative;
+    }
+    
+    section::before {
+      content: '';
+      display: block;
+      height: calc(var(--header-height) + 10px);
+      margin-top: calc(-1 * var(--header-height));
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* JERARQUÍA TIPOGRÁFICA */
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-primario);
+      margin-bottom: 1rem;
+    }
+    
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--color-primario);
+      margin: 0.5rem 0 1rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.3rem;
+    }
+    
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #2c3e50;
+      margin: 1.2rem 0 0.5rem;
+    }
+    
+    h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--color-primario);
+      margin: 1rem 0 0.5rem;
+    }
+    
+    p {
+      font-size: 1rem;
       line-height: 1.6;
+      margin-bottom: 1rem;
+      color: var(--color-texto-claro);
+    }
+
+    /* ESTRUCTURA */
+    header {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      right: 0;
+      height: var(--header-height);
+      background-color: var(--color-primario);
+      color: white;
+      padding: 0.8rem 1rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      letter-spacing: 0.3px;
+      margin: 0;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: opacity 0.3s;
+      padding: 0.2rem 0;
+    }
+
+    nav a:hover {
+      opacity: 0.9;
+      text-decoration: underline;
     }
 
     main {
+      padding: calc(var(--header-height) + 1rem) 1rem 2rem;
       max-width: 100%;
-      margin: 70px 15px 20px;
-      padding: 15px;
+      margin: 0;
       background-color: rgba(255, 255, 255, 0.95);
-      border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-radius: 0;
+      box-shadow: none;
     }
 
-    /* Galería de fotos desordenadas - Versión móvil mejorada */
+    .bloque {
+      margin-top: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid #e0e0e0;
+    }
+
+    /* Selector de idioma */
+    .language-selector {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1001;
+      background: white;
+      padding: 5px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .language-selector select {
+      padding: 3px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 0.8rem;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #f8f8f8;
+      color: #555;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* Estilos específicos del proyecto */
+    .proyecto-detalle {
+      padding-top: 0.5rem;
+    }
+    
+    .proyecto-galeria img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    
+    /* Galería de fotos desordenadas */
     .foto-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -61,7 +212,7 @@
       overflow: hidden;
     }
 
-    /* Efectos de rotación para móviles (más sutiles) */
+    /* Efectos de rotación para móviles */
     .foto-item:nth-child(1) {
       transform: rotate(-3deg);
       z-index: 1;
@@ -95,21 +246,6 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       border: 5px solid white;
     }
-
-    /* Ocultar el breadcrumb */
-    .breadcrumb {
-      display: none;
-    }
-    
-    .proyecto-detalle {
-      padding-top: 0.5rem;
-    }
-    
-    .proyecto-galeria img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
     
     .proyecto-estadisticas {
       display: flex;
@@ -136,63 +272,56 @@
       margin: 1.5rem 0;
     }
 
-    h1, h2 {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--color-primario);
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin: 1.5rem 0 0.8rem;
-      border-bottom: 1px solid #e0e0e0;
-      padding-bottom: 0.3rem;
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
     .boton {
-      display: inline-block;
-      padding: 0.7rem 1.3rem;
-      background-color: var(--color-primario);
+      display: block;
+      padding: 0.6rem 1.2rem;
+      background: var(--color-primario);
       color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      margin: 1.5rem auto;
-      transition: all 0.3s ease;
+      border-radius: 4px;
+      font-weight: 600;
       text-align: center;
-      width: 80%;
+      transition: background 0.3s ease;
+      margin: 1.5rem auto;
+      width: 100%;
       max-width: 250px;
+      text-decoration: none;
     }
 
     .boton:hover {
-      background-color: var(--color-secundario);
+      background: var(--color-secundario);
       transform: translateY(-2px);
     }
 
-    @media (min-width: 768px) {
+    /* RESPONSIVE PARA TABLETS */
+    @media (min-width: 600px) {
+      :root {
+        --header-height: 75px;
+      }
+      
+      header h1 {
+        font-size: 1.6rem;
+      }
+      
+      nav a {
+        font-size: 0.9rem;
+      }
+      
       main {
-        max-width: 800px;
-        margin: 90px auto 3rem;
-        padding: 2rem;
+        padding: calc(var(--header-height) + 1.5rem) 1.5rem 2rem;
+        max-width: 90%;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
       }
-
+      
       h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
-
+      
       h2 {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
       }
-
+      
       .foto-grid {
         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
@@ -202,7 +331,7 @@
         height: 180px;
       }
 
-      /* Efectos de rotación para desktop (más pronunciados) */
+      /* Efectos de rotación para desktop */
       .foto-item:nth-child(1) {
         transform: rotate(-5deg);
       }
@@ -225,7 +354,46 @@
       }
     }
 
-    @media (min-width: 992px) {
+    /* RESPONSIVE PARA ESCRITORIO */
+    @media (min-width: 900px) {
+      :root {
+        --header-height: 90px;
+      }
+      
+      header {
+        padding: 1rem 2rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+        text-align: left;
+      }
+      
+      nav {
+        margin-top: 0;
+      }
+      
+      nav a {
+        margin-right: 1.5rem;
+        font-size: 1rem;
+      }
+      
+      main {
+        max-width: 900px;
+        padding: calc(var(--header-height) + 2rem) 2rem 3rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
       .foto-item {
         height: 200px;
       }
@@ -234,46 +402,201 @@
 </head>
 <body>
 
-  <main class="proyecto-detalle">
-    <div class="bloque">
-      <h1>Habilidades Blandas (foco en el Trabajo)</h1>
-      
-      <div class="proyecto-galeria">
-        <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/habilidadesblandas.png" alt="Habilidades Blandas" loading="lazy">
-        
-        <!-- Galería de fotos desordenadas -->
-        <div class="foto-grid">
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/habilidadesblandas.png" alt="jovenes trabajandos desentendidos">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/hb1.png" alt="tecnicos cascos conversando">
-          </div>
-                    <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/hb2.png" alt="reunion formativa">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/hb3.png" alt="reunion de trabajo">
-          </div>
+<!-- Selector de idioma -->
+<div class="language-selector">
+  <select id="languageSelector">
+    <option value="es">🇪🇸 Español</option>
+    <option value="it">🇮🇹 Italiano</option>
+    <option value="pt">🇧🇷 Português</option>
+    <option value="en">🇬🇧 English</option>
+  </select>
+</div>
 
-          </div>
-      </div>
+<header>
+  <h1 data-i18n="header.title">SOMOS BAMBÚ</h1>
+  <nav>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#home" data-i18n="nav.home">Home</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#acerca" data-i18n="nav.about">Acerca</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#equipo" data-i18n="nav.team">Equipo</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#partners" data-i18n="nav.partners">Partners</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" data-i18n="nav.projects">Proyectos</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#blog" data-i18n="nav.blog">Blog</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#contacto" data-i18n="nav.contact">Contacto</a>
+  </nav>
+</header>
+
+<main class="proyecto-detalle">
+  <div class="bloque">
+    <h1 data-i18n="project.title">Habilidades Blandas (foco en el Trabajo)</h1>
+    
+    <div class="proyecto-galeria">
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/habilidadesblandas.png" alt="Habilidades Blandas" loading="lazy">
       
-      <div class="proyecto-contenido">
-        <h2>Impacto:</h2>
-        <p>Habilidades Blandas (foco en el Trabajo)<br>
-          <br>
-En un mundo laboral cada vez más acelerado y atravesado por la tecnología, muchas de las habilidades humanas que hacen posible un entorno sano, colaborativo y productivo tienden a quedar relegadas.<br>
-<br>
-Desde Bambú, desarrollamos una serie de talleres de competencias socioemocionales con foco en el ámbito laboral, pensados para trabajadores de distintos sectores —industria, construcción, servicios, y más—, adaptándonos a las realidades concretas de cada empresa.<br>
-Estos talleres buscan recuperar y fortalecer habilidades como la comunicación empática, la gestión emocional, el trabajo en equipo y la resolución de conflictos. Porque estamos convencidos de que un mejor clima de trabajo no solo mejora el bienestar individual, sino que también se traduce en mayor compromiso, rendimiento y productividad.<br>
-<br>
-Más que una capacitación, proponemos una experiencia que humaniza el trabajo y transforma los vínculos, generando espacios donde cada persona pueda sentirse valorada y reconocida en su aporte.</p>
-        
-        <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" class="boton">Volver a proyectos</a>
+      <!-- Galería de fotos desordenadas -->
+      <div class="foto-grid">
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/habilidadesblandas.png" alt="Jóvenes trabajando">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/hb1.png" alt="Técnicos con cascos conversando">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/hb2.png" alt="Reunión formativa">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/hb3.png" alt="Reunión de trabajo">
+        </div>
       </div>
     </div>
-  </main>
+    
+    <div class="proyecto-contenido">
+      <h2 data-i18n="project.impact">Habilidades Blandas</h2>
+      <p data-i18n="project.description1">Habilidades Blandas (foco en el Trabajo)</p>
+      <p data-i18n="project.description2">En un mundo laboral cada vez más acelerado y atravesado por la tecnología, muchas de las habilidades humanas que hacen posible un entorno sano, colaborativo y productivo tienden a quedar relegadas.</p>
+      <p data-i18n="project.description3">Desde Bambú, desarrollamos una serie de talleres de competencias socioemocionales con foco en el ámbito laboral, pensados para trabajadores de distintos sectores —industria, construcción, servicios, y más—, adaptándonos a las realidades concretas de cada empresa.</p>
+      <p data-i18n="project.description4">Estos talleres buscan recuperar y fortalecer habilidades como la comunicación empática, la gestión emocional, el trabajo en equipo y la resolución de conflictos. Porque estamos convencidos de que un mejor clima de trabajo no solo mejora el bienestar individual, sino que también se traduce en mayor compromiso, rendimiento y productividad.</p>
+      <p data-i18n="project.description5">Más que una capacitación, proponemos una experiencia que humaniza el trabajo y transforma los vínculos, generando espacios donde cada persona pueda sentirse valorada y reconocida en su aporte.</p>
+      
+      <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" class="boton" data-i18n="project.back">Volver a proyectos</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p data-i18n="footer.copyright">© 2025 Somos Bambú. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  // Textos en todos los idiomas
+  const translations = {
+    "es": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Home",
+      "nav.about": "Acerca",
+      "nav.team": "Equipo",
+      "nav.partners": "Partners",
+      "nav.projects": "Proyectos",
+      "nav.blog": "Blog",
+      "nav.contact": "Contacto",
+      
+      // Proyecto Habilidades Blandas
+      "project.title": "Habilidades Blandas (foco en el Trabajo)",
+      "project.impact": "Habilidades Blandas",
+      "project.description1": "Habilidades Blandas (foco en el Trabajo)",
+      "project.description2": "En un mundo laboral cada vez más acelerado y atravesado por la tecnología, muchas de las habilidades humanas que hacen posible un entorno sano, colaborativo y productivo tienden a quedar relegadas.",
+      "project.description3": "Desde Bambú, desarrollamos una serie de talleres de competencias socioemocionales con foco en el ámbito laboral, pensados para trabajadores de distintos sectores —industria, construcción, servicios, y más—, adaptándonos a las realidades concretas de cada empresa.",
+      "project.description4": "Estos talleres buscan recuperar y fortalecer habilidades como la comunicación empática, la gestión emocional, el trabajo en equipo y la resolución de conflictos. Porque estamos convencidos de que un mejor clima de trabajo no solo mejora el bienestar individual, sino que también se traduce en mayor compromiso, rendimiento y productividad.",
+      "project.description5": "Más que una capacitación, proponemos una experiencia que humaniza el trabajo y transforma los vínculos, generando espacios donde cada persona pueda sentirse valorada y reconocida en su aporte.",
+      "project.back": "Volver a proyectos",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. Todos los derechos reservados."
+    },
+    "it": {
+      // Navegación
+      "header.title": "SOMOS BAMBÙ",
+      "nav.home": "Home",
+      "nav.about": "Chi siamo",
+      "nav.team": "Team",
+      "nav.partners": "Partner",
+      "nav.projects": "Progetti",
+      "nav.blog": "Blog",
+      "nav.contact": "Contatto",
+      
+      // Progetto Soft Skills
+      "project.title": "Competenze Trasversali (focus sul Lavoro)",
+      "project.impact": "Competenze Trasversali",
+      "project.description1": "Soft Skills (focus sul Lavoro)",
+      "project.description2": "In un mondo del lavoro sempre più accelerato e attraversato dalla tecnologia, molte delle abilità umane che rendono possibile un ambiente sano, collaborativo e produttivo tendono a essere trascurate.",
+      "project.description3": "Da Bambú, sviluppiamo una serie di laboratori di competenze socio-emotive focalizzati sull'ambito lavorativo, pensati per lavoratori di diversi settori - industria, costruzioni, servizi e altro - adattandoci alle realtà concrete di ogni azienda.",
+      "project.description4": "Questi laboratori mirano a recuperare e rafforzare abilità come la comunicazione empatica, la gestione emotiva, il lavoro di squadra e la risoluzione dei conflitti. Perché siamo convinti che un migliore clima lavorativo non solo migliori il benessere individuale, ma si traduca anche in maggiore impegno, rendimento e produttività.",
+      "project.description5": "Più che una formazione, proponiamo un'esperienza che umanizza il lavoro e trasforma i legami, creando spazi in cui ogni persona possa sentirsi valorizzata e riconosciuta nel suo contributo.",
+      "project.back": "Torna ai progetti",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambù. Tutti i diritti riservati."
+    },
+    "pt": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Início",
+      "nav.about": "Sobre",
+      "nav.team": "Equipe",
+      "nav.partners": "Parceiros",
+      "nav.projects": "Projetos",
+      "nav.blog": "Blog",
+      "nav.contact": "Contato",
+      
+      // Projeto Habilidades Sociais
+      "project.title": "Habilidades Sociais (foco no Trabalho)",
+      "project.impact": "Habilidades socioemocionais",
+      "project.description1": "Habilidades Sociais (foco no Trabalho)",
+      "project.description2": "Em um mundo do trabalho cada vez mais acelerado e atravessado pela tecnologia, muitas das habilidades humanas que tornam possível um ambiente saudável, colaborativo e produtivo tendem a ficar relegadas.",
+      "project.description3": "Desde Bambú, desenvolvemos uma série de oficinas de competências socioemocionais com foco no ambiente de trabalho, pensadas para trabalhadores de diferentes setores - indústria, construção, serviços e mais - adaptando-nos às realidades concretas de cada empresa.",
+      "project.description4": "Estas oficinas buscam recuperar e fortalecer habilidades como a comunicação empática, a gestão emocional, o trabalho em equipe e a resolução de conflitos. Porque estamos convencidos de que um melhor clima de trabalho não só melhora o bem-estar individual, mas também se traduz em maior comprometimento, desempenho e produtividade.",
+      "project.description5": "Mais do que um treinamento, propomos uma experiência que humaniza o trabalho e transforma os vínculos, gerando espaços onde cada pessoa possa se sentir valorizada e reconhecida em sua contribuição.",
+      "project.back": "Voltar a projetos",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. Todos os direitos reservados."
+    },
+    "en": {
+      // Navegación
+      "header.title": "WE ARE BAMBOO",
+      "nav.home": "Home",
+      "nav.about": "About",
+      "nav.team": "Team",
+      "nav.partners": "Partners",
+      "nav.projects": "Projects",
+      "nav.blog": "Blog",
+      "nav.contact": "Contact",
+      
+      // Project Soft Skills
+      "project.title": "Soft Skills (Work Focus)",
+      "project.impact": "Soft Skills",
+      "project.description1": "Soft Skills (Work Focus)",
+      "project.description2": "In an increasingly fast-paced work world shaped by technology, many of the human skills that make possible a healthy, collaborative and productive environment tend to be neglected.",
+      "project.description3": "From Bambú, we develop a series of socio-emotional skills workshops focused on the workplace, designed for workers in different sectors - industry, construction, services, and more - adapting to the specific realities of each company.",
+      "project.description4": "These workshops seek to recover and strengthen skills such as empathetic communication, emotional management, teamwork and conflict resolution. Because we are convinced that a better work environment not only improves individual well-being, but also translates into greater commitment, performance and productivity.",
+      "project.description5": "More than training, we propose an experience that humanizes work and transforms relationships, creating spaces where each person can feel valued and recognized for their contribution.",
+      "project.back": "Back to projects",
+      
+      // Footer
+      "footer.copyright": "© 2025 We are Bamboo. All rights reserved."
+    }
+  };
+
+  // Función para cambiar idioma
+  function changeLanguage(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        element.textContent = translations[lang][key];
+      }
+    });
+    
+    // Cambiar el idioma del HTML
+    document.documentElement.lang = lang;
+    
+    // Actualizar el selector
+    document.getElementById('languageSelector').value = lang;
+  }
+
+  // Evento al cambiar el selector
+  document.getElementById('languageSelector').addEventListener('change', (e) => {
+    changeLanguage(e.target.value);
+    
+    // Guardar preferencia en localStorage
+    localStorage.setItem('preferredLanguage', e.target.value);
+  });
+
+  // Cargar idioma preferido al inicio
+  const preferredLanguage = localStorage.getItem('preferredLanguage') || 'es';
+  changeLanguage(preferredLanguage);
+  document.getElementById('languageSelector').value = preferredLanguage;
+</script>
 
 </body>
 </html>

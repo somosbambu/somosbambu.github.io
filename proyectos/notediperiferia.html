@@ -4,8 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Note di Periferia - Somos Bambú</title>
+  <!-- Meta Tags SEO -->
   <meta name="description" content="Programa de educación al arte">
-  <!-- Fuentes y estilos de Somos Bambú -->
+  <meta property="og:title" content="Note di Periferia - Somos Bambú">
+  <meta property="og:description" content="Programa de educación al arte">
+  <meta property="og:image" content="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/noteperiferia.jpg">
+  <meta property="og:url" content="https://somosbambu.github.io/notediperiferia.html">
+  <!-- Favicon -->
+  <link rel="icon" href="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/bambu_logo.avif" type="image/avif">
+  <!-- Fuentes de Google -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -14,40 +21,183 @@
       --color-acento: #f5f5f5;
       --color-texto: #333;
       --color-texto-claro: #444;
+      --header-height: 70px;
     }
     
-    /* Fondo asegurado */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0; 
+      padding: 0;
+      line-height: 1.6;
+      color: var(--color-texto);
+      scroll-behavior: smooth;
       background-image: url(https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/fondo.jpg);
       background-size: cover;
       background-position: center;
-      z-index: -1;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Open Sans', sans-serif;
+    /* SOLUCIÓN PARA EL SCROLL DE ANCLAS */
+    section {
+      scroll-margin-top: var(--header-height);
+      position: relative;
+    }
+    
+    section::before {
+      content: '';
+      display: block;
+      height: calc(var(--header-height) + 10px);
+      margin-top: calc(-1 * var(--header-height));
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* JERARQUÍA TIPOGRÁFICA */
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-primario);
+      margin-bottom: 1rem;
+    }
+    
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--color-primario);
+      margin: 0.5rem 0 1rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.3rem;
+    }
+    
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #2c3e50;
+      margin: 1.2rem 0 0.5rem;
+    }
+    
+    h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--color-primario);
+      margin: 1rem 0 0.5rem;
+    }
+    
+    p {
+      font-size: 1rem;
       line-height: 1.6;
-      color: var(--color-texto);
+      margin-bottom: 1rem;
+      color: var(--color-texto-claro);
+    }
+
+    /* ESTRUCTURA */
+    header {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      right: 0;
+      height: var(--header-height);
+      background-color: var(--color-primario);
+      color: white;
+      padding: 0.8rem 1rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      letter-spacing: 0.3px;
+      margin: 0;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: opacity 0.3s;
+      padding: 0.2rem 0;
+    }
+
+    nav a:hover {
+      opacity: 0.9;
+      text-decoration: underline;
     }
 
     main {
+      padding: calc(var(--header-height) + 1rem) 1rem 2rem;
       max-width: 100%;
-      margin: 70px 15px 20px;
-      padding: 15px;
+      margin: 0;
       background-color: rgba(255, 255, 255, 0.95);
-      border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-radius: 0;
+      box-shadow: none;
     }
 
-    /* Galería de fotos desordenadas - Versión móvil mejorada */
+    .bloque {
+      margin-top: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid #e0e0e0;
+    }
+
+    /* Selector de idioma */
+    .language-selector {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1001;
+      background: white;
+      padding: 5px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .language-selector select {
+      padding: 3px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 0.8rem;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #f8f8f8;
+      color: #555;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* Estilos específicos del proyecto */
+    .proyecto-detalle {
+      padding-top: 0.5rem;
+    }
+    
+    .proyecto-galeria img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    
+    /* Galería de fotos desordenadas */
     .foto-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -62,13 +212,15 @@
       overflow: hidden;
     }
 
-    /* Efectos de rotación para móviles (más sutiles) */
+    /* Efectos de rotación para móviles */
     .foto-item:nth-child(odd) {
       transform: rotate(-3deg);
+      z-index: 1;
     }
 
     .foto-item:nth-child(even) {
       transform: rotate(2deg) translateY(10px);
+      z-index: 2;
     }
 
     .foto-item:hover {
@@ -83,25 +235,6 @@
       border-radius: 6px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       border: 5px solid white;
-    }
-
-    /* Ocultar el breadcrumb */
-    .breadcrumb {
-      display: none;
-    }
-    
-    .proyecto-detalle {
-      padding-top: 0.5rem;
-    }
-    
-    .proyecto-galeria img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-    
-    .proyecto-contenido {
-      margin-top: 2rem;
     }
     
     .proyecto-estadisticas {
@@ -129,65 +262,56 @@
       margin: 1.5rem 0;
     }
 
-    h1, h2 {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--color-primario);
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin: 1.5rem 0 0.8rem;
-      border-bottom: 1px solid #e0e0e0;
-      padding-bottom: 0.3rem;
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
     .boton {
-      display: inline-block;
-      padding: 0.7rem 1.3rem;
-      background-color: var(--color-primario);
+      display: block;
+      padding: 0.6rem 1.2rem;
+      background: var(--color-primario);
       color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      margin: 1.5rem 0;
-      transition: all 0.3s ease;
+      border-radius: 4px;
+      font-weight: 600;
       text-align: center;
+      transition: background 0.3s ease;
+      margin: 1.5rem auto;
       width: 100%;
       max-width: 250px;
-      font-weight: 600;
+      text-decoration: none;
     }
 
     .boton:hover {
-      background-color: var(--color-secundario);
+      background: var(--color-secundario);
       transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    @media (min-width: 768px) {
+    /* RESPONSIVE PARA TABLETS */
+    @media (min-width: 600px) {
+      :root {
+        --header-height: 75px;
+      }
+      
+      header h1 {
+        font-size: 1.6rem;
+      }
+      
+      nav a {
+        font-size: 0.9rem;
+      }
+      
       main {
-        max-width: 800px;
-        margin: 90px auto 3rem;
-        padding: 2rem;
+        padding: calc(var(--header-height) + 1.5rem) 1.5rem 2rem;
+        max-width: 90%;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
       }
-
+      
       h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
-
+      
       h2 {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
       }
-
+      
       .foto-grid {
         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
@@ -218,14 +342,48 @@
         flex-direction: row;
         gap: 2rem;
       }
-      
-      .boton {
-        margin: 1.5rem auto;
-        display: block;
-      }
     }
 
-    @media (min-width: 992px) {
+    /* RESPONSIVE PARA ESCRITORIO */
+    @media (min-width: 900px) {
+      :root {
+        --header-height: 90px;
+      }
+      
+      header {
+        padding: 1rem 2rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+        text-align: left;
+      }
+      
+      nav {
+        margin-top: 0;
+      }
+      
+      nav a {
+        margin-right: 1.5rem;
+        font-size: 1rem;
+      }
+      
+      main {
+        max-width: 900px;
+        padding: calc(var(--header-height) + 2rem) 2rem 3rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
       .foto-item {
         height: 200px;
       }
@@ -234,66 +392,229 @@
 </head>
 <body>
 
-  <main class="proyecto-detalle">
-    <div class="bloque">
-      <h1>Note di Periferia</h1>
+<!-- Selector de idioma -->
+<div class="language-selector">
+  <select id="languageSelector">
+    <option value="es">🇪🇸 Español</option>
+    <option value="it">🇮🇹 Italiano</option>
+    <option value="pt">🇧🇷 Português</option>
+    <option value="en">🇬🇧 English</option>
+  </select>
+</div>
+
+<header>
+  <h1 data-i18n="header.title">SOMOS BAMBÚ</h1>
+  <nav>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#home" data-i18n="nav.home">Home</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#acerca" data-i18n="nav.about">Acerca</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#equipo" data-i18n="nav.team">Equipo</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#partners" data-i18n="nav.partners">Partners</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" data-i18n="nav.projects">Proyectos</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#blog" data-i18n="nav.blog">Blog</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#contacto" data-i18n="nav.contact">Contacto</a>
+  </nav>
+</header>
+
+<main class="proyecto-detalle">
+  <div class="bloque">
+    <h1 data-i18n="project.title">Note di Periferia</h1>
+    
+    <div class="proyecto-galeria">
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/noteperiferia.jpg" alt="Note di Periferia" loading="lazy">
       
-      <div class="proyecto-galeria">
-        <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/noteperiferia.jpg" alt="Note di Periferia" loading="lazy">
-        
-        <!-- Galería de fotos desordenadas -->
-        <div class="foto-grid">
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/noteperiferia.jpg" alt="Grupo Note di Periferia">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np1.jpeg" alt="Manos tocando guitarra">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np2.jpeg" alt="Manos tocando guitarra acústica">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np3.jpeg" alt="Aaron cantando en el micrófono">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np4.jpeg" alt="Manos tocando la batería">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np5.jpeg" alt="Manos tocando el bajo">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np6.jpeg" alt="Detalle de baquetas en la batería">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np7.jpeg" alt="Guitarra eléctrica">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np8.jpeg" alt="Manos tocando guitarra eléctrica">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np9.jpeg" alt="Amplificadores y equipo de sonido">
-          </div>
+      <!-- Galería de fotos desordenadas -->
+      <div class="foto-grid">
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/noteperiferia.jpg" alt="Grupo Note di Periferia">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np1.jpeg" alt="Manos tocando guitarra">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np2.jpeg" alt="Manos tocando guitarra acústica">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np3.jpeg" alt="Aaron cantando en el micrófono">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np4.jpeg" alt="Manos tocando la batería">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np5.jpeg" alt="Manos tocando el bajo">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np6.jpeg" alt="Detalle de baquetas en la batería">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np7.jpeg" alt="Guitarra eléctrica">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np8.jpeg" alt="Manos tocando guitarra eléctrica">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/np9.jpeg" alt="Amplificadores y equipo de sonido">
         </div>
       </div>
-      
-      <div class="proyecto-contenido">
-        <h2>Impacto:</h2>
-        <p>En las periferias del conurbano bonaerense, cientos de adolescentes y jóvenes crecen construyendo su identidad con fuerza, creatividad y sentido de comunidad. En barrios como Villa de Mayo, al noroeste del Gran Buenos Aires, la vida cotidiana está llena de desafíos, pero también de vínculos, sueños y una enorme energía vital.</p>
-        
-        <p>Note di Periferia nace para potenciar ese talento que muchas veces no encuentra espacios donde desplegarse. A través del arte, especialmente la música, este proyecto les ofrece a los jóvenes la posibilidad de expresarse, de crecer en confianza, y de imaginar nuevos caminos para su vida.</p>
-        
-        <p>Los talleres —presentes en centros educativos de las diócesis del AMBA— se enfocan en el canto, la composición y la interpretación musical, combinados con espacios de formación humana que invitan a descubrir la armonía interior, la escucha, el trabajo en equipo y la esperanza activa.</p>
-        
-        <p>Este proyecto está sostenido en gran parte por la entrega generosa de artistas, educadores y miembros de la comunidad. Queremos seguir creciendo, sumando recursos y personas comprometidas que nos ayuden a llegar a más jóvenes y a consolidar una propuesta transformadora. Este año el proyecto cuenta con el apoyo de la ONG italiana MONDECO ONLUS.</p>
-        
-        <p>Tu colaboración puede ser parte de este impulso: instrumentos, materiales, tiempo, ideas, donaciones. Todo suma para seguir sembrando futuro en clave de música y encuentro.</p>
-        
-        <p>¡Gracias, de corazón!</p>
-        
-        <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" class="boton">Volver a proyectos</a>
-      </div>
     </div>
-  </main>
+    
+    <div class="proyecto-contenido">
+      <h2 data-i18n="project.impact">Notas de Periferia</h2>
+      <p data-i18n="project.description1">En las periferias del conurbano bonaerense, cientos de adolescentes y jóvenes crecen construyendo su identidad con fuerza, creatividad y sentido de comunidad. En barrios como Villa de Mayo, al noroeste del Gran Buenos Aires, la vida cotidiana está llena de desafíos, pero también de vínculos, sueños y una enorme energía vital.</p>
+      
+      <p data-i18n="project.description2">Note di Periferia nace para potenciar ese talento que muchas veces no encuentra espacios donde desplegarse. A través del arte, especialmente la música, este proyecto les ofrece a los jóvenes la posibilidad de expresarse, de crecer en confianza, y de imaginar nuevos caminos para su vida.</p>
+      
+      <p data-i18n="project.description3">Los talleres —presentes en centros educativos de las diócesis del AMBA— se enfocan en el canto, la composición y la interpretación musical, combinados con espacios de formación humana que invitan a descubrir la armonía interior, la escucha, el trabajo en equipo y la esperanza activa.</p>
+      
+      <p data-i18n="project.description4">Este proyecto está sostenido en gran parte por la entrega generosa de artistas, educadores y miembros de la comunidad. Queremos seguir creciendo, sumando recursos y personas comprometidas que nos ayuden a llegar a más jóvenes y a consolidar una propuesta transformadora. Este año el proyecto cuenta con el apoyo de la ONG italiana MONDECO ONLUS.</p>
+      
+      <p data-i18n="project.description5">Tu colaboración puede ser parte de este impulso: instrumentos, materiales, tiempo, ideas, donaciones. Todo suma para seguir sembrando futuro en clave de música y encuentro.</p>
+      
+      <p data-i18n="project.description6">¡Gracias, de corazón!</p>
+      
+      <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" class="boton" data-i18n="project.back">Volver a proyectos</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p data-i18n="footer.copyright">© 2025 Somos Bambú. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  // Textos en todos los idiomas
+  const translations = {
+    "es": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Home",
+      "nav.about": "Acerca",
+      "nav.team": "Equipo",
+      "nav.partners": "Partners",
+      "nav.projects": "Proyectos",
+      "nav.blog": "Blog",
+      "nav.contact": "Contacto",
+      
+      // Proyecto Note di Periferia
+      "project.title": "Note di Periferia",
+      "project.impact": "Notas de Periferia",
+      "project.description1": "En las periferias del conurbano bonaerense, cientos de adolescentes y jóvenes crecen construyendo su identidad con fuerza, creatividad y sentido de comunidad. En barrios como Villa de Mayo, al noroeste del Gran Buenos Aires, la vida cotidiana está llena de desafíos, pero también de vínculos, sueños y una enorme energía vital.",
+      "project.description2": "Note di Periferia nace para potenciar ese talento que muchas veces no encuentra espacios donde desplegarse. A través del arte, especialmente la música, este proyecto les ofrece a los jóvenes la posibilidad de expresarse, de crecer en confianza, y de imaginar nuevos caminos para su vida.",
+      "project.description3": "Los talleres —presentes en centros educativos de las diócesis del AMBA— se enfocan en el canto, la composición y la interpretación musical, combinados con espacios de formación humana que invitan a descubrir la armonía interior, la escucha, el trabajo en equipo y la esperanza activa.",
+      "project.description4": "Este proyecto está sostenido en gran parte por la entrega generosa de artistas, educadores y miembros de la comunidad. Queremos seguir creciendo, sumando recursos y personas comprometidas que nos ayuden a llegar a más jóvenes y a consolidar una propuesta transformadora. Este año el proyecto cuenta con el apoyo de la ONG italiana MONDECO ONLUS.",
+      "project.description5": "Tu colaboración puede ser parte de este impulso: instrumentos, materiales, tiempo, ideas, donaciones. Todo suma para seguir sembrando futuro en clave de música y encuentro.",
+      "project.description6": "¡Gracias, de corazón!",
+      "project.back": "Volver a proyectos",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. Todos los derechos reservados."
+    },
+    "it": {
+      // Navegación
+      "header.title": "SOMOS BAMBÙ",
+      "nav.home": "Home",
+      "nav.about": "Chi siamo",
+      "nav.team": "Team",
+      "nav.partners": "Partner",
+      "nav.projects": "Progetti",
+      "nav.blog": "Blog",
+      "nav.contact": "Contatto",
+      
+      // Progetto Note di Periferia
+      "project.title": "Note di Periferia",
+      "project.impact": "Note di Periferia",
+      "project.description1": "Nelle periferie del conurbano bonaerense, centinaia di adolescenti e giovani crescono costruendo la propria identità con forza, creatività e senso di comunità. In quartieri come Villa de Mayo, a nord-ovest del Gran Buenos Aires, la vita quotidiana è piena di sfide, ma anche di legami, sogni e un'enorme energia vitale.",
+      "project.description2": "Note di Periferia nasce per potenziare quel talento che spesso non trova spazi in cui esprimersi. Attraverso l'arte, in particolare la musica, questo progetto offre ai giovani la possibilità di esprimersi, di crescere in fiducia e di immaginare nuovi percorsi per la propria vita.",
+      "project.description3": "I laboratori - presenti nei centri educativi delle diocesi dell'AMBA - si concentrano sul canto, la composizione e l'interpretazione musicale, combinati con spazi di formazione umana che invitano a scoprire l'armonia interiore, l'ascolto, il lavoro di squadra e la speranza attiva.",
+      "project.description4": "Questo progetto è sostenuto in gran parte dalla generosa dedizione di artisti, educatori e membri della comunità. Vogliamo continuare a crescere, aggiungendo risorse e persone impegnate che ci aiutino a raggiungere più giovani e a consolidare una proposta trasformatrice. Quest'anno il progetto conta sul sostegno dell'ONG italiana MONDECO ONLUS.",
+      "project.description5": "Il tuo contributo può far parte di questo impulso: strumenti, materiali, tempo, idee, donazioni. Tutto contribuisce a continuare a seminare futuro attraverso la musica e l'incontro.",
+      "project.description6": "Grazie, di cuore!",
+      "project.back": "Torna ai progetti",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambù. Tutti i diritti riservati."
+    },
+    "pt": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Início",
+      "nav.about": "Sobre",
+      "nav.team": "Equipe",
+      "nav.partners": "Parceiros",
+      "nav.projects": "Projetos",
+      "nav.blog": "Blog",
+      "nav.contact": "Contato",
+      
+      // Projeto Note di Periferia
+      "project.title": "Note di Periferia",
+      "project.impact": "Notas de Periferia",
+      "project.description1": "Nas periferias do conurbano bonaerense, centenas de adolescentes e jovens crescem construindo sua identidade com força, criatividade e senso de comunidade. Em bairros como Villa de Mayo, a noroeste da Grande Buenos Aires, a vida cotidiana está cheia de desafios, mas também de vínculos, sonhos e uma enorme energia vital.",
+      "project.description2": "Note di Periferia nasce para potencializar esse talento que muitas vezes não encontra espaços para se desenvolver. Através da arte, especialmente da música, este projeto oferece aos jovens a possibilidade de se expressar, crescer em confiança e imaginar novos caminhos para suas vidas.",
+      "project.description3": "As oficinas - presentes em centros educacionais das dioceses da AMBA - focam no canto, composição e interpretação musical, combinados com espaços de formação humana que convidam a descobrir a harmonia interior, a escuta, o trabalho em equipe e a esperança ativa.",
+      "project.description4": "Este projeto é sustentado em grande parte pela entrega generosa de artistas, educadores e membros da comunidade. Queremos continuar crescendo, somando recursos e pessoas comprometidas que nos ajudem a alcançar mais jovens e consolidar uma proposta transformadora. Este ano o projeto conta com o apoio da ONG italiana MONDECO ONLUS.",
+      "project.description5": "Sua colaboração pode fazer parte deste impulso: instrumentos, materiais, tempo, ideias, doações. Tudo contribui para continuar semeando futuro através da música e do encontro.",
+      "project.description6": "Obrigado, de coração!",
+      "project.back": "Voltar a projetos",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. Todos os direitos reservados."
+    },
+    "en": {
+      // Navegación
+      "header.title": "SOMOS BAMBU",
+      "nav.home": "Home",
+      "nav.about": "About",
+      "nav.team": "Team",
+      "nav.partners": "Partners",
+      "nav.projects": "Projects",
+      "nav.blog": "Blog",
+      "nav.contact": "Contact",
+      
+      // Project Notes from the Periphery
+      "project.title": "Notes from the Periphery",
+      "project.impact": "Notes from the Periphery",
+      "project.description1": "In the outskirts of Buenos Aires, hundreds of teenagers and young people grow up building their identity with strength, creativity and a sense of community. In neighborhoods like Villa de Mayo, northwest of Greater Buenos Aires, daily life is full of challenges, but also of bonds, dreams and enormous vital energy.",
+      "project.description2": "Notes from the Periphery was born to enhance that talent that often finds no spaces to unfold. Through art, especially music, this project offers young people the possibility to express themselves, grow in confidence, and imagine new paths for their lives.",
+      "project.description3": "The workshops - present in educational centers of the AMBA dioceses - focus on singing, composition and musical performance, combined with spaces for human formation that invite the discovery of inner harmony, listening, teamwork and active hope.",
+      "project.description4": "This project is largely sustained by the generous dedication of artists, educators and community members. We want to keep growing, adding resources and committed people who can help us reach more young people and consolidate a transformative proposal. This year the project has the support of the Italian NGO MONDECO ONLUS.",
+      "project.description5": "Your collaboration can be part of this impulse: instruments, materials, time, ideas, donations. Everything adds up to keep sowing the future through music and encounter.",
+      "project.description6": "Thank you, from the heart!",
+      "project.back": "Back to projects",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. All rights reserved."
+    }
+  };
+
+  // Función para cambiar idioma
+  function changeLanguage(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        element.textContent = translations[lang][key];
+      }
+    });
+    
+    // Cambiar el idioma del HTML
+    document.documentElement.lang = lang;
+    
+    // Actualizar el selector
+    document.getElementById('languageSelector').value = lang;
+  }
+
+  // Evento al cambiar el selector
+  document.getElementById('languageSelector').addEventListener('change', (e) => {
+    changeLanguage(e.target.value);
+    
+    // Guardar preferencia en localStorage
+    localStorage.setItem('preferredLanguage', e.target.value);
+  });
+
+  // Cargar idioma preferido al inicio
+  const preferredLanguage = localStorage.getItem('preferredLanguage') || 'es';
+  changeLanguage(preferredLanguage);
+  document.getElementById('languageSelector').value = preferredLanguage;
+</script>
 
 </body>
 </html>

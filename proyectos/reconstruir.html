@@ -4,8 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reconstruir - Somos Bambú</title>
-  <meta name="description" content="Acompañamiento a familiares de víctimas de Covid19">
-  <!-- Fuentes y estilos de Somos Bambú -->
+  <!-- Meta Tags SEO -->
+  <meta name="description" content="Somos Bambú - Acompañamiento a familiares de víctimas de COVID-19">
+  <meta property="og:title" content="Reconstruir - SOMOS BAMBÚ">
+  <meta property="og:description" content="Acompañamiento emocional a distancia durante la pandemia">
+  <meta property="og:image" content="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/reconstruir.jpg">
+  <meta property="og:url" content="https://somosbambu.github.io/reconstruir.html">
+  <!-- Favicon -->
+  <link rel="icon" href="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/bambu_logo.avif" type="image/avif">
+  <!-- Fuentes de Google -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -14,39 +21,162 @@
       --color-acento: #f5f5f5;
       --color-texto: #333;
       --color-texto-claro: #444;
+      --header-height: 70px;
     }
     
-    /* Fondo asegurado */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0; 
+      padding: 0;
+      line-height: 1.6;
+      color: var(--color-texto);
+      scroll-behavior: smooth;
       background-image: url(https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/fondo.jpg);
       background-size: cover;
       background-position: center;
-      z-index: -1;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Open Sans', sans-serif;
+    /* SOLUCIÓN PARA EL SCROLL DE ANCLAS */
+    section {
+      scroll-margin-top: var(--header-height);
+      position: relative;
+    }
+    
+    section::before {
+      content: '';
+      display: block;
+      height: calc(var(--header-height) + 10px);
+      margin-top: calc(-1 * var(--header-height));
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* JERARQUÍA TIPOGRÁFICA */
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-primario);
+      margin-bottom: 1rem;
+    }
+    
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--color-primario);
+      margin: 0.5rem 0 1rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.3rem;
+    }
+    
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #2c3e50;
+      margin: 1.2rem 0 0.5rem;
+    }
+    
+    p {
+      font-size: 1rem;
       line-height: 1.6;
+      margin-bottom: 1rem;
+      color: var(--color-texto-claro);
+    }
+
+    /* ESTRUCTURA */
+    header {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      right: 0;
+      height: var(--header-height);
+      background-color: var(--color-primario);
+      color: white;
+      padding: 0.8rem 1rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      letter-spacing: 0.3px;
+      margin: 0;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: opacity 0.3s;
+      padding: 0.2rem 0;
+    }
+
+    nav a:hover {
+      opacity: 0.9;
+      text-decoration: underline;
     }
 
     main {
+      padding: calc(var(--header-height) + 1rem) 1rem 2rem;
       max-width: 100%;
-      margin: 70px 15px 20px;
-      padding: 15px;
+      margin: 0;
       background-color: rgba(255, 255, 255, 0.95);
-      border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-radius: 0;
+      box-shadow: none;
     }
 
-    /* Galería de fotos desordenadas - Versión móvil mejorada */
+    .bloque {
+      margin-top: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid #e0e0e0;
+    }
+
+    .bloque img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Selector de idioma */
+    .language-selector {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1001;
+      background: white;
+      padding: 5px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .language-selector select {
+      padding: 3px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 0.8rem;
+    }
+
+    /* Galería de fotos */
     .foto-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -61,7 +191,7 @@
       overflow: hidden;
     }
 
-    /* Efectos de rotación para móviles (más sutiles) */
+    /* Efectos de rotación para móviles */
     .foto-item:nth-child(1) {
       transform: rotate(-3deg);
       z-index: 1;
@@ -75,11 +205,6 @@
     .foto-item:nth-child(3) {
       transform: rotate(-1deg) translateY(5px);
       z-index: 3;
-    }
-
-    .foto-item:nth-child(4) {
-      transform: rotate(3deg) translateY(8px);
-      z-index: 4;
     }
 
     .foto-item:hover {
@@ -96,105 +221,67 @@
       border: 5px solid white;
     }
 
-    /* Ocultar el breadcrumb */
-    .breadcrumb {
-      display: none;
-    }
-    
-    .proyecto-detalle {
-      padding-top: 0.5rem;
-    }
-    
-    .proyecto-galeria img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-    
-    .proyecto-estadisticas {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-    
-    .estadistica {
-      text-align: center;
-    }
-    
-    .numero {
-      display: block;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--color-primario);
-    }
-    
-    blockquote {
-      border-left: 3px solid var(--color-primario);
-      padding-left: 1rem;
-      font-style: italic;
-      margin: 1.5rem 0;
-    }
-
-    h1, h2 {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--color-primario);
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin: 1.5rem 0 0.8rem;
-      border-bottom: 1px solid #e0e0e0;
-      padding-bottom: 0.3rem;
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
+    /* BOTONES */
     .boton {
       display: inline-block;
-      padding: 0.7rem 1.3rem;
-      background-color: var(--color-primario);
+      padding: 0.6rem 1.2rem;
+      background: var(--color-primario);
       color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      margin: 1.5rem auto;
-      transition: all 0.3s ease;
+      border-radius: 4px;
+      font-weight: 600;
       text-align: center;
-      width: 80%;
-      max-width: 250px;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+      text-decoration: none;
     }
 
     .boton:hover {
-      background-color: var(--color-secundario);
+      background: var(--color-secundario);
       transform: translateY(-2px);
     }
 
-    @media (min-width: 768px) {
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #f8f8f8;
+      color: #555;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE PARA TABLETS */
+    @media (min-width: 600px) {
+      :root {
+        --header-height: 75px;
+      }
+      
+      header h1 {
+        font-size: 1.6rem;
+      }
+      
+      nav a {
+        font-size: 0.9rem;
+      }
+      
       main {
-        max-width: 800px;
-        margin: 90px auto 3rem;
-        padding: 2rem;
+        padding: calc(var(--header-height) + 1.5rem) 1.5rem 2rem;
+        max-width: 90%;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
       }
-
+      
       h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
-
+      
       h2 {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
       }
-
+      
       .foto-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
       }
 
@@ -202,7 +289,7 @@
         height: 180px;
       }
 
-      /* Efectos de rotación para desktop (más pronunciados) */
+      /* Efectos de rotación para desktop */
       .foto-item:nth-child(1) {
         transform: rotate(-5deg);
       }
@@ -214,18 +301,48 @@
       .foto-item:nth-child(3) {
         transform: rotate(-2deg) translateY(15px);
       }
-
-      .foto-item:nth-child(4) {
-        transform: rotate(4deg) translateY(20px);
-      }
-
-      .proyecto-estadisticas {
-        flex-direction: row;
-        gap: 2rem;
-      }
     }
 
-    @media (min-width: 992px) {
+    /* RESPONSIVE PARA ESCRITORIO */
+    @media (min-width: 900px) {
+      :root {
+        --header-height: 90px;
+      }
+      
+      header {
+        padding: 1rem 2rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+        text-align: left;
+      }
+      
+      nav {
+        margin-top: 0;
+      }
+      
+      nav a {
+        margin-right: 1.5rem;
+        font-size: 1rem;
+      }
+      
+      main {
+        max-width: 900px;
+        padding: calc(var(--header-height) + 2rem) 2rem 3rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
       .foto-item {
         height: 200px;
       }
@@ -234,39 +351,219 @@
 </head>
 <body>
 
-  <main class="proyecto-detalle">
-    <div class="bloque">
-      <h1>Reconstruir</h1>
+<!-- Selector de idioma -->
+<div class="language-selector">
+  <select id="languageSelector">
+    <option value="es">🇪🇸 Español</option>
+    <option value="it">🇮🇹 Italiano</option>
+    <option value="pt">🇧🇷 Português</option>
+    <option value="en">🇬🇧 English</option>
+  </select>
+</div>
+
+<header>
+  <h1 data-i18n="header.title">SOMOS BAMBÚ</h1>
+  <nav>
+    <a href="somosbambu.html#home" data-i18n="nav.home">Home</a>
+    <a href="somosbambu.html#acerca" data-i18n="nav.about">Acerca</a>
+    <a href="somosbambu.html#equipo" data-i18n="nav.team">Equipo</a>
+    <a href="somosbambu.html#partners" data-i18n="nav.partners">Partners</a>
+    <a href="somosbambu.html#proyectos" data-i18n="nav.projects">Proyectos</a>
+    <a href="blog.html" data-i18n="nav.blog">Blog</a>
+    <a href="somosbambu.html#contacto" data-i18n="nav.contact">Contacto</a>
+  </nav>
+</header>
+
+<main>
+  <article class="bloque">
+    <h1 data-i18n="reconstruir.title">Reconstruir</h1>
+    
+    <section class="proyecto-galeria">
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/reconstruir.jpg" alt="Grupo de apoyo emocional para familiares de víctimas de COVID-19" loading="lazy">
       
-      <div class="proyecto-galeria">
-        <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/reconstruir.jpg" alt="Salto en Alto" loading="lazy">
-        
-        <!-- Galería de fotos desordenadas -->
-        <div class="foto-grid">
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/reconstruir.jpg" alt="vuelo mariposa">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/rec1.png" alt="ramo flores">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/rec2.png" alt="anciana orando">
-          </div>
-         </div>
+      <!-- Galería de fotos -->
+      <div class="foto-grid">
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/rec1.png" alt="Ramo de flores en memoria de víctimas de COVID">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/rec2.png" alt="Mujer mayor encendiendo una vela en recuerdo">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/reconstruir.jpg" alt="Sesión virtual de apoyo emocional">
+        </div>
       </div>
+    </section>
+    
+    <section class="proyecto-contenido">
+      <h2 data-i18n="reconstruir.impacto">Reconstruir</h2>
+      <p data-i18n="reconstruir.p1">Durante la pandemia del COVID-19, tuvimos la oportunidad de acompañar —aunque fuera a la distancia— a un grupo de personas que atravesaban uno de los momentos más difíciles de sus vidas: la pérdida de seres queridos.</p>
       
-      <div class="proyecto-contenido">
-        <h2>Impacto:</h2>
-        <p>Durante la pandemia del COVID-19, tuvimos la oportunidad de acompañar —aunque fuera a la distancia— a un grupo de personas que atravesaban uno de los momentos más difíciles de sus vidas: la pérdida de seres queridos.<br>
-          <br>
-En un contexto marcado por el aislamiento y la incertidumbre, muchas de ellas no pudieron vivir el duelo de manera natural, como lo hubieran hecho en otras circunstancias, rodeadas del abrazo de su gente, de los rituales, de los tiempos compartidos.<br>
-<br>
-A través de encuentros virtuales, brindamos un espacio de escucha, contención y cercanía. No podíamos borrar el dolor, pero sí estar presentes, tender la mano, sostener el corazón en medio del silencio. Fue un tiempo de profunda humanidad compartida, que nos enseñó —una vez más— que el amor y la presencia auténtica no tienen fronteras físicas.</p>
-        
-        <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" class="boton">Volver a proyectos</a>
-      </div>
-    </div>
-  </main>
+      <p data-i18n="reconstruir.p2">En un contexto marcado por el aislamiento y la incertidumbre, muchas de ellas no pudieron vivir el duelo de manera natural, como lo hubieran hecho en otras circunstancias, rodeadas del abrazo de su gente, de los rituales, de los tiempos compartidos.</p>
+      
+      <p data-i18n="reconstruir.p3">A través de encuentros virtuales, brindamos un espacio de escucha, contención y cercanía. No podíamos borrar el dolor, pero sí estar presentes, tender la mano, sostener el corazón en medio del silencio. Fue un tiempo de profunda humanidad compartida, que nos enseñó —una vez más— que el amor y la presencia auténtica no tienen fronteras físicas.</p>
+      
+      <a href="somosbambu.html#proyectos" class="boton" data-i18n="nav.back">Volver a proyectos</a>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <p data-i18n="footer.copyright">© 2025 Somos Bambú. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  // Textos en todos los idiomas
+  const translations = {
+    "es": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Home",
+      "nav.about": "Acerca",
+      "nav.team": "Equipo",
+      "nav.partners": "Partners",
+      "nav.projects": "Proyectos",
+      "nav.blog": "Blog",
+      "nav.contact": "Contacto",
+      "nav.back": "Volver a proyectos",
+      
+      // Contenido Reconstruir
+      "reconstruir.title": "Reconstruir",
+      "reconstruir.impacto": "Reconstruir",
+      "reconstruir.p1": "Durante la pandemia del COVID-19, tuvimos la oportunidad de acompañar —aunque fuera a la distancia— a un grupo de personas que atravesaban uno de los momentos más difíciles de sus vidas: la pérdida de seres queridos.",
+      "reconstruir.p2": "En un contexto marcado por el aislamiento y la incertidumbre, muchas de ellas no pudieron vivir el duelo de manera natural, como lo hubieran hecho en otras circunstancias, rodeadas del abrazo de su gente, de los rituales, de los tiempos compartidos.",
+      "reconstruir.p3": "A través de encuentros virtuales, brindamos un espacio de escucha, contención y cercanía. No podíamos borrar el dolor, pero sí estar presentes, tender la mano, sostener el corazón en medio del silencio. Fue un tiempo de profunda humanidad compartida, que nos enseñó —una vez más— que el amor y la presencia auténtica no tienen fronteras físicas.",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. Todos los derechos reservados."
+    },
+    "it": {
+      // Navegación
+      "header.title": "SOMOS BAMBÙ",
+      "nav.home": "Home",
+      "nav.about": "Chi siamo",
+      "nav.team": "Team",
+      "nav.partners": "Partner",
+      "nav.projects": "Progetti",
+      "nav.blog": "Blog",
+      "nav.contact": "Contatto",
+      "nav.back": "Torna ai progetti",
+      
+      // Contenido Reconstruir
+      "reconstruir.title": "Ricostruire",
+      "reconstruir.impacto": "Ricostruire",
+      "reconstruir.p1": "Durante la pandemia di COVID-19, abbiamo avuto l'opportunità di accompagnare —anche se a distanza— un gruppo di persone che stavano attraversando uno dei momenti più difficili della loro vita: la perdita dei propri cari.",
+      "reconstruir.p2": "In un contesto segnato dall'isolamento e dall'incertezza, molti di loro non hanno potuto vivere il lutto in modo naturale, come avrebbero fatto in altre circostanze, circondati dall'abbraccio della loro gente, dai rituali, dai tempi condivisi.",
+      "reconstruir.p3": "Attraverso incontri virtuali, abbiamo offerto uno spazio di ascolto, contenimento e vicinanza. Non potevamo cancellare il dolore, ma potevamo essere presenti, tendere la mano, sostenere il cuore in mezzo al silenzio. È stato un tempo di profonda umanità condivisa, che ci ha insegnato —ancora una volta— che l'amore e la presenza autentica non hanno confini fisici.",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambù. Tutti i diritti riservati."
+    },
+    "pt": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Início",
+      "nav.about": "Sobre",
+      "nav.team": "Equipe",
+      "nav.partners": "Parceiros",
+      "nav.projects": "Projetos",
+      "nav.blog": "Blog",
+      "nav.contact": "Contato",
+      "nav.back": "Voltar aos projetos",
+      
+      // Contenido Reconstruir
+      "reconstruir.title": "Reconstruir",
+      "reconstruir.impacto": "Reconstruir",
+      "reconstruir.p1": "Durante a pandemia da COVID-19, tivemos a oportunidade de acompanhar —mesmo que à distância— um grupo de pessoas que estavam passando por um dos momentos mais difíceis de suas vidas: a perda de entes queridos.",
+      "reconstruir.p2": "Em um contexto marcado pelo isolamento e pela incerteza, muitas delas não puderam viver o luto de maneira natural, como teriam feito em outras circunstâncias, cercadas pelo abraço de sua gente, pelos rituais, pelos tempos compartilhados.",
+      "reconstruir.p3": "Através de encontros virtuais, oferecemos um espaço de escuta, contenção e proximidade. Não podíamos apagar a dor, mas podíamos estar presentes, estender a mão, sustentar o coração em meio ao silêncio. Foi um tempo de profunda humanidade compartilhada, que nos ensinou —mais uma vez— que o amor e a presença autêntica não têm fronteiras físicas.",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. Todos os direitos reservados."
+    },
+    "en": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Home",
+      "nav.about": "About",
+      "nav.team": "Team",
+      "nav.partners": "Partners",
+      "nav.projects": "Projects",
+      "nav.blog": "Blog",
+      "nav.contact": "Contact",
+      "nav.back": "Back to projects",
+      
+      // Contenido Reconstruir
+      "reconstruir.title": "Rebuild",
+      "reconstruir.impacto": "Rebuild",
+      "reconstruir.p1": "During the COVID-19 pandemic, we had the opportunity to accompany —even at a distance— a group of people going through one of the most difficult moments of their lives: the loss of loved ones.",
+      "reconstruir.p2": "In a context marked by isolation and uncertainty, many of them could not grieve naturally, as they would have done in other circumstances, surrounded by the embrace of their people, by rituals, by shared times.",
+      "reconstruir.p3": "Through virtual meetings, we provided a space for listening, containment and closeness. We couldn't erase the pain, but we could be present, reach out, hold the heart in the midst of silence. It was a time of deep shared humanity, which taught us —once again— that love and authentic presence have no physical borders.",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. All rights reserved."
+    }
+  };
+
+  // Función para cambiar idioma
+  function changeLanguage(lang) {
+    if (!translations[lang]) return;
+    
+    // Actualizar todos los elementos con data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        element.textContent = translations[lang][key];
+      }
+    });
+    
+    // Cambiar el idioma del documento
+    document.documentElement.lang = lang;
+    
+    // Actualizar el selector
+    const selector = document.getElementById('languageSelector');
+    if (selector) {
+      selector.value = lang;
+    }
+    
+    // Guardar preferencia
+    try {
+      localStorage.setItem('preferredLanguage', lang);
+    } catch (e) {
+      console.error('Error al guardar en localStorage:', e);
+    }
+  }
+
+  // Evento para cambiar idioma
+  document.addEventListener('DOMContentLoaded', function() {
+    const selector = document.getElementById('languageSelector');
+    if (selector) {
+      selector.addEventListener('change', function(e) {
+        changeLanguage(e.target.value);
+      });
+    }
+    
+    // Cargar idioma preferido
+    let lang = 'es'; // default
+    try {
+      const savedLang = localStorage.getItem('preferredLanguage');
+      if (savedLang && translations[savedLang]) {
+        lang = savedLang;
+      } else {
+        // Detectar idioma del navegador
+        const browserLang = navigator.language.substring(0, 2);
+        if (translations[browserLang]) {
+          lang = browserLang;
+        }
+      }
+    } catch (e) {
+      console.error('Error al leer localStorage:', e);
+    }
+    
+    changeLanguage(lang);
+    if (selector) selector.value = lang;
+  });
+</script>
 
 </body>
 </html>

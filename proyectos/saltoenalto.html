@@ -5,7 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Salto en Alto - Somos Bambú</title>
   <meta name="description" content="Programa de becas escolares para jóvenes">
-  <!-- Fuentes y estilos de Somos Bambú -->
+  <!-- Meta Tags SEO -->
+  <meta property="og:title" content="Salto en Alto - Somos Bambú">
+  <meta property="og:description" content="Programa de becas escolares para jóvenes">
+  <meta property="og:image" content="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/saltoenalto.jpg">
+  <meta property="og:url" content="https://somosbambu.github.io/saltoenalto.html">
+  <!-- Favicon -->
+  <link rel="icon" href="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/bambu_logo.avif" type="image/avif">
+  <!-- Fuentes de Google -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -14,39 +21,183 @@
       --color-acento: #f5f5f5;
       --color-texto: #333;
       --color-texto-claro: #444;
+      --header-height: 70px;
     }
     
-    /* Fondo asegurado */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0; 
+      padding: 0;
+      line-height: 1.6;
+      color: var(--color-texto);
+      scroll-behavior: smooth;
       background-image: url(https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/fondo.jpg);
       background-size: cover;
       background-position: center;
-      z-index: -1;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Open Sans', sans-serif;
+    /* SOLUCIÓN PARA EL SCROLL DE ANCLAS */
+    section {
+      scroll-margin-top: var(--header-height);
+      position: relative;
+    }
+    
+    section::before {
+      content: '';
+      display: block;
+      height: calc(var(--header-height) + 10px);
+      margin-top: calc(-1 * var(--header-height));
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* JERARQUÍA TIPOGRÁFICA */
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-primario);
+      margin-bottom: 1rem;
+    }
+    
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--color-primario);
+      margin: 0.5rem 0 1rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.3rem;
+    }
+    
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #2c3e50;
+      margin: 1.2rem 0 0.5rem;
+    }
+    
+    h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--color-primario);
+      margin: 1rem 0 0.5rem;
+    }
+    
+    p {
+      font-size: 1rem;
       line-height: 1.6;
+      margin-bottom: 1rem;
+      color: var(--color-texto-claro);
+    }
+
+    /* ESTRUCTURA */
+    header {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      right: 0;
+      height: var(--header-height);
+      background-color: var(--color-primario);
+      color: white;
+      padding: 0.8rem 1rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      letter-spacing: 0.3px;
+      margin: 0;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: opacity 0.3s;
+      padding: 0.2rem 0;
+    }
+
+    nav a:hover {
+      opacity: 0.9;
+      text-decoration: underline;
     }
 
     main {
+      padding: calc(var(--header-height) + 1rem) 1rem 2rem;
       max-width: 100%;
-      margin: 70px 15px 20px;
-      padding: 15px;
+      margin: 0;
       background-color: rgba(255, 255, 255, 0.95);
-      border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-radius: 0;
+      box-shadow: none;
     }
 
-    /* Galería de fotos desordenadas - Versión móvil mejorada */
+    .bloque {
+      margin-top: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid #e0e0e0;
+    }
+
+    /* Selector de idioma */
+    .language-selector {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1001;
+      background: white;
+      padding: 5px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .language-selector select {
+      padding: 3px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 0.8rem;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #f8f8f8;
+      color: #555;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* Estilos específicos del proyecto */
+    .proyecto-detalle {
+      padding-top: 0.5rem;
+    }
+    
+    .proyecto-galeria img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    
+    /* Galería de fotos desordenadas */
     .foto-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -61,7 +212,7 @@
       overflow: hidden;
     }
 
-    /* Efectos de rotación para móviles (más sutiles) */
+    /* Efectos de rotación para móviles */
     .foto-item:nth-child(1) {
       transform: rotate(-3deg);
       z-index: 1;
@@ -95,21 +246,6 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       border: 5px solid white;
     }
-
-    /* Ocultar el breadcrumb */
-    .breadcrumb {
-      display: none;
-    }
-    
-    .proyecto-detalle {
-      padding-top: 0.5rem;
-    }
-    
-    .proyecto-galeria img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
     
     .proyecto-estadisticas {
       display: flex;
@@ -136,63 +272,56 @@
       margin: 1.5rem 0;
     }
 
-    h1, h2 {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--color-primario);
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin: 1.5rem 0 0.8rem;
-      border-bottom: 1px solid #e0e0e0;
-      padding-bottom: 0.3rem;
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
     .boton {
-      display: inline-block;
-      padding: 0.7rem 1.3rem;
-      background-color: var(--color-primario);
+      display: block;
+      padding: 0.6rem 1.2rem;
+      background: var(--color-primario);
       color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      margin: 1.5rem auto;
-      transition: all 0.3s ease;
+      border-radius: 4px;
+      font-weight: 600;
       text-align: center;
-      width: 80%;
+      transition: background 0.3s ease;
+      margin: 1.5rem auto;
+      width: 100%;
       max-width: 250px;
+      text-decoration: none;
     }
 
     .boton:hover {
-      background-color: var(--color-secundario);
+      background: var(--color-secundario);
       transform: translateY(-2px);
     }
 
-    @media (min-width: 768px) {
+    /* RESPONSIVE PARA TABLETS */
+    @media (min-width: 600px) {
+      :root {
+        --header-height: 75px;
+      }
+      
+      header h1 {
+        font-size: 1.6rem;
+      }
+      
+      nav a {
+        font-size: 0.9rem;
+      }
+      
       main {
-        max-width: 800px;
-        margin: 90px auto 3rem;
-        padding: 2rem;
+        padding: calc(var(--header-height) + 1.5rem) 1.5rem 2rem;
+        max-width: 90%;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
       }
-
+      
       h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
-
+      
       h2 {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
       }
-
+      
       .foto-grid {
         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
@@ -202,7 +331,7 @@
         height: 180px;
       }
 
-      /* Efectos de rotación para desktop (más pronunciados) */
+      /* Efectos de rotación para desktop */
       .foto-item:nth-child(1) {
         transform: rotate(-5deg);
       }
@@ -225,7 +354,46 @@
       }
     }
 
-    @media (min-width: 992px) {
+    /* RESPONSIVE PARA ESCRITORIO */
+    @media (min-width: 900px) {
+      :root {
+        --header-height: 90px;
+      }
+      
+      header {
+        padding: 1rem 2rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+        text-align: left;
+      }
+      
+      nav {
+        margin-top: 0;
+      }
+      
+      nav a {
+        margin-right: 1.5rem;
+        font-size: 1rem;
+      }
+      
+      main {
+        max-width: 900px;
+        padding: calc(var(--header-height) + 2rem) 2rem 3rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
       .foto-item {
         height: 200px;
       }
@@ -234,52 +402,216 @@
 </head>
 <body>
 
-  <main class="proyecto-detalle">
-    <div class="bloque">
-      <h1>Salto en Alto</h1>
+<!-- Selector de idioma -->
+<div class="language-selector">
+  <select id="languageSelector">
+    <option value="es">🇪🇸 Español</option>
+    <option value="it">🇮🇹 Italiano</option>
+    <option value="pt">🇧🇷 Português</option>
+    <option value="en">🇬🇧 English</option>
+  </select>
+</div>
+
+<header>
+  <h1 data-i18n="header.title">SOMOS BAMBÚ</h1>
+  <nav>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#home" data-i18n="nav.home">Home</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#acerca" data-i18n="nav.about">Acerca</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#equipo" data-i18n="nav.team">Equipo</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#partners" data-i18n="nav.partners">Partners</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" data-i18n="nav.projects">Proyectos</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#blog" data-i18n="nav.blog">Blog</a>
+    <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#contacto" data-i18n="nav.contact">Contacto</a>
+  </nav>
+</header>
+
+<main class="proyecto-detalle">
+  <div class="bloque">
+    <h1 data-i18n="project.title">Salto en Alto</h1>
+    
+    <div class="proyecto-galeria">
+      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/saltoenalto.jpg" alt="Salto en Alto" loading="lazy">
       
-      <div class="proyecto-galeria">
-        <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/saltoenalto.jpg" alt="Salto en Alto" loading="lazy">
-        
-        <!-- Galería de fotos desordenadas -->
-        <div class="foto-grid">
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/saltoenalto.jpg" alt="Grupo de Salto en Alto">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/sa1.png" alt="Jóvenes estudiando">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/sa2.png" alt="Niño con computadora">
-          </div>
-          <div class="foto-item">
-            <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/sa3.png" alt="Niños escribiendo">
-          </div>
+      <!-- Galería de fotos desordenadas -->
+      <div class="foto-grid">
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/saltoenalto.jpg" alt="Grupo de Salto en Alto">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/sa1.png" alt="Jóvenes estudiando">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/sa2.png" alt="Niño con computadora">
+        </div>
+        <div class="foto-item">
+          <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/sa3.png" alt="Niños escribiendo">
         </div>
       </div>
-      
-      <div class="proyecto-contenido">
-        <h2>Impacto:</h2>
-        <p>Salto en Alto es un proyecto que nace en 2022 con una misión clara: acompañar a adolescentes en su camino escolar, ayudándoles a vivir esta etapa como una experiencia de crecimiento y descubrimiento, y no como un reto para sobrevivir.
-          <br><br>
-          Sabemos que, para muchos, la escuela deja de ser un lugar de alegría y aprendizaje, y se convierte en un espacio de lucha diaria: bullying, burlas, desmotivación… Frente a esta realidad, Salto en Alto se propone ser un impulso, una red de apoyo que inspire a mirar más alto y a creer en uno mismo.
-          <br><br>
-          Ya son tres años acompañando a jóvenes de Villa de Mayo (Buenos Aires) a través de becas que les permiten acceder a una educación mejor, más digna y transformadora. Y nada de esto sería posible sin el apoyo generoso de tantas personas que caminan a nuestro lado. Nunca nos cansaremos de dar las gracias.<br>
-          <br>
-          Todo comenzó con Pablo Sorrentino, quien, con el cariño y la determinación que lo caracterizan, nos hizo partícipes de la necesidad urgente de encontrar formas para financiar becas a los chicos. Luego se sumaron Elsa y Mariano, desde Haedo (Buenos Aires), cuya confianza y apoyo sembraron las primeras semillas. Simultáneamente se unió Pili Riaño, desde El Viso del Alcor (Sevilla, España), quien cada año, con un cariño inmenso, reúne donaciones entre amigos, familiares y miembros de la parroquia de Santa María del Alcor.<br>
-          <br>
-          Este año, además, hemos recibido una valiosa colaboración por parte de la Hermandad de la Vera-Cruz de El Viso del Alcor, a quienes agradecemos de corazón su generosidad.
-          Y no podemos dejar de mencionar con gratitud al querido actor español Emilio Gutiérrez Caba, por su cercanía y apoyo entrañable.<br>
-          <br>
-          Ofrecemos becas que no solo alivian el peso económico, sino que abren puertas a una educación que nutre la mente y el corazón. Queremos formar jóvenes seguros, con una personalidad fuerte y valores sólidos, capaces de convertirse en líderes del mañana. Porque cuando se les brinda la oportunidad, los chicos y chicas no solo dan un paso… dan un salto en alto.<br>
-          A cada una de las personas que, con su ayuda constante, hacen posible que este sueño siga creciendo:<br>
-          <br>
-          ¡Gracias, de corazón!</p>
-        
-        <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" class="boton">Volver a proyectos</a>
-      </div>
     </div>
-  </main>
+    
+    <div class="proyecto-contenido">
+      <h2 data-i18n="project.impact">SALTO EN ALTO</h2>
+      <p data-i18n="project.description1">Salto en Alto es un proyecto que nace en 2022 con una misión clara: acompañar a adolescentes en su camino escolar, ayudándoles a vivir esta etapa como una experiencia de crecimiento y descubrimiento, y no como un reto para sobrevivir.</p>
+      <p data-i18n="project.description2">Sabemos que, para muchos, la escuela deja de ser un lugar de alegría y aprendizaje, y se convierte en un espacio de lucha diaria: bullying, burlas, desmotivación… Frente a esta realidad, Salto en Alto se propone ser un impulso, una red de apoyo que inspire a mirar más alto y a creer en uno mismo.</p>
+      <p data-i18n="project.description3">Ya son tres años acompañando a jóvenes de Villa de Mayo (Buenos Aires) a través de becas que les permiten acceder a una educación mejor, más digna y transformadora. Y nada de esto sería posible sin el apoyo generoso de tantas personas que caminan a nuestro lado. Nunca nos cansaremos de dar las gracias.</p>
+      <p data-i18n="project.description4">Todo comenzó con Pablo Sorrentino, quien, con el cariño y la determinación que lo caracterizan, nos hizo partícipes de la necesidad urgente de encontrar formas para financiar becas a los chicos. Luego se sumaron Elsa y Mariano, desde Haedo (Buenos Aires), cuya confianza y apoyo sembraron las primeras semillas. Simultáneamente se unió Pili Riaño, desde El Viso del Alcor (Sevilla, España), quien cada año, con un cariño inmenso, reúne donaciones entre amigos, familiares y miembros de la parroquia de Santa María del Alcor.</p>
+      <p data-i18n="project.description5">Este año, además, hemos recibido una valiosa colaboración por parte de la Hermandad de la Vera-Cruz de El Viso del Alcor, a quienes agradecemos de corazón su generosidad. Y no podemos dejar de mencionar con gratitud al querido actor español Emilio Gutiérrez Caba, por su cercanía y apoyo entrañable.</p>
+      <p data-i18n="project.description6">Ofrecemos becas que no solo alivian el peso económico, sino que abren puertas a una educación que nutre la mente y el corazón. Queremos formar jóvenes seguros, con una personalidad fuerte y valores sólidos, capaces de convertirse en líderes del mañana. Porque cuando se les brinda la oportunidad, los chicos y chicas no solo dan un paso… dan un salto en alto.</p>
+      <p data-i18n="project.description7">A cada una de las personas que, con su ayuda constante, hacen posible que este sueño siga creciendo:</p>
+      <p data-i18n="project.description8">¡Gracias, de corazón!</p>
+      
+      <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#proyectos" class="boton" data-i18n="project.back">Volver a proyectos</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p data-i18n="footer.copyright">© 2025 Somos Bambú. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  // Textos en todos los idiomas
+  const translations = {
+    "es": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Home",
+      "nav.about": "Acerca",
+      "nav.team": "Equipo",
+      "nav.partners": "Partners",
+      "nav.projects": "Proyectos",
+      "nav.blog": "Blog",
+      "nav.contact": "Contacto",
+      
+      // Proyecto Salto en Alto
+      "project.title": "Salto en Alto",
+      "project.impact": "SALTO EN ALTO",
+      "project.description1": "Salto en Alto es un proyecto que nace en 2022 con una misión clara: acompañar a adolescentes en su camino escolar, ayudándoles a vivir esta etapa como una experiencia de crecimiento y descubrimiento, y no como un reto para sobrevivir.",
+      "project.description2": "Sabemos que, para muchos, la escuela deja de ser un lugar de alegría y aprendizaje, y se convierte en un espacio de lucha diaria: bullying, burlas, desmotivación… Frente a esta realidad, Salto en Alto se propone ser un impulso, una red de apoyo que inspire a mirar más alto y a creer en uno mismo.",
+      "project.description3": "Ya son tres años acompañando a jóvenes de Villa de Mayo (Buenos Aires) a través de becas que les permiten acceder a una educación mejor, más digna y transformadora. Y nada de esto sería posible sin el apoyo generoso de tantas personas que caminan a nuestro lado. Nunca nos cansaremos de dar las gracias.",
+      "project.description4": "Todo comenzó con Pablo Sorrentino, quien, con el cariño y la determinación que lo caracterizan, nos hizo partícipes de la necesidad urgente de encontrar formas para financiar becas a los chicos. Luego se sumaron Elsa y Mariano, desde Haedo (Buenos Aires), cuya confianza y apoyo sembraron las primeras semillas. Simultáneamente se unió Pili Riaño, desde El Viso del Alcor (Sevilla, España), quien cada año, con un cariño inmenso, reúne donaciones entre amigos, familiares y miembros de la parroquia de Santa María del Alcor.",
+      "project.description5": "Este año, además, hemos recibido una valiosa colaboración por parte de la Hermandad de la Vera-Cruz de El Viso del Alcor, a quienes agradecemos de corazón su generosidad. Y no podemos dejar de mencionar con gratitud al querido actor español Emilio Gutiérrez Caba, por su cercanía y apoyo entrañable.",
+      "project.description6": "Ofrecemos becas que no solo alivian el peso económico, sino que abren puertas a una educación que nutre la mente y el corazón. Queremos formar jóvenes seguros, con una personalidad fuerte y valores sólidos, capaces de convertirse en líderes del mañana. Porque cuando se les brinda la oportunidad, los chicos y chicas no solo dan un paso… dan un salto en alto.",
+      "project.description7": "A cada una de las personas que, con su ayuda constante, hacen posible que este sueño siga creciendo:",
+      "project.description8": "¡Gracias, de corazón!",
+      "project.back": "Volver a proyectos",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. Todos los derechos reservados."
+    },
+    "it": {
+      // Navegación
+      "header.title": "SOMOS BAMBÙ",
+      "nav.home": "Home",
+      "nav.about": "Chi siamo",
+      "nav.team": "Team",
+      "nav.partners": "Partner",
+      "nav.projects": "Progetti",
+      "nav.blog": "Blog",
+      "nav.contact": "Contatto",
+      
+      // Progetto Salto en Alto
+      "project.title": "Salto in Alto",
+      "project.impact": "Impatto:",
+      "project.description1": "Salto in Alto è un progetto nato nel 2022 con una missione chiara: accompagnare gli adolescenti nel loro percorso scolastico, aiutandoli a vivere questa fase come un'esperienza di crescita e scoperta, e non come una sfida per sopravvivere.",
+      "project.description2": "Sappiamo che, per molti, la scuola smette di essere un luogo di gioia e apprendimento, e diventa uno spazio di lotta quotidiana: bullismo, prese in giro, demotivazione... Di fronte a questa realtà, Salto in Alto si propone di essere un impulso, una rete di sostegno che ispiri a guardare più in alto e a credere in se stessi.",
+      "project.description3": "Sono già tre anni che accompagniamo i giovani di Villa de Mayo (Buenos Aires) attraverso borse di studio che permettono loro di accedere a un'educazione migliore, più dignitosa e trasformativa. E nulla di tutto questo sarebbe possibile senza il generoso sostegno di tante persone che camminano al nostro fianco. Non ci stancheremo mai di ringraziare.",
+      "project.description4": "Tutto è iniziato con Pablo Sorrentino, che, con l'affetto e la determinazione che lo caratterizzano, ci ha resi partecipi dell'urgente necessità di trovare modi per finanziare borse di studio ai ragazzi. Poi si sono uniti Elsa e Mariano, da Haedo (Buenos Aires), la cui fiducia e sostegno hanno piantato i primi semi. Contemporaneamente si è unita Pili Riaño, da El Viso del Alcor (Siviglia, Spagna), che ogni anno, con immenso affetto, raccoglie donazioni tra amici, familiari e membri della parrocchia di Santa María del Alcor.",
+      "project.description5": "Quest'anno, inoltre, abbiamo ricevuto una preziosa collaborazione da parte della Confraternita della Vera-Cruz di El Viso del Alcor, a cui ringraziamo di cuore per la loro generosità. E non possiamo non menzionare con gratitudine il caro attore spagnolo Emilio Gutiérrez Caba, per la sua vicinanza e il suo affettuoso sostegno.",
+      "project.description6": "Offriamo borse di studio che non solo alleviano il peso economico, ma aprono le porte a un'educazione che nutre la mente e il cuore. Vogliamo formare giovani sicuri, con una personalità forte e valori solidi, capaci di diventare i leader di domani. Perché quando viene data loro l'opportunità, i ragazzi e le ragazze non fanno solo un passo... fanno un salto in alto.",
+      "project.description7": "A tutte le persone che, con il loro costante aiuto, rendono possibile la crescita di questo sogno:",
+      "project.description8": "Grazie, di cuore!",
+      "project.back": "Torna ai progetti",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambù. Tutti i diritti riservati."
+    },
+    "pt": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Início",
+      "nav.about": "Sobre",
+      "nav.team": "Equipe",
+      "nav.partners": "Parceiros",
+      "nav.projects": "Projetos",
+      "nav.blog": "Blog",
+      "nav.contact": "Contato",
+      
+      // Projeto Salto en Alto
+      "project.title": "Salto em Alto",
+      "project.impact": "SALTO EM ALTO",
+      "project.description1": "Salto em Alto é um projeto que nasce em 2022 com uma missão clara: acompanhar adolescentes em seu caminho escolar, ajudando-os a viver esta etapa como uma experiência de crescimento e descoberta, e não como um desafio para sobreviver.",
+      "project.description2": "Sabemos que, para muitos, a escola deixa de ser um lugar de alegria e aprendizagem, e se torna um espaço de luta diária: bullying, zombarias, desmotivação... Diante dessa realidade, Salto em Alto se propõe a ser um impulso, uma rede de apoio que inspire a olhar mais alto e a acreditar em si mesmo.",
+      "project.description3": "Já são três anos acompanhando jovens de Villa de Mayo (Buenos Aires) através de bolsas que lhes permitem acessar uma educação melhor, mais digna e transformadora. E nada disso seria possível sem o apoio generoso de tantas pessoas que caminham ao nosso lado. Nunca nos cansaremos de agradecer.",
+      "project.description4": "Tudo começou com Pablo Sorrentino, que, com o carinho e a determinação que o caracterizam, nos fez participar da necessidade urgente de encontrar formas de financiar bolsas para os jovens. Depois se juntaram Elsa e Mariano, de Haedo (Buenos Aires), cuja confiança e apoio plantaram as primeiras sementes. Simultaneamente, uniu-se Pili Riaño, de El Viso del Alcor (Sevilha, Espanha), que a cada ano, com imenso carinho, reúne doações entre amigos, familiares e membros da paróquia de Santa María del Alcor.",
+      "project.description5": "Este ano, além disso, recebemos uma valiosa colaboração por parte da Irmandade da Vera-Cruz de El Viso del Alcor, a quem agradecemos de coração sua generosidade. E não podemos deixar de mencionar com gratidão o querido ator espanhol Emilio Gutiérrez Caba, por sua proximidade e apoio afetuoso.",
+      "project.description6": "Oferecemos bolsas que não apenas aliviam o peso econômico, mas abrem portas para uma educação que nutre a mente e o coração. Queremos formar jovens seguros, com personalidade forte e valores sólidos, capazes de se tornarem líderes do amanhã. Porque quando lhes é dada a oportunidade, os jovens não dão apenas um passo... dão um salto em alto.",
+      "project.description7": "A cada uma das pessoas que, com sua ajuda constante, tornam possível que este sonho continue crescendo:",
+      "project.description8": "Obrigado, de coração!",
+      "project.back": "Voltar a projetos",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. Todos os direitos reservados."
+    },
+    "en": {
+      // Navegación
+      "header.title": "WE ARE BAMBOO",
+      "nav.home": "Home",
+      "nav.about": "About",
+      "nav.team": "Team",
+      "nav.partners": "Partners",
+      "nav.projects": "Projects",
+      "nav.blog": "Blog",
+      "nav.contact": "Contact",
+      
+      // Project High Jump
+      "project.title": "High Jump",
+      "project.impact": "HIGH JUMP",
+      "project.description1": "High Jump is a project born in 2022 with a clear mission: to accompany adolescents in their school journey, helping them to live this stage as an experience of growth and discovery, and not as a challenge to survive.",
+      "project.description2": "We know that, for many, school stops being a place of joy and learning, and becomes a space of daily struggle: bullying, mockery, demotivation... Faced with this reality, High Jump aims to be a boost, a support network that inspires to look higher and believe in oneself.",
+      "project.description3": "It's already been three years accompanying young people from Villa de Mayo (Buenos Aires) through scholarships that allow them to access better, more dignified and transformative education. And none of this would be possible without the generous support of so many people who walk by our side. We will never tire of thanking them.",
+      "project.description4": "It all started with Pablo Sorrentino, who, with the affection and determination that characterize him, made us aware of the urgent need to find ways to finance scholarships for the kids. Then Elsa and Mariano joined from Haedo (Buenos Aires), whose trust and support planted the first seeds. At the same time, Pili Riaño joined from El Viso del Alcor (Seville, Spain), who every year, with immense affection, collects donations among friends, family and members of the parish of Santa María del Alcor.",
+      "project.description5": "This year, in addition, we have received valuable collaboration from the Brotherhood of Vera-Cruz of El Viso del Alcor, whom we sincerely thank for their generosity. And we cannot fail to mention with gratitude the dear Spanish actor Emilio Gutiérrez Caba, for his closeness and heartfelt support.",
+      "project.description6": "We offer scholarships that not only relieve the economic burden, but open doors to an education that nourishes the mind and heart. We want to train confident young people, with strong personalities and solid values, capable of becoming tomorrow's leaders. Because when given the opportunity, boys and girls don't just take a step... they take a high jump.",
+      "project.description7": "To each of the people who, with their constant help, make it possible for this dream to continue growing:",
+      "project.description8": "Thank you, from the heart!",
+      "project.back": "Back to projects",
+      
+      // Footer
+      "footer.copyright": "© 2025 We are Bamboo. All rights reserved."
+    }
+  };
+
+  // Función para cambiar idioma
+  function changeLanguage(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        element.textContent = translations[lang][key];
+      }
+    });
+    
+    // Cambiar el idioma del HTML
+    document.documentElement.lang = lang;
+    
+    // Actualizar el selector
+    document.getElementById('languageSelector').value = lang;
+  }
+
+  // Evento al cambiar el selector
+  document.getElementById('languageSelector').addEventListener('change', (e) => {
+    changeLanguage(e.target.value);
+    
+    // Guardar preferencia en localStorage
+    localStorage.setItem('preferredLanguage', e.target.value);
+  });
+
+  // Cargar idioma preferido al inicio
+  const preferredLanguage = localStorage.getItem('preferredLanguage') || 'es';
+  changeLanguage(preferredLanguage);
+  document.getElementById('languageSelector').value = preferredLanguage;
+</script>
 
 </body>
 </html>
