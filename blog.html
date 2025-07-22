@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog - Somos Bambú</title>
-  <meta name="description" content="Blog de Somos Bambú - Reflexiones y noticias sobre nuestros proyectos">
   <!-- Meta Tags SEO -->
+  <meta name="description" content="Somos Bambú - Formación y acompañamiento para jóvenes con metodología innovadora inspirada en el crecimiento del bambú japonés">
   <meta property="og:title" content="Blog - SOMOS BAMBÚ">
-  <meta property="og:description" content="Reflexiones y noticias sobre nuestros proyectos">
+  <meta property="og:description" content="Reflexiones y noticias sobre nuestros proyectos de formación para jóvenes">
   <meta property="og:image" content="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/bambu_logo.avif">
   <meta property="og:url" content="https://somosbambu.github.io/blog.html">
   <!-- Favicon -->
@@ -15,12 +15,6 @@
   <!-- Fuentes de Google -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* PREVENIR FLICKERING */
-    body:not(.loaded) {
-      opacity: 0;
-      overflow: hidden;
-    }
-
     :root {
       --color-primario: #1b4b2b;
       --color-secundario: #2e7d32;
@@ -42,7 +36,6 @@
       background-position: center;
       background-attachment: fixed;
       background-repeat: no-repeat;
-      transition: opacity 0.3s ease;
     }
 
     /* SOLUCIÓN PARA EL SCROLL DE ANCLAS */
@@ -86,6 +79,14 @@
       font-weight: 500;
       color: #2c3e50;
       margin: 1.2rem 0 0.5rem;
+    }
+    
+    h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--color-primario);
+      margin: 1rem 0 0.5rem;
     }
     
     p {
@@ -141,6 +142,11 @@
       text-decoration: underline;
     }
 
+    nav a[href="blog.html"] {
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
     main {
       padding: calc(var(--header-height) + 1rem) 1rem 2rem;
       max-width: 100%;
@@ -164,31 +170,78 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    .fecha {
-      color: var(--color-secundario);
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-      font-style: italic;
+    /* Selector de idioma */
+    .language-selector {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1001;
+      background: white;
+      padding: 5px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .language-selector select {
+      padding: 3px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 0.8rem;
     }
 
     /* BOTONES */
     .boton {
-      display: block;
+      display: inline-block;
       padding: 0.6rem 1.2rem;
       background: var(--color-primario);
       color: white;
       border-radius: 4px;
       font-weight: 600;
       text-align: center;
-      transition: background 0.3s ease;
-      margin: 1.5rem auto;
-      width: 100%;
-      max-width: 200px;
+      transition: all 0.3s ease;
+      margin: 1rem 0;
       text-decoration: none;
     }
 
     .boton:hover {
       background: var(--color-secundario);
+      transform: translateY(-2px);
+    }
+
+    /* ENTRADA DE BLOG */
+    .entrada-blog {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+    }
+
+    .entrada-imagen {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .entrada-contenido {
+      padding: 1.5rem;
+    }
+
+    .entrada-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--color-secundario);
+    }
+
+    .entrada-categoria {
+      background: rgba(46, 125, 50, 0.1);
+      color: var(--color-secundario);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
     }
 
     /* FOOTER */
@@ -229,6 +282,10 @@
       
       h2 {
         font-size: 1.8rem;
+      }
+      
+      .entrada-imagen {
+        height: 250px;
       }
     }
 
@@ -271,70 +328,242 @@
       h2 {
         font-size: 2rem;
       }
+      
+      .entrada-imagen {
+        height: 300px;
+      }
     }
   </style>
 </head>
-<body onload="document.body.classList.add('loaded')">
+<body>
+
+<!-- Selector de idioma -->
+<div class="language-selector">
+  <select id="languageSelector">
+    <option value="es">🇪🇸 Español</option>
+    <option value="it">🇮🇹 Italiano</option>
+    <option value="pt">🇧🇷 Português</option>
+    <option value="en">🇬🇧 English</option>
+  </select>
+</div>
 
 <header>
-  <h1>SOMOS BAMBÚ</h1>
+  <h1 data-i18n="header.title">SOMOS BAMBÚ</h1>
   <nav>
-    <a href="somosbambu.html#home">Home</a>
-    <a href="somosbambu.html#acerca">Acerca</a>
-    <a href="somosbambu.html#equipo">Equipo</a>
-    <a href="somosbambu.html#partners">Partners</a>
-    <a href="somosbambu.html#proyectos">Proyectos</a>
-    <a href="blog.html">Blog</a>
-    <a href="somosbambu.html#contacto">Contacto</a>
+    <a href="somosbambu.html#home" data-i18n="nav.home">Home</a>
+    <a href="somosbambu.html#acerca" data-i18n="nav.about">Acerca</a>
+    <a href="somosbambu.html#equipo" data-i18n="nav.team">Equipo</a>
+    <a href="somosbambu.html#partners" data-i18n="nav.partners">Partners</a>
+    <a href="somosbambu.html#proyectos" data-i18n="nav.projects">Proyectos</a>
+    <a href="blog.html" data-i18n="nav.blog">Blog</a>
+    <a href="somosbambu.html#contacto" data-i18n="nav.contact">Contacto</a>
   </nav>
 </header>
 
 <main>
-  <!-- 3 Años de Salto en Alto -->
-  <section id="entrada1" class="entrada-blog">
-    <h2>Tres años de Salto en Alto</h2>
-    <div class="bloque">
-      <p class="fecha">16 de abril, 2025</p>
-      <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/sa3anos.avif" alt="Tres años de Salto en Alto" loading="lazy">
-      <p>Tres años de Salto en Alto: un camino de educación, gratitud y esperanza<br>
-      Este mes celebramos con enorme alegría los tres años de vida de Salto en Alto, un proyecto que nació con un sueño simple y profundo: acompañar a jóvenes de Villa de Mayo (Buenos Aires) para que puedan acceder a una educación más digna, transformadora y llena de oportunidades.<br>
-      <br>
-      Durante este tiempo, gracias a un sistema de becas sostenido por el compromiso de muchas personas, hemos podido estar cerca de quienes más lo necesitan, caminando junto a ellos, alentando su crecimiento, y sembrando juntos un futuro más justo.<br>
-      <br>
-      Nada de esto habría sido posible sin el apoyo generoso de quienes creyeron desde el principio. Todo comenzó con Pablo Sorrentino, quien, con su sensibilidad y convicción, nos impulsó a buscar formas concretas para financiar becas para los chicos. Luego se sumaron Elsa y Mariano, desde Haedo, sembrando las primeras semillas de confianza y apoyo. También Pili Riaño, desde El Viso del Alcor (Sevilla), ha sido un pilar fundamental, reuniendo año tras año donaciones entre sus seres queridos y miembros de la Parroquia de Santa María del Alcor, con un amor que traspasa fronteras.<br>
-      <br>
-      Este último año, el proyecto se ha enriquecido aún más gracias al respaldo de la Hermandad de la Vera-Cruz de El Viso del Alcor, cuya colaboración nos llena de gratitud. Y no podemos dejar de agradecer al querido actor español Emilio Gutiérrez Caba, por su cercanía y su apoyo entrañable, que nos honra y nos anima a seguir.<br>
-      <br>
-      A cada una de las personas que nos acompañan con su constancia, su aporte y su corazón, queremos decirles una y mil veces: ¡gracias! Ustedes hacen posible que este sueño siga creciendo.<br>
-      <br>
-      Y a nuestros chicos y chicas, a quienes acompañamos con tanta esperanza: este es solo el comienzo. Los animamos a seguir creciendo, a confiar en sus talentos, y a saber que cada paso que dan cuenta, que cada esfuerzo vale la pena. El futuro es suyo, y desde Somos Bambú queremos seguir estando cerca, alentándolos a volar cada vez más alto.</p>
-      <a href="https://somosbambu.com.ar/somosbambuok.github.io/somosbambu.html#blog" class="boton">Volver a Blog</a>
+  <h1 data-i18n="blog.title">Blog Somos Bambú</h1>
+  <p data-i18n="blog.intro">Reflexiones, noticias y actualizaciones sobre nuestros proyectos sociales</p>
+  
+  <!-- Entrada destacada -->
+  <article class="entrada-blog">
+    <img src="https://raw.githubusercontent.com/somosbambu/somosbambuok.github.io/main/sa3anos.avif" alt="Celebración de tres años del proyecto Salto en Alto" class="entrada-imagen" loading="lazy">
+    <div class="entrada-contenido">
+      <div class="entrada-meta">
+        <span class="fecha" data-i18n="blog.entry1.date">16 de abril, 2025</span>
+        <span class="entrada-categoria" data-i18n="blog.category.news">Noticias</span>
+      </div>
+      <h2 data-i18n="blog.entry1.title">Tres años de Salto en Alto</h2>
+      <div class="bloque">
+        <p data-i18n="blog.entry1.p1">Este mes celebramos con enorme alegría los tres años de vida de Salto en Alto, un proyecto que nació con un sueño simple y profundo: acompañar a jóvenes de Villa de Mayo (Buenos Aires) para que puedan acceder a una educación más digna, transformadora y llena de oportunidades.</p>
+        <p data-i18n="blog.entry1.p2">Durante este tiempo, gracias a un sistema de becas sostenido por el compromiso de muchas personas, hemos podido estar cerca de quienes más lo necesitan, caminando junto a ellos, alentando su crecimiento, y sembrando juntos un futuro más justo.</p>
+        <p data-i18n="blog.entry1.p3">Nada de esto habría sido posible sin el apoyo generoso de quienes creyeron desde el principio. Todo comenzó con Pablo Sorrentino, quien, con su sensibilidad y convicción, nos impulsó a buscar formas concretas para financiar becas para los chicos. Luego se sumaron Elsa y Mariano, desde Haedo, sembrando las primeras semillas de confianza y apoyo. También Pili Riaño, desde El Viso del Alcor (Sevilla), ha sido un pilar fundamental, reuniendo año tras año donaciones entre sus seres queridos y miembros de la Parroquia de Santa María del Alcor, con un amor que traspasa fronteras.</p>
+        <p data-i18n="blog.entry1.p4">Este último año, el proyecto se ha enriquecido aún más gracias al respaldo de la Hermandad de la Vera-Cruz de El Viso del Alcor, cuya colaboración nos llena de gratitud. Y no podemos dejar de agradecer a los queridos actores españoles Marta Gutierrez-Abad y Emilio Gutiérrez Caba, por su cercanía y su apoyo entrañable, que nos honra y nos anima a seguir.</p>
+        <p data-i18n="blog.entry1.p5">A cada una de las personas que nos acompañan con su constancia, su aporte y su corazón, queremos decirles una y mil veces: ¡gracias! Ustedes hacen posible que este sueño siga creciendo.</p>
+        <p data-i18n="blog.entry1.p6">Y a nuestros chicos y chicas, a quienes acompañamos con tanta esperanza: este es solo el comienzo. Los animamos a seguir creciendo, a confiar en sus talentos, y a saber que cada paso que dan cuenta, que cada esfuerzo vale la pena. El futuro es suyo, y desde Somos Bambú queremos seguir estando cerca, alentándolos a volar cada vez más alto.</p>
+        <a href="somosbambu.html#proyectos" class="boton" data-i18n="blog.back">Volver a Proyectos</a>
+      </div>
     </div>
-  </section>
+  </article>
 </main>
 
 <footer>
-  <p>© 2025 Somos Bambú. Todos los derechos reservados.</p>
+  <p data-i18n="footer.copyright">© 2025 Somos Bambú. Todos los derechos reservados.</p>
 </footer>
 
 <script>
-  // Scroll controlado a anclas
-  window.addEventListener('load', function() {
-    // Pequeño retardo para asegurar carga de estilos
-    setTimeout(function() {
-      if (window.location.hash) {
-        const target = document.querySelector(window.location.hash);
-        if (target) {
-          // Scroll suave después de 100ms
-          setTimeout(() => {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }, 100);
+  // Textos en todos los idiomas (solo para el blog)
+  const translations = {
+    "es": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Home",
+      "nav.about": "Acerca",
+      "nav.team": "Equipo",
+      "nav.partners": "Partners",
+      "nav.projects": "Proyectos",
+      "nav.blog": "Blog",
+      "nav.contact": "Contacto",
+      
+      // Blog
+      "blog.title": "Blog Somos Bambú",
+      "blog.intro": "Reflexiones, noticias y actualizaciones sobre nuestros proyectos sociales",
+      "blog.category.news": "Noticias",
+      "blog.entry1.date": "16 de abril, 2025",
+      "blog.entry1.title": "Tres años de Salto en Alto",
+      "blog.entry1.p1": "Este mes celebramos con enorme alegría los tres años de vida de Salto en Alto, un proyecto que nació con un sueño simple y profundo: acompañar a jóvenes de Villa de Mayo (Buenos Aires) para que puedan acceder a una educación más digna, transformadora y llena de oportunidades.",
+      "blog.entry1.p2": "Durante este tiempo, gracias a un sistema de becas sostenido por el compromiso de muchas personas, hemos podido estar cerca de quienes más lo necesitan, caminando junto a ellos, alentando su crecimiento, y sembrando juntos un futuro más justo.",
+      "blog.entry1.p3": "Nada de esto habría sido posible sin el apoyo generoso de quienes creyeron desde el principio. Todo comenzó con Pablo Sorrentino, quien, con su sensibilidad y convicción, nos impulsó a buscar formas concretas para financiar becas para los chicos. Luego se sumaron Elsa y Mariano, desde Haedo, sembrando las primeras semillas de confianza y apoyo. También Pili Riaño, desde El Viso del Alcor (Sevilla), ha sido un pilar fundamental, reuniendo año tras año donaciones entre sus seres queridos y miembros de la Parroquia de Santa María del Alcor, con un amor que traspasa fronteras.",
+      "blog.entry1.p4": "Este último año, el proyecto se ha enriquecido aún más gracias al respaldo de la Hermandad de la Vera-Cruz de El Viso del Alcor, cuya colaboración nos llena de gratitud. Y no podemos dejar de agradecer a los queridos actores españoles Marta Gutierrez-Abad y Emilio Gutiérrez Caba, por su cercanía y su apoyo entrañable, que nos honra y nos anima a seguir.",
+      "blog.entry1.p5": "A cada una de las personas que nos acompañan con su constancia, su aporte y su corazón, queremos decirles una y mil veces: ¡gracias! Ustedes hacen posible que este sueño siga creciendo.",
+      "blog.entry1.p6": "Y a nuestros chicos y chicas, a quienes acompañamos con tanta esperanza: este es solo el comienzo. Los animamos a seguir creciendo, a confiar en sus talentos, y a saber que cada paso que dan cuenta, que cada esfuerzo vale la pena. El futuro es suyo, y desde Somos Bambú queremos seguir estando cerca, alentándolos a volar cada vez más alto.",
+      "blog.back": "Volver a Proyectos",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. Todos los derechos reservados."
+    },
+    "it": {
+      // Navegación
+      "header.title": "SOMOS BAMBÙ",
+      "nav.home": "Home",
+      "nav.about": "Chi siamo",
+      "nav.team": "Team",
+      "nav.partners": "Partner",
+      "nav.projects": "Progetti",
+      "nav.blog": "Blog",
+      "nav.contact": "Contatto",
+      
+      // Blog
+      "blog.title": "Blog Somos Bambù",
+      "blog.intro": "Riflessioni, notizie e aggiornamenti sui nostri progetti sociali",
+      "blog.category.news": "Notizie",
+      "blog.entry1.date": "16 aprile 2025",
+      "blog.entry1.title": "Tre anni di Salto in Alto",
+      "blog.entry1.p1": "Questo mese celebriamo con grande gioia i tre anni di vita di Salto in Alto, un progetto nato con un sogno semplice e profondo: accompagnare i giovani di Villa de Mayo (Buenos Aires) affinché possano accedere a un'istruzione più dignitosa, trasformativa e piena di opportunità.",
+      "blog.entry1.p2": "In questo periodo, grazie a un sistema di borse di studio sostenuto dall'impegno di molte persone, siamo riusciti a stare vicino a chi ne aveva più bisogno, camminando insieme a loro, incoraggiando la loro crescita e seminando insieme un futuro più giusto.",
+      "blog.entry1.p3": "Niente di tutto questo sarebbe stato possibile senza il generoso sostegno di chi ha creduto fin dall'inizio. Tutto è iniziato con Pablo Sorrentino che, con la sua sensibilità e convinzione, ci ha spinto a cercare modi concreti per finanziare borse di studio per i ragazzi. Poi si sono uniti Elsa e Mariano, da Haedo, piantando i primi semi di fiducia e sostegno. Anche Pili Riaño, da El Viso del Alcor (Siviglia), è stata un pilastro fondamentale, raccogliendo anno dopo anno donazioni tra i suoi cari e i membri della Parrocchia di Santa María del Alcor, con un amore che supera i confini.",
+      "blog.entry1.p4": "Quest'ultimo anno, il progetto si è ulteriormente arricchito grazie al sostegno della Confraternita della Vera-Cruz di El Viso del Alcor, la cui collaborazione ci riempie di gratitudine. E non possiamo non ringraziare i cari attori spagnoli Marta Gutierrez-Abad ed Emilio Gutiérrez Caba, per la loro vicinanza e il loro affettuoso sostegno, che ci onora e ci incoraggia a continuare.",
+      "blog.entry1.p5": "A tutte le persone che ci accompagnano con la loro costanza, il loro contributo e il loro cuore, vogliamo dire mille volte: grazie! Voi rendete possibile la crescita di questo sogno.",
+      "blog.entry1.p6": "E ai nostri ragazzi e ragazze, che accompagniamo con tanta speranza: questo è solo l'inizio. Li incoraggiamo a continuare a crescere, a fidarsi dei loro talenti e a sapere che ogni passo che fanno conta, che ogni sforzo vale la pena. Il futuro è loro e da Somos Bambú vogliamo continuare a essere vicini, incoraggiandoli a volare sempre più in alto.",
+      "blog.back": "Torna ai Progetti",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambù. Tutti i diritti riservati."
+    },
+    "pt": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Início",
+      "nav.about": "Sobre",
+      "nav.team": "Equipe",
+      "nav.partners": "Parceiros",
+      "nav.projects": "Projetos",
+      "nav.blog": "Blog",
+      "nav.contact": "Contato",
+      
+      // Blog
+      "blog.title": "Blog Somos Bambú",
+      "blog.intro": "Reflexões, notícias e atualizações sobre nossos projetos sociais",
+      "blog.category.news": "Notícias",
+      "blog.entry1.date": "16 de abril de 2025",
+      "blog.entry1.title": "Três anos de Salto em Alto",
+      "blog.entry1.p1": "Este mês celebramos com imensa alegria os três anos de vida do Salto em Alto, um projeto que nasceu com um sonho simples e profundo: acompanhar jovens de Villa de Mayo (Buenos Aires) para que possam acessar uma educação mais digna, transformadora e cheia de oportunidades.",
+      "blog.entry1.p2": "Durante esse tempo, graças a um sistema de bolsas sustentado pelo compromisso de muitas pessoas, pudemos estar perto de quem mais precisa, caminhando junto com eles, incentivando seu crescimento e semeando juntos um futuro mais justo.",
+      "blog.entry1.p3": "Nada disso teria sido possível sem o apoio generoso de quem acreditou desde o início. Tudo começou com Pablo Sorrentino, que, com sua sensibilidade e convicção, nos impulsionou a buscar formas concretas de financiar bolsas para os jovens. Depois se juntaram Elsa e Mariano, de Haedo, plantando as primeiras sementes de confiança e apoio. Também Pili Riaño, de El Viso del Alcor (Sevilha), tem sido um pilar fundamental, reunindo ano após ano doações entre seus entes queridos e membros da Paróquia de Santa María del Alcor, com um amor que ultrapassa fronteiras.",
+      "blog.entry1.p4": "Neste último ano, o projeto se enriqueceu ainda mais com o apoio da Irmandade da Vera-Cruz de El Viso del Alcor, cuja colaboração nos enche de gratidão. E não podemos deixar de agradecer aos queridos atores espanhóis Marta Gutierrez-Abad e Emilio Gutiérrez Caba, por sua proximidade e apoio carinhoso, que nos honra e nos anima a continuar.",
+      "blog.entry1.p5": "A cada uma das pessoas que nos acompanham com sua constância, sua contribuição e seu coração, queremos dizer mil vezes: obrigado! Vocês tornam possível que este sonho continue crescendo.",
+      "blog.entry1.p6": "E aos nossos jovens, a quem acompanhamos com tanta esperança: este é apenas o começo. Nós os encorajamos a continuar crescendo, a confiar em seus talentos e a saber que cada passo que dão conta, que cada esforço vale a pena. O futuro é deles, e desde Somos Bambú queremos continuar próximos, incentivando-os a voar cada vez mais alto.",
+      "blog.back": "Voltar aos Projetos",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. Todos os direitos reservados."
+    },
+    "en": {
+      // Navegación
+      "header.title": "SOMOS BAMBÚ",
+      "nav.home": "Home",
+      "nav.about": "About",
+      "nav.team": "Team",
+      "nav.partners": "Partners",
+      "nav.projects": "Projects",
+      "nav.blog": "Blog",
+      "nav.contact": "Contact",
+      
+      // Blog
+      "blog.title": "Somos Bambú Blog",
+      "blog.intro": "Reflections, news and updates about our social projects",
+      "blog.category.news": "News",
+      "blog.entry1.date": "April 16, 2025",
+      "blog.entry1.title": "Three Years of High Jump",
+      "blog.entry1.p1": "This month we celebrate with great joy the three years of life of High Jump, a project born with a simple and profound dream: to accompany young people from Villa de Mayo (Buenos Aires) so they can access a more dignified, transformative education full of opportunities.",
+      "blog.entry1.p2": "During this time, thanks to a scholarship system sustained by the commitment of many people, we have been able to be close to those who need it most, walking with them, encouraging their growth, and sowing together a more just future.",
+      "blog.entry1.p3": "None of this would have been possible without the generous support of those who believed from the beginning. It all started with Pablo Sorrentino, who, with his sensitivity and conviction, pushed us to look for concrete ways to finance scholarships for the kids. Then Elsa and Mariano joined from Haedo, planting the first seeds of trust and support. Also Pili Riaño, from El Viso del Alcor (Seville), has been a fundamental pillar, gathering year after year donations among her loved ones and members of the Parish of Santa María del Alcor, with a love that crosses borders.",
+      "blog.entry1.p4": "This last year, the project has been further enriched thanks to the support of the Brotherhood of Vera-Cruz of El Viso del Alcor, whose collaboration fills us with gratitude. And we cannot fail to thank the beloved Spanish actors Marta Gutierrez-Abad and Emilio Gutiérrez Caba, for their closeness and their heartfelt support, which honors us and encourages us to continue.",
+      "blog.entry1.p5": "To each of the people who accompany us with their constancy, their contribution and their heart, we want to say a thousand times: thank you! You make it possible for this dream to keep growing.",
+      "blog.entry1.p6": "And to our boys and girls, whom we accompany with so much hope: this is just the beginning. We encourage them to keep growing, to trust in their talents, and to know that every step they take counts, that every effort is worth it. The future is theirs, and from Somos Bambú we want to continue being close, encouraging them to fly higher and higher.",
+      "blog.back": "Back to Projects",
+      
+      // Footer
+      "footer.copyright": "© 2025 Somos Bambú. All rights reserved."
+    }
+  };
+
+  // Función para cambiar idioma
+  function changeLanguage(lang) {
+    if (!translations[lang]) return;
+    
+    // Actualizar todos los elementos con data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        element.textContent = translations[lang][key];
+      }
+    });
+    
+    // Cambiar el idioma del documento
+    document.documentElement.lang = lang;
+    
+    // Actualizar el selector
+    const selector = document.getElementById('languageSelector');
+    if (selector) {
+      selector.value = lang;
+    }
+    
+    // Guardar preferencia
+    try {
+      localStorage.setItem('preferredLanguage', lang);
+    } catch (e) {
+      console.error('Error al guardar en localStorage:', e);
+    }
+  }
+
+  // Evento para cambiar idioma
+  document.addEventListener('DOMContentLoaded', function() {
+    const selector = document.getElementById('languageSelector');
+    if (selector) {
+      selector.addEventListener('change', function(e) {
+        changeLanguage(e.target.value);
+      });
+    }
+    
+    // Cargar idioma preferido
+    let lang = 'es'; // default
+    try {
+      const savedLang = localStorage.getItem('preferredLanguage');
+      if (savedLang && translations[savedLang]) {
+        lang = savedLang;
+      } else {
+        // Detectar idioma del navegador
+        const browserLang = navigator.language.substring(0, 2);
+        if (translations[browserLang]) {
+          lang = browserLang;
         }
       }
-    }, 50);
+    } catch (e) {
+      console.error('Error al leer localStorage:', e);
+    }
+    
+    changeLanguage(lang);
+    if (selector) selector.value = lang;
   });
 </script>
 
