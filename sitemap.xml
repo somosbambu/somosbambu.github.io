@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Página principal -->
+  <url>
+    <loc>https://somosbambu.com.ar/</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Proyecto: Salto en Alto -->
+  <url>
+    <loc>https://somosbambu.com.ar/proyectos/saltoenalto.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Proyecto: Notas de Periferia -->
+  <url>
+    <loc>https://somosbambu.com.ar/proyectos/notediperiferia.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Proyecto: Reconstruir -->
+  <url>
+    <loc>https://somosbambu.com.ar/proyectos/reconstruir.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Proyecto: Sendero Joven -->
+  <url>
+    <loc>https://somosbambu.com.ar/proyectos/senderojoven.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Proyecto: Habilidades Blandas -->
+  <url>
+    <loc>https://somosbambu.com.ar/proyectos/habilidadesblandas.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+</urlset>
