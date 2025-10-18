@@ -379,15 +379,6 @@
       background: var(--color-secundario);
     }
 
-    /* ESTILOS PARA OCULTAR TEMPORALMENTE LA SECCIÓN EQUIPO */
-    #equipo {
-      display: none !important;
-    }
-
-    nav a[href="#equipo"] {
-      display: none !important;
-    }
-
     /* RESPONSIVE PARA TABLETS */
     @media (min-width: 600px) {
       :root {
@@ -498,7 +489,7 @@
   <nav>
     <a href="#home" data-i18n="nav.home">Home</a>
     <a href="#acerca" data-i18n="nav.about">Acerca</a>
-    <!-- Enlace a Equipo removido temporalmente -->
+    <a href="#equipo" data-i18n="nav.team">Equipo</a>
     <a href="#partners" data-i18n="nav.partners">Partners</a>
     <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
     <a href="#blog" data-i18n="nav.blog">Blog</a>
@@ -537,8 +528,8 @@
     </div>
   </section>
 
-  <!-- EQUIPO - SECCIÓN TEMPORALMENTE OCULTA -->
-  <section id="equipo" style="display: none;">
+  <!-- EQUIPO -->
+  <section id="equipo">
     <h2 data-i18n="sections.team">Equipo</h2>
     <div class="bloque">
       <p data-i18n="team.paragraph1">Creemos en el poder de lo simple, de lo concreto, de las pequeñas acciones que, con amor y compromiso, pueden generar transformaciones reales en la vida de las personas.</p>
@@ -552,7 +543,7 @@
       <p><strong>(Argentina - Brasil)</strong></p>
       <p data-i18n="team.mila1">¡Hola! Soy Milagros Aranda, Psicóloga Social, estudiante avanzada de Psicología y diplomanda en Suicidología.</p>
       <p data-i18n="team.mila2">Desde chica sentí un fuerte deseo de trabajar por el bien de la humanidad, de estar al servicio de los demás y acompañar procesos de transformación. Esa búsqueda me llevó por caminos muy especiales: durante once años fui monja carmelita descalza, un tiempo profundo de encuentro conmigo misma, con el amor y con un modo de vivir donde la superación personal era parte del día a día.</p>
-      <p data-i18n="team.mila3">Después la vida me sorprendió con nuevos comienzos: me casé con alguien que comparte mis mismos ideales, y juntos formamos una familia con una hija que viento a ensanchar nuestros corazones.</p>
+      <p data-i18n="team.mila3">Después la vida me sorprendió con nuevos comienzos: me casé con alguien que comparte mis mismos ideales, y juntos formamos una familia con una hija que vino a ensanchar nuestros corazones.</p>
       <p data-i18n="team.mila4">Creo profundamente en el poder de encontrarle sentido a la vida, porque cuando conectamos con eso que nos impulsa, todo se vuelve más claro y esperanzador.</p>
       <p data-i18n="team.mila5">Como psicóloga social, me gusta acompañar a las personas y acompasar sus experiencias, para que puedan escucharse, encontrarse con sus propios ritmos y deseos, para que puedan enfocarse en proyectos vitales que las hagan crecer, avanzar y vivir con plenitud, conectadas entre sí, a través del vínculo que es el motor que potencia y fortalece todo encuentro.</p>
       <p data-i18n="team.mila6">Me apasiona ver cómo cada persona puede transformar sus sombras en luz y descubrir que dentro suyo ya habita todo lo que necesita para ser mejor cada día.</p>
@@ -847,7 +838,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       "header.title": "SOMOS BAMBÚ",
       "nav.home": "Home",
       "nav.about": "Acerca",
-      // "nav.team": "Equipo", // Removido temporalmente
+      "nav.team": "Equipo",
       "nav.partners": "Partners",
       "nav.projects": "Proyectos",
       "nav.blog": "Blog",
@@ -856,7 +847,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       // Secciones
       "sections.home": "Home",
       "sections.about": "Acerca de",
-      // "sections.team": "Equipo", // Removido temporalmente
+      "sections.team": "Equipo",
       "sections.partners": "PARTNERS",
       "sections.projects": "PROYECTOS",
       "sections.blog": "Blog",
@@ -879,7 +870,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       "about.history2": "Mila vivió durante 11 años como monja de clausura, hasta que sintió un llamado a continuar su misión desde otro lugar: crecer profesionalmente para poder servir mejor a cada persona que la vida pusiera en su camino. Por su parte, Jose formó parte del grupo internacional Gen Rosso durante 14 años, recorriendo 34 países en los cinco continentes. A través de la música y el arte, logró conectar con miles de jóvenes, muchos de ellos en contextos de vulnerabilidad, llevando un mensaje de esperanza, dignidad y valor.",
       "about.history3": "Mila y Jose se casan con un sueño en común: que su familia y su trabajo sean una semilla de cambio. Para entonces ya había nacido Somos Bambú, con raíces profundas y la mirada puesta en el horizonte, deseando dejar el mundo un poquito mejor de como lo encontramos.",
       
-      // Equipo - Textos mantenidos pero no visibles
+      // Equipo
       "team.paragraph1": "Creemos en el poder de lo simple, de lo concreto, de las pequeñas acciones que, con amor y compromiso, pueden generar transformaciones reales en la vida de las personas.",
       "team.paragraph2": "Trabajamos en el diseño, acompañamiento y desarrollo de proyectos sociales, educativos y culturales, poniendo siempre en el centro la dignidad humana, la inclusión y el fortalecimiento de comunidades. Nuestro enfoque es colaborativo: muchos de nuestros proyectos surgen del encuentro con personas, grupos e instituciones con quienes compartimos valores y sueños.",
       "team.paragraph3": "Desde programas de becas para jóvenes en contextos vulnerables, hasta acciones solidarias, eventos culturales o redes de apoyo comunitario, cada iniciativa que impulsamos busca sembrar oportunidades y construir puentes.",
@@ -915,7 +906,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       "team.pili1": "De mi familia he aprendido lo más importante de la vida: \"amarnos y amar, servir\". Llevo haciéndolo desde mi más tierna edad en mi Hermandad, en mi Parroquia, con mis amig@s.... es mi aporte a construir un mundo más justo, solidario y bonito",
       
       // Simone Parilli
-      "team.simone1": "\"Hay quien vive las situaciones y hay quien las crea\". Simone Parilli, treinta años de experiencia en formación (gerencial, logística), pedagogo y educador, experto en procesos formativos (Universidad Católica de Milán/Italia). Máster en marketing y ventas en Cesma (Centro de Experiencias y Estudios Gerenciales). \"Crear relaciones para crecer juntos\".",
+      "team.simone1": "\"Hay quien vive las situaciones y hay quien las crea\". Simone Parilli, treinta años de experiencia en formación (gerencial, logística), pedagogo y educador, experto en procesos formativos (Universidad Católica de Milán/Italia). Máster en marketing y ventas en Cesma (Centro de Experiencias y Estudios Gerenciales). \"Crear relaciones para crecer juntos\", es para mí un lema constante. La persona que encuentro y yo somos la suma de una belleza única, que no puede hacer más que aumentar. Encontrar la profundidad del otro me eleva aún más. Por eso, apuesto por ti, seguro de ganar.",
       
       // Jussane Risczik
       "team.jussane1": "Hola! Soy psicóloga logoterapeuta, tanatóloga y pedagoga. Con una escucha sensible y una mirada orientada al sentido de la existencia, trabajo con dedicación en el cuidado integral de la persona, especialmente en momentos de dolor, duelo y transición. Soy amante de la vida y creo en el potencial de transformación que hay en cada ser humano. Estoy segura de que somos capaces de reconstruir nuestra historia y encontrar sentido incluso ante el sufrimiento. Me gusta hacer mías las palabras de Viktor Frankl: \"Encontré el sentido de mi vida ayudando a otros a encontrar el sentido de la suya\".",
@@ -966,7 +957,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       "header.title": "SOMOS BAMBÙ",
       "nav.home": "Home",
       "nav.about": "Chi siamo",
-      // "nav.team": "Team", // Removido temporalmente
+      "nav.team": "Team",
       "nav.partners": "Partner",
       "nav.projects": "Progetti",
       "nav.blog": "Blog",
@@ -975,7 +966,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       // Secciones
       "sections.home": "Home",
       "sections.about": "Chi siamo",
-      // "sections.team": "Team", // Removido temporalmente
+      "sections.team": "Team",
       "sections.partners": "PARTNER",
       "sections.projects": "PROGETTI",
       "sections.blog": "Blog",
@@ -998,7 +989,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       "about.history2": "Mila ha vissuto per 11 anni come monaca di clausura, fino a quando ha sentito la chiamata a continuare la sua missione da un altro luogo: crescere professionalmente per poter servire meglio ogni persona che la vita mettesse sul suo cammino. Da parte sua, Jose ha fatto parte del gruppo internazionale Gen Rosso per 14 anni, viaggiando in 34 paesi nei cinque continenti. Attraverso la musica e l'arte, è riuscito a connettersi con migliaia di giovani, molti dei quali in contesti di vulnerabilità, portando un messaggio di speranza, dignità e valore.",
       "about.history3": "Mila e Jose si sono sposati con un sogno comune: che la loro famiglia e il loro lavoro fossero un seme di cambiamento. A quel tempo era già nato Somos Bambù, con radici profonde e lo sguardo rivolto all'orizzonte, desiderando lasciare il mondo un po' migliore di come lo abbiamo trovato.",
       
-      // Team - Textos mantenidos pero no visibles
+      // Team
       "team.paragraph1": "Crediamo nel potere delle cose semplici, del concreto, delle piccole azioni che, con amore e impegno, possono generare trasformazioni reali nella vita delle persone.",
       "team.paragraph2": "Lavoriamo nella progettazione, accompagnamento e sviluppo di progetti sociali, educativi e culturali, mettendo sempre al centro la dignità umana, l'inclusione e il rafforzamento delle comunità. Il nostro approccio è collaborativo: molti dei nostri progetti nascono dall'incontro con persone, gruppi e istituzioni con cui condividiamo valori e sogni.",
       "team.paragraph3": "Dai programmi di borse di studio per giovani in contesti vulnerabili, alle azioni solidali, eventi culturali o reti di sostegno comunitario, ogni iniziativa che promuoviamo cerca di seminare opportunità e costruire ponti.",
@@ -1034,7 +1025,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       "team.pili1": "Dalla mia famiglia ho imparato la cosa più importante della vita: \"amarci e amare, servire\". Lo faccio dalla mia più tenera età nella mia Confraternita, nella mia Parrocchia, con i miei amici... è il mio contributo a costruire un mondo più giusto, solidale e bello",
       
       // Simone Parilli
-      "team.simone1": "\"C'è chi vive le situazioni e c'è chi le crea\". Simone Parilli, trentennale esperienza nella formazione (manageriale, logistica), pedagogista ed educatore, esperto in processi formativi (Università Cattolica Milano/Italia). Master in marketing e vendite presso Cesma (centro esperienze e studi manageriali). \"Creare rapporti per crescere insieme\", e' per me un monito costante. Io e la persona che incontro, siamo la somma di una bellezza unica, che non può far altro che aumentare. Incontrare la profondità dell'altro, mi porta più in alto. Scommetto perciò su di te, sicuro di vincere.",
+      "team.simone1": "\"C'è chi vive le situazioni e c'è chi le crea\". Simone Parilli, trentennale esperienza nella formazione (manageriale, logistica), pedagogista ed educatore, esperto in processi formativi (Università Cattolica Milano/Italia). Master in marketing e vendite presso Cesma (centro esperienze e studi manageriali). \"Creare rapporti per crescere insieme\", e’ per me un monito costante. Io e la persona che incontro, siamo la somma di una bellezza unica, che non può far altro che aumentare. Incontrare la profondità dell’altro, mi porta più in alto. Scommetto perciò su di te, sicuro di vincere.",
       
       // Jussane Risczik
       "team.jussane1": "Ciao! Sono psicologa logoterapeuta, tanatologa e pedagoga. Con un ascolto sensibile e uno sguardo rivolto al senso dell'esistenza, mi dedico con impegno alla cura integrale della persona, specialmente nei momenti di dolore, lutto e transizione. Sono un'amante della vita e credo nel potenziale di trasformazione presente in ogni essere umano. Sono certa che siamo capaci di ricostruire la nostra storia e trovare un senso anche di fronte alla sofferenza. Mi piace fare mie le parole di Viktor Frankl: \"Ho trovato il senso della mia vita aiutando gli altri a trovare il senso della loro\".",
@@ -1085,7 +1076,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       "header.title": "SOMOS BAMBÚ",
       "nav.home": "Início",
       "nav.about": "Sobre",
-      // "nav.team": "Equipe", // Removido temporalmente
+      "nav.team": "Equipe",
       "nav.partners": "Parceiros",
       "nav.projects": "Projetos",
       "nav.blog": "Blog",
@@ -1094,7 +1085,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       // Seções
       "sections.home": "Início",
       "sections.about": "Sobre",
-      // "sections.team": "Equipe", // Removido temporalmente
+      "sections.team": "Equipe",
       "sections.partners": "PARCEIROS",
       "sections.projects": "PROJETOS",
       "sections.blog": "Blog",
@@ -1117,7 +1108,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       "about.history2": "Mila viveu durante 11 anos como freira de clausura, até sentir um chamado para continuar sua missão a partir de outro lugar: crescer profissionalmente para poder servir melhor cada pessoa que a vida colocasse em seu caminho. Por sua vez, Jose fez parte do grupo internacional Gen Rosso durante 14 anos, percorrendo 34 países nos cinco continentes. Através da música e da arte, conseguiu conectar-se com milhares de jovens, muitos deles em contextos de vulnerabilidade, levando uma mensagem de esperança, dignidade e valor.",
       "about.history3": "Mila e Jose se casam com um sonho em comum: que sua família e seu trabalho sejam uma semente de mudança. Naquela época já havia nascido Somos Bambú, com raízes profundas e o olhar voltado para o horizonte, desejando deixar o mundo um pouco melhor do que o encontramos.",
       
-      // Equipe - Textos mantenidos pero no visibles
+      // Equipe
       "team.paragraph1": "Acreditamos no poder do simples, do concreto, das pequenas ações que, com amor e compromisso, podem gerar transformações reais na vida das pessoas.",
       "team.paragraph2": "Trabalhamos no desenho, acompanhamento e desenvolvimento de projetos sociais, educativos e culturais, colocando sempre no centro a dignidade humana, a inclusão e o fortalecimento de comunidades. Nossa abordagem é colaborativa: muitos de nossos projetos surgem do encontro com pessoas, grupos e instituições com quem compartilhamos valores e sonhos.",
       "team.paragraph3": "Desde programas de bolsas para jovens em contextos vulneráveis, até ações solidárias, eventos culturais ou redes de apoio comunitário, cada iniciativa que impulsionamos busca semear oportunidades e construir pontes.",
@@ -1204,7 +1195,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       "header.title": "SOMOS BAMBÚ",
       "nav.home": "Home",
       "nav.about": "About",
-      // "nav.team": "Team", // Removido temporalmente
+      "nav.team": "Team",
       "nav.partners": "Partners",
       "nav.projects": "Projects",
       "nav.blog": "Blog",
@@ -1213,7 +1204,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       // Secciones
       "sections.home": "Home",
       "sections.about": "About",
-      // "sections.team": "Team", // Removido temporalmente
+      "sections.team": "Team",
       "sections.partners": "PARTNERS",
       "sections.projects": "PROJECTS",
       "sections.blog": "Blog",
@@ -1236,7 +1227,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       "about.history2": "Mila lived for 11 years as a cloistered nun, until she felt called to continue her mission from another place: to grow professionally to better serve each person life put in her path. For his part, Jose was part of the international group Gen Rosso for 14 years, traveling to 34 countries on five continents. Through music and art, he connected with thousands of young people, many of them in vulnerable contexts, bringing a message of hope, dignity and value.",
       "about.history3": "Mila and Jose married with a common dream: that their family and their work would be a seed of change. By then, we are Somos Bambú had already been born, with deep roots and eyes set on the horizon, wishing to leave the world a little better than we found it.",
       
-      // Team - Textos mantenidos pero no visibles
+      // Team
       "team.paragraph1": "We believe in the power of the simple, the concrete, the small actions that, with love and commitment, can generate real transformations in people's lives.",
       "team.paragraph2": "We work in the design, accompaniment and development of social, educational and cultural projects, always placing human dignity, inclusion and community strengthening at the center. Our approach is collaborative: many of our projects emerge from encounters with people, groups and institutions with whom we share values and dreams.",
       "team.paragraph3": "From scholarship programs for youth in vulnerable contexts, to solidarity actions, cultural events or community support networks, every initiative we promote seeks to sow opportunities and build bridges.",
@@ -1272,7 +1263,7 @@ A través de talleres vivenciales, creatividad y acompañamiento, esta propuesta
       "team.pili1": "From my family I learned the most important thing in life: \"to love and be loved, to serve\". I have been doing it since my earliest childhood in my Brotherhood, in my Parish, with my friends... it is my contribution to building a more just, supportive and beautiful world",
       
       // Simone Parilli
-      "team.simone1": "\"Some people live situations, others create them.\" Simone Parilli, thirty years of experience in training (managerial, logistics), pedagogue and educator, expert in training processes (Catholic University of Milan/Italy). Master's degree in marketing and sales at Cesma (Center for Managerial Experiences and Studies). \"Building relationships to grow together, is a constant motto for me. The person I meet and I are the sum of a unique beauty, which can only increase. Encountering the depth of others lifts me higher. That's why I bet on you, certain of winning.\"",
+      "team.simone1": "\"Some people live situations, others create them.\" Simone Parilli, thirty years of experience in training (managerial, logistics), pedagogue and educator, expert in training processes (Catholic University of Milan/Italy). Master's degree in marketing and sales at Cesma (Center for Managerial Experiences and Studies). \"Building relationships to grow together, is a constant motto for me. The person I meet and I are the sum of a unique beauty, which can only increase. Encountering the depth of others lifts me higher. That’s why I bet on you, certain of winning.\"",
       
       // Jussane Risczik
       "team.jussane1": "Hi! I'm a Logotherapist Psychologist, Thanatologist, and Educator. With sensitive listening and a focus on the meaning of existence, I work diligently in the holistic care of individuals, especially during times of pain, grief, and transition. I am a lover of life and believe in the transformative potential within every human being. I am certain that we are capable of rebuilding our stories and finding meaning even in suffering. I embrace Viktor Frankl's words: \"I found the meaning of my life by helping others find the meaning of theirs.\"",
