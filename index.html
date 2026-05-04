@@ -152,9 +152,9 @@
     }
 
 
-    /* Ocultamiento temporal del equipo
-       Para volver a mostrarlo, quitar la clase "contenido-temporalmente-oculto"
-       del enlace del menú y de la sección #equipo. */
+    /* Ocultamiento temporal de secciones
+       Para volver a mostrarlas, quitar la clase "contenido-temporalmente-oculto"
+       de los enlaces del menú y de las secciones correspondientes. */
     .contenido-temporalmente-oculto {
       display: none !important;
     }
@@ -498,7 +498,7 @@
     <a href="#home" data-i18n="nav.home">Home</a>
     <a href="#acerca" data-i18n="nav.about">Acerca</a>
     <a href="#equipo" class="contenido-temporalmente-oculto" data-i18n="nav.team">Equipo</a>
-    <a href="#partners" data-i18n="nav.partners">Partners</a>
+    <a href="#partners" class="contenido-temporalmente-oculto" data-i18n="nav.partners">Partners</a>
     <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
     <a href="#blog" data-i18n="nav.blog">Blog</a>
     <a href="#contacto" data-i18n="nav.contact">Contacto</a>
@@ -675,7 +675,7 @@
   </section>
 
   <!-- PARTNERS -->
-  <section id="partners">
+  <section id="partners" class="contenido-temporalmente-oculto">
     <h2 data-i18n="sections.partners">PARTNERS</h2>
     <div class="bloque">
       <p data-i18n="partners.intro">Les presentamos algunos de nuestros partners:</p>
