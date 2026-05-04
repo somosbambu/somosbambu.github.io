@@ -151,6 +151,14 @@
       text-decoration: underline;
     }
 
+
+    /* Ocultamiento temporal del equipo
+       Para volver a mostrarlo, quitar la clase "contenido-temporalmente-oculto"
+       del enlace del menú y de la sección #equipo. */
+    .contenido-temporalmente-oculto {
+      display: none !important;
+    }
+
     main {
       padding: calc(var(--header-height) + 1rem) 1rem 2rem;
       max-width: 100%;
@@ -489,7 +497,7 @@
   <nav>
     <a href="#home" data-i18n="nav.home">Home</a>
     <a href="#acerca" data-i18n="nav.about">Acerca</a>
-    <a href="#equipo" data-i18n="nav.team">Equipo</a>
+    <a href="#equipo" class="contenido-temporalmente-oculto" data-i18n="nav.team">Equipo</a>
     <a href="#partners" data-i18n="nav.partners">Partners</a>
     <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
     <a href="#blog" data-i18n="nav.blog">Blog</a>
@@ -529,7 +537,7 @@
   </section>
 
   <!-- EQUIPO -->
-  <section id="equipo">
+  <section id="equipo" class="contenido-temporalmente-oculto">
     <h2 data-i18n="sections.team">Equipo</h2>
     <div class="bloque">
       <p data-i18n="team.paragraph1">Creemos en el poder de lo simple, de lo concreto, de las pequeñas acciones que, con amor y compromiso, pueden generar transformaciones reales en la vida de las personas.</p>
